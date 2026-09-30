@@ -1,0 +1,16 @@
+Track icons: sources and licences
+Downloaded 2026-09-30. Used unmodified to identify each language or tool; no endorsement is implied.
+These files are NOT covered by the site's CC BY 4.0 / MIT licences. Full credits: https://unit511.fairytale.ai/site/attribution/#logo-credits
+
+html.svg        HTML5 badge by W3C. https://www.w3.org/html/logo/downloads/HTML5_Badge.svg. CC BY 3.0.
+css.svg         CSS logo (CSS Next CG, endorsed by the CSS WG). https://github.com/CSS-Next/logo.css (css.svg). CC0 1.0.
+javascript.svg  Community JS logo. https://github.com/voodootikigod/logo.js (js.svg). MIT.
+sql.svg         Generic database icon drawn for Unit 511. CC0 1.0.
+python.svg      Python logo (two snakes). https://www.python.org/community/logos/. Trademark of the PSF; PSF Trademark Usage Policy.
+                Only change: a viewBox attribute was added so the file scales (the logo's shapes are unaltered).
+java.svg        Duke, the Java mascot. https://commons.wikimedia.org/wiki/File:Duke_(Java_mascot)_waving.svg. BSD 3-Clause.
+                Java is a trademark of Oracle. The coffee-cup logo is not used (it requires a commercial licence).
+r.svg           R logo (c) 2016 The R Foundation. https://www.r-project.org/logo/Rlogo.svg. CC BY-SA 4.0.
+c.svg           Community C logo. https://commons.wikimedia.org/wiki/File:C_Programming_Language.svg. Public domain.
+cpp.svg         C++ logo by Jeremy Kratz, Standard C++ Foundation. https://github.com/isocpp/logos (cpp_logo.svg). isocpp.org terms of use.
+git.svg         Git logo by Jason Long. https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg. CC BY 3.0.

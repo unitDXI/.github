@@ -1,4 +1,4 @@
-/* Unit 511 — curriculum sidebar, drawn from /curriculum.json.
+/* Unit 511 — curriculum sidebar, drawn from /site/curriculum.json.
    Tracks render in file order (language tracks first, then AI Engineering). A track may hold
    stages of courses, a flat list of courses, or a flat list of lessons (at track.path + slug + "/").
    Planned tracks show as "Soon". Without JavaScript the static fallback link in the page stays. */
@@ -41,7 +41,7 @@ function renderCourses(list, course, lesson, path) {
       span.appendChild(el("span", { class: "badge badge--muted" }, "Soon"));
       li.appendChild(span);
     } else {
-      const href = "/curriculum/" + c.code + "/";
+      const href = "/site/curriculum/" + c.code + "/";
       const a = el("a", { class: "sb-link", href });
       a.appendChild(el("span", { class: "sb-code" }, c.code));
       a.appendChild(document.createTextNode(c.title));
@@ -79,7 +79,7 @@ function render(sidebar, data) {
   (data.tracks || []).forEach((t) => {
     if (t.status !== "published") {
       const p = el("p", { class: "sb-track is-planned" });
-      const a = el("a", { href: "/curriculum/#" + t.id });
+      const a = el("a", { href: "/site/curriculum/#" + t.id });
       a.appendChild(trackLabel(t));
       a.appendChild(el("span", { class: "badge badge--muted" }, "Soon"));
       p.appendChild(a);
@@ -115,7 +115,7 @@ function render(sidebar, data) {
 export function initSidebar() {
   const sidebar = document.getElementById("sidebar");
   if (!sidebar) return;
-  fetch("/curriculum.json")
+  fetch("/site/curriculum.json")
     .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then((data) => render(sidebar, data))
     .catch(() => { /* the static fallback link stays */ });

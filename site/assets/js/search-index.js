@@ -1,5 +1,5 @@
 /* Unit 511 — full-text search index, built in the browser with no build step.
-   The first time search opens, it reads /sitemap.xml, fetches every page listed there (plus the
+   The first time search opens, it reads /site/sitemap.xml, fetches every page listed there (plus the
    notebooks those pages link to with data-notebook), splits each page into sections at its h2/h3
    headings, and builds a BM25 index in memory. The extracted text is cached in sessionStorage. */
 
@@ -148,14 +148,14 @@ let indexPromise = null;
 /** Build (once per page view) or restore the index. onProgress(done, total) reports page fetches. */
 export function loadIndex(onProgress = () => {}) {
   if (indexPromise) return indexPromise;
-  indexPromise = getText("/sitemap.xml").then((xml) => {
+  indexPromise = getText("/site/sitemap.xml").then((xml) => {
     const sig = hashString(xml);
     try {
       const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
       if (cached && cached.sig === sig) return buildIndex(cached.docs);
     } catch (e) { /* no cache */ }
     const urls = Array.from(new DOMParser().parseFromString(xml, "application/xml").getElementsByTagName("loc"),
-      (l) => new URL(l.textContent.trim()).pathname).filter((p) => p !== "/search/");
+      (l) => new URL(l.textContent.trim()).pathname).filter((p) => p !== "/site/search/");
     const parser = new DOMParser();
     return pool(urls, (u) => getText(u).then((t) => extractPage(u, parser.parseFromString(t, "text/html"))), onProgress)
       .then((pages) => {

@@ -1,18 +1,18 @@
 track,stage,code,title,status,level,hours,lessons,artifact_type,artifact,prerequisites,url
-html,,,HTML,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#html
-css,,,CSS,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#css
-javascript,,,JavaScript,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#javascript
-sql,,,SQL,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#sql
-python,,,Python,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#python
-java,,,Java,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#java
-r,,,R,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#r
-c,,,C,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#c
-cpp,,,C++,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#cpp
-git,,,Git,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#git
-ai,foundations-tooling,511-101,Introduction to AI Systems,published,foundational,12,12,notebook,An annotated explainer notebook,,https://unit511.fairytale.ai/curriculum/511-101/
-ai,foundations-tooling,511-102,Python for AI Engineering,published,foundational,12,12,tool,A tested command-line text-analysis tool,,https://unit511.fairytale.ai/curriculum/511-102/
-ai,foundations-tooling,511-103,"Git, Open Source & Contribution",published,foundational,12,12,contribution,A merged documentation or test pull request to an open-source project,,https://unit511.fairytale.ai/curriculum/511-103/
-ai,foundations-tooling,511-104,Math for Machine Learning,published,foundational,12,12,library,A from-scratch NumPy math toolkit with tests,511-102,https://unit511.fairytale.ai/curriculum/511-104/
+html,,,HTML,planned,,,,,,,https://unit511.fairytale.ai/site/curriculum/#html
+css,,,CSS,planned,,,,,,,https://unit511.fairytale.ai/site/curriculum/#css
+javascript,,,JavaScript,planned,,,,,,,https://unit511.fairytale.ai/site/curriculum/#javascript
+sql,,,SQL,planned,,,,,,,https://unit511.fairytale.ai/site/curriculum/#sql
+python,,,Python,planned,,,,,,,https://unit511.fairytale.ai/site/curriculum/#python
+java,,,Java,planned,,,,,,,https://unit511.fairytale.ai/site/curriculum/#java
+r,,,R,planned,,,,,,,https://unit511.fairytale.ai/site/curriculum/#r
+c,,,C,planned,,,,,,,https://unit511.fairytale.ai/site/curriculum/#c
+cpp,,,C++,planned,,,,,,,https://unit511.fairytale.ai/site/curriculum/#cpp
+git,,,Git,planned,,,,,,,https://unit511.fairytale.ai/site/curriculum/#git
+ai,foundations-tooling,511-101,Introduction to AI Systems,published,foundational,12,12,notebook,An annotated explainer notebook,,https://unit511.fairytale.ai/site/curriculum/511-101/
+ai,foundations-tooling,511-102,Python for AI Engineering,published,foundational,12,12,tool,A tested command-line text-analysis tool,,https://unit511.fairytale.ai/site/curriculum/511-102/
+ai,foundations-tooling,511-103,"Git, Open Source & Contribution",published,foundational,12,12,contribution,A merged documentation or test pull request to an open-source project,,https://unit511.fairytale.ai/site/curriculum/511-103/
+ai,foundations-tooling,511-104,Math for Machine Learning,published,foundational,12,12,library,A from-scratch NumPy math toolkit with tests,511-102,https://unit511.fairytale.ai/site/curriculum/511-104/
 ai,building-systems,511-201,Model Inference & Optimization,planned,intermediate,12,,tool,A benchmarked local inference server,511-101 511-102,
 ai,building-systems,511-202,Multi-Agent Orchestration,planned,intermediate,12,,tool,A multi-agent workflow with traces,511-101,
 ai,building-systems,511-203,Retrieval & Memory Systems,planned,intermediate,12,,library,A retrieval pipeline with an evaluation set,511-101 511-104,

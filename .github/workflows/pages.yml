@@ -1,4 +1,5 @@
-# Publishes the site/ folder to GitHub Pages exactly as it is in the repository.
+# Publishes the repository root to GitHub Pages exactly as it is: index.html, 404.html and
+# robots.txt at the root, and every other page under site/.
 # There is no build step: no generator, no npm, no install. The workflow only uploads files.
 #
 # One-time setup (repository Settings → Pages):
@@ -10,6 +11,9 @@ on:
   push:
     branches: [main]
     paths:
+      - "index.html"
+      - "404.html"
+      - "robots.txt"
       - "site/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
@@ -34,6 +38,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: .
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -1,5 +1,5 @@
 /* Unit 511 — JavaScript entry point. Every page loads only this file:
-     <script type="module" src="/assets/js/main.js"></script>
+     <script type="module" src="/site/assets/js/main.js"></script>
    Native ES modules, no bundler. Pages work without JavaScript; each module adds one enhancement
    and does nothing on pages that lack its markup. Module scripts run after the document is parsed. */
 import { initTheme } from "./theme.js";
