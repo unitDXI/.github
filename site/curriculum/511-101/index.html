@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-iM3SzgduLLTuVsu98a1Zj8nnaEhWnEj3CI9Gi9pIoPQ='; style-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com; frame-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})();</script>
+<title>511-101: Introduction to AI Systems | Unit 511</title>
+<meta name="description" content="A free course on how language models, embeddings, retrieval, agents and inference fit together, explained without tying you to any provider.">
+<link rel="canonical" href="https://unit511.fairytale.ai/curriculum/511-101/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Unit 511">
+<meta property="og:title" content="511-101: Introduction to AI Systems | Unit 511">
+<meta property="og:description" content="A free course on how language models, embeddings, retrieval, agents and inference fit together, explained without tying you to any provider.">
+<meta property="og:url" content="https://unit511.fairytale.ai/curriculum/511-101/">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Unit 511 blog" href="/blog/feed.xml">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Introduction to AI Systems","courseCode":"511-101","description":"How language models, embeddings, retrieval, agents and inference fit together, explained without tying you to any provider.","url":"https://unit511.fairytale.ai/curriculum/511-101/","provider":{"@type":"Organization","name":"Fairytale.ai","url":"https://fairytale.ai"},"license":"https://creativecommons.org/licenses/by/4.0/","copyrightHolder":{"@type":"Organization","name":"Fairytale.ai and Unit 511 contributors"},"inLanguage":"en","isAccessibleForFree":true,"educationalLevel":"foundational","timeRequired":"PT12H"}</script>
+</head>
+<body class="page--course" data-page-type="course">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="site-header__inner">
+<button class="icon-btn menu-btn" type="button" aria-controls="sidebar" aria-expanded="false" data-drawer-toggle hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span class="visually-hidden">Menu</span></button>
+<a class="brand" href="/"><img src="/assets/img/logo-mark.svg" alt="" width="28" height="28"><span>Unit 511</span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/curriculum/" class="is-section">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li></ul></nav>
+<div class="header-actions">
+<a class="icon-btn search-btn" href="/search/" data-search-open><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="search-btn__label">Search</span><kbd class="search-btn__kbd">Ctrl K</kbd></a>
+<button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="visually-hidden">Dark theme</span></button>
+</div>
+</div>
+</header>
+<div class="layout layout--sidebar">
+<nav id="sidebar" class="sidebar" aria-label="Site and curriculum" data-track="ai" data-course="511-101">
+<div class="sidebar__site"><ul><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li></ul></div>
+<p class="sidebar__heading"><a href="/curriculum/">Curriculum</a></p>
+<div data-sidebar-curriculum><p class="sidebar__fallback"><a href="/curriculum/">All courses</a></p></div>
+</nav>
+<main id="main" class="main" tabindex="-1">
+<div class="main__inner">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/curriculum/">Curriculum</a></li><li><a href="/curriculum/#ai">AI Engineering</a></li><li><a href="/curriculum/#foundations-tooling">Foundations &amp; Tooling</a></li><li><span aria-current="page">511-101</span></li></ol></nav>
+
+<article class="prose">
+<header class="page-header">
+<p class="eyebrow">511-101 <span class="badge">AI Engineering</span> <span class="badge">Foundations &amp; Tooling</span> <span class="badge">foundational</span></p>
+<h1>Introduction to AI Systems</h1>
+<p class="lede">How language models, embeddings, retrieval, agents and inference fit together, explained without tying you to any provider.</p>
+<dl class="meta-strip">
+<div><dt>Time</dt><dd>12 hours</dd></div>
+<div><dt>Lessons</dt><dd>12 (1 published)</dd></div>
+<div><dt>Prerequisites</dt><dd>None</dd></div>
+<div><dt>You build</dt><dd>An annotated explainer notebook</dd></div>
+<div><dt>Updated</dt><dd><time datetime="2026-09-30">30 September 2026</time></dd></div>
+</dl>
+</header>
+
+<p class="button-row"><a class="button" href="/curriculum/511-101/02-tokens-and-embeddings/">Start with lesson 2: Tokens and Embeddings</a></p>
+
+<h2 id="about-this-course">About this course<a class="anchor" href="#about-this-course" aria-label="Link to this section">#</a></h2>
+<p>“AI” in the news usually means a <em>system</em>. It combines a model with a tokenizer, prompts, retrieved documents, tools, an inference runtime and an evaluation process. This course takes each of those parts apart and puts them back together, so you can reason about any AI product you meet, whoever built it.</p>
+<p>You don’t need a machine-learning background, just some programming experience. Every example runs on free, public tools. When a lesson mentions a specific model or library, it names alternatives too.</p>
+
+<h2 id="learning-objectives">Learning objectives<a class="anchor" href="#learning-objectives" aria-label="Link to this section">#</a></h2>
+<p>By the end of the course you will be able to:</p>
+<ul>
+<li>Explain how text is tokenized, embedded and generated by a language model</li>
+<li>Run an open-weight model locally and measure its speed and cost</li>
+<li>Build a small retrieval pipeline and a minimal tool-using agent</li>
+<li>Evaluate a system’s outputs and describe its limits and failure modes</li>
+<li>Choose models and data that fit a project’s licence and constraints</li>
+</ul>
+
+<h2 id="syllabus">Syllabus<a class="anchor" href="#syllabus" aria-label="Link to this section">#</a></h2>
+<ol class="syllabus">
+<li><span class="syllabus__num">01</span><span class="syllabus__title">Why AI Systems <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">02</span><span class="syllabus__title"><a href="/curriculum/511-101/02-tokens-and-embeddings/">Tokens and Embeddings</a></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">03</span><span class="syllabus__title">How Language Models Generate Text <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">04</span><span class="syllabus__title">Training vs. Inference <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">05</span><span class="syllabus__title">Prompts and Context Windows <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">06</span><span class="syllabus__title">Running Open Models Locally <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">07</span><span class="syllabus__title">Retrieval Basics <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">08</span><span class="syllabus__title">Tools and Agents <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">09</span><span class="syllabus__title">Evaluating Outputs <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">10</span><span class="syllabus__title">Limits and Failure Modes <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">11</span><span class="syllabus__title">Open Models and Licenses <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">12</span><span class="syllabus__title">Capstone: Your Explainer Notebook <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+</ol>
+
+<h2 id="what-you-build">What you build: an annotated explainer notebook<a class="anchor" href="#what-you-build" aria-label="Link to this section">#</a></h2>
+<p>You build one notebook throughout the course, adding a section in every lesson. By the end it explains, in your own words and with code that runs, how an AI system turns a question into an answer. You can share it as a portfolio piece, and you can use it to teach someone else.</p>
+<p>Your notebook is complete when:</p>
+<ol>
+<li>It runs top to bottom in a fresh Colab session with no errors and no paid API keys.</li>
+<li>It has one section per lesson, each with working code and at least one paragraph of explanation in your own words.</li>
+<li>It includes a tokenizer, a similarity search, a sampling demo, a retrieval example and a minimal agent loop.</li>
+<li>It ends with a “Limitations” section that names at least three ways the system you built could fail.</li>
+<li>It is published in a public repository under an open licence, with attribution for any course material you reused.</li>
+</ol>
+
+<h2 id="resources">Resources<a class="anchor" href="#resources" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><a href="https://github.com/unitDXI/.github/tree/main/site/notebooks/511-101" rel="noopener">Course notebooks on GitHub</a>. Starting points for each lesson.</li>
+<li><a href="https://colab.research.google.com/" rel="noopener">Google Colab</a>. Free hosted notebooks; nothing to install.</li>
+<li><a href="https://jupyter.org/install" rel="noopener">Jupyter</a>. Run notebooks on your own machine instead.</li>
+<li><a href="https://github.com/orgs/unitDXI/discussions" rel="noopener">GitHub Discussions</a>. Ask questions and share your progress.</li>
+</ul>
+</article>
+
+<aside class="attribution" aria-labelledby="attribution-title">
+<p id="attribution-title" class="attribution__title">Reuse this course</p>
+<p>Licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. You may share and adapt it, including commercially, as long as you give credit. Please credit it as:</p>
+<p class="attribution__text" id="attribution-text">“511-101: Introduction to AI Systems” by Unit 511 (Fairytale.ai and Unit 511 contributors), https://unit511.fairytale.ai/curriculum/511-101/, licensed CC BY 4.0.</p>
+<p class="attribution__meta"><button type="button" class="button button--small" data-copy-target="attribution-text" hidden>Copy attribution</button><span><a href="/attribution/">More on attribution</a> · <a href="https://github.com/unitDXI/.github/edit/main/site/curriculum/511-101/index.html" rel="noopener">Edit this page on GitHub</a></span></p>
+</aside>
+
+<nav class="pager" aria-label="Previous and next">
+<div class="pager__links">
+<span></span>
+<a class="pager__next" href="/curriculum/511-102/" rel="next"><span class="pager__label">Next course</span><span class="pager__title">511-102 Python for AI Engineering</span></a>
+</div>
+</nav>
+</div>
+</main>
+</div>
+<footer class="site-footer">
+<div class="site-footer__inner">
+<div><p class="site-footer__name">Unit 511</p><p>Open Source Training &amp; Development. An open initiative of <a href="https://fairytale.ai" rel="noopener">Fairytale.ai</a>.</p></div>
+<nav aria-label="Footer"><ul class="site-footer__links"><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li><li><a href="/cohorts/">Join a cohort</a></li><li><a href="/resources/">Resources</a></li><li><a href="/code-of-conduct/">Code of Conduct</a></li><li><a href="/blog/feed.xml">RSS</a></li><li><a href="https://github.com/orgs/unitDXI/discussions" rel="noopener">Discussions</a></li><li><a href="https://github.com/unitDXI" rel="noopener">GitHub</a></li></ul></nav>
+<p class="site-footer__license">Content © 2026 Fairytale.ai and Unit 511 contributors, licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: reuse is welcome with attribution (<a href="/attribution/">how to credit</a>). Code licensed <a href="https://github.com/unitDXI/.github/blob/main/LICENSE" rel="noopener">MIT</a>.</p>
+</div>
+</footer>
+<div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+<dialog id="search-dialog" class="search-dialog" aria-label="Search the site">
+<form class="search-form" role="search" action="/search/" method="get">
+<label for="search-dialog-input" class="visually-hidden">Search</label>
+<input id="search-dialog-input" class="search-input" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search lessons, code and notebooks" aria-describedby="search-help">
+<button type="button" class="search-close" data-search-close><span class="visually-hidden">Close search</span><kbd>Esc</kbd></button>
+</form>
+<p id="search-help" class="search-help">Try <code>"exact phrase"</code>, <code>course:511-101</code>, <code>type:lesson</code> or <code>in:code</code>. Use ↓ ↑ to move through results.</p>
+<p id="search-dialog-status" class="search-status" role="status"></p>
+<ul id="search-dialog-results" class="search-results"></ul>
+</dialog>
+<div id="live" class="visually-hidden" aria-live="polite"></div>
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

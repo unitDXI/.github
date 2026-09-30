@@ -1,0 +1,5 @@
+/* Unit 511 — Join a cohort page: the application call-to-action box. */
+
+.cohort-apply { margin: 0 0 var(--s-6); padding: var(--s-4) var(--s-5); border: 2px solid var(--primary); border-radius: var(--r-lg); background: var(--bg-accent-2); }
+.cohort-apply > :last-child { margin-bottom: 0; }
+.cohort-apply__title { font-size: var(--fs-xl); font-weight: 700; color: var(--heading); margin-bottom: var(--s-2); }

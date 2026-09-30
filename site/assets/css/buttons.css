@@ -1,0 +1,13 @@
+/* Unit 511 — Buttons. */
+
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2);
+  min-height: 44px; padding: var(--s-2) var(--s-5);
+  font: inherit; font-weight: 600; line-height: 1.2; text-decoration: none; cursor: pointer;
+  color: var(--on-primary); background: var(--primary); border: 2px solid var(--primary); border-radius: var(--r-md);
+}
+.button:hover { background: var(--primary-hover); border-color: var(--primary-hover); color: var(--on-primary); }
+.button--secondary { background: transparent; color: var(--primary); }
+.button--secondary:hover { background: var(--bg-accent); color: var(--link-hover); }
+.button--small { min-height: 36px; padding: var(--s-1) var(--s-3); font-size: var(--fs-sm); }
+.button-row { display: flex; flex-wrap: wrap; gap: var(--s-3); }

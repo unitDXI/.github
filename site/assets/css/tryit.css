@@ -1,0 +1,13 @@
+/* Unit 511 — "Try it" JavaScript sandbox. */
+
+.tryit { border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--s-4); margin: 0 0 var(--s-5); background: var(--bg-accent-2); }
+.tryit > :last-child { margin-bottom: 0; }
+.tryit__title { font-weight: 700; margin-bottom: var(--s-2); }
+.tryit__label { display: block; font-weight: 600; font-size: var(--fs-sm); margin-bottom: var(--s-1); }
+.tryit__editor { width: 100%; font-family: var(--font-mono); font-size: var(--fs-sm); line-height: 1.55; tab-size: 4; resize: vertical; white-space: pre; }
+.tryit__bar { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: var(--s-3) 0; }
+.tryit__out-label { font-weight: 600; font-size: var(--fs-sm); margin: 0 0 var(--s-1); }
+.tryit__output { min-height: 3em; margin: 0; background: var(--bg); white-space: pre-wrap; }
+.tryit__output .is-error { color: var(--danger); }
+.tryit__output .is-warn { color: var(--caution); }
+.tryit__frame { position: absolute; width: 1px; height: 1px; border: 0; opacity: 0; pointer-events: none; }

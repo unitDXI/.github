@@ -1,0 +1,28 @@
+/* Unit 511 — Sticky site header, main navigation and header buttons. */
+
+.site-header {
+  position: sticky; top: 0; z-index: 30;
+  height: var(--header-h);
+  background: var(--header-bg); color: var(--on-header);
+  box-shadow: var(--shadow-1);
+}
+.site-header__inner { height: 100%; display: flex; align-items: center; gap: var(--s-4); padding: 0 var(--s-4); max-width: 1440px; margin: 0 auto; }
+.site-header a { color: var(--on-header); }
+.brand { display: flex; align-items: center; gap: var(--s-2); text-decoration: none; font-weight: 700; font-size: var(--fs-lg); white-space: nowrap; }
+.site-nav ul { display: flex; gap: var(--s-1); list-style: none; margin: 0; padding: 0; }
+.site-nav li + li { margin: 0; }
+.site-nav a { display: block; padding: var(--s-2) var(--s-3); border-radius: var(--r-md); text-decoration: none; font-weight: 500; }
+.site-nav a:hover { background: rgba(255, 255, 255, .12); }
+.site-nav a[aria-current="page"], .site-nav a.is-section { background: rgba(255, 255, 255, .18); }
+.header-actions { margin-left: auto; display: flex; align-items: center; gap: var(--s-2); }
+.icon-btn {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  min-height: 40px; min-width: 40px; justify-content: center;
+  padding: var(--s-1) var(--s-3); border: 1px solid rgba(255, 255, 255, .3); border-radius: var(--r-md);
+  background: transparent; color: var(--on-header); font: inherit; font-size: var(--fs-sm); text-decoration: none; cursor: pointer;
+}
+.icon-btn:hover { background: rgba(255, 255, 255, .12); color: var(--on-header); }
+.site-header :focus-visible { outline-color: #FFFFFF; }
+.search-btn__kbd { background: transparent; color: rgba(255, 255, 255, .85); border-color: rgba(255, 255, 255, .4); }
+.menu-btn { padding: var(--s-1); }
+@media (min-width: 768px) { .menu-btn { display: none; } }

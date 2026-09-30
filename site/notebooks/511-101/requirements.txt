@@ -1,0 +1,2 @@
+# 511-101 notebooks. Tested with Python 3.13.
+# Lessons 1–5 use only the standard library. Later lessons add pinned packages here (name==version).

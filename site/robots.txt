@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://unit511.fairytale.ai/sitemap.xml

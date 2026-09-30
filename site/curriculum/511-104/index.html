@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-iM3SzgduLLTuVsu98a1Zj8nnaEhWnEj3CI9Gi9pIoPQ='; style-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com; frame-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})();</script>
+<title>511-104: Math for Machine Learning | Unit 511</title>
+<meta name="description" content="A free course on the linear algebra, probability and calculus behind modern models, built up in code you write yourself.">
+<link rel="canonical" href="https://unit511.fairytale.ai/curriculum/511-104/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Unit 511">
+<meta property="og:title" content="511-104: Math for Machine Learning | Unit 511">
+<meta property="og:description" content="A free course on the linear algebra, probability and calculus behind modern models, built up in code you write yourself.">
+<meta property="og:url" content="https://unit511.fairytale.ai/curriculum/511-104/">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Unit 511 blog" href="/blog/feed.xml">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Math for Machine Learning","courseCode":"511-104","description":"The linear algebra, probability and calculus behind modern models, built up in code you write yourself.","url":"https://unit511.fairytale.ai/curriculum/511-104/","provider":{"@type":"Organization","name":"Fairytale.ai","url":"https://fairytale.ai"},"license":"https://creativecommons.org/licenses/by/4.0/","copyrightHolder":{"@type":"Organization","name":"Fairytale.ai and Unit 511 contributors"},"inLanguage":"en","isAccessibleForFree":true,"educationalLevel":"foundational","timeRequired":"PT12H"}</script>
+</head>
+<body class="page--course" data-page-type="course">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="site-header__inner">
+<button class="icon-btn menu-btn" type="button" aria-controls="sidebar" aria-expanded="false" data-drawer-toggle hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span class="visually-hidden">Menu</span></button>
+<a class="brand" href="/"><img src="/assets/img/logo-mark.svg" alt="" width="28" height="28"><span>Unit 511</span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/curriculum/" class="is-section">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li></ul></nav>
+<div class="header-actions">
+<a class="icon-btn search-btn" href="/search/" data-search-open><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="search-btn__label">Search</span><kbd class="search-btn__kbd">Ctrl K</kbd></a>
+<button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="visually-hidden">Dark theme</span></button>
+</div>
+</div>
+</header>
+<div class="layout layout--sidebar">
+<nav id="sidebar" class="sidebar" aria-label="Site and curriculum" data-track="ai" data-course="511-104">
+<div class="sidebar__site"><ul><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li></ul></div>
+<p class="sidebar__heading"><a href="/curriculum/">Curriculum</a></p>
+<div data-sidebar-curriculum><p class="sidebar__fallback"><a href="/curriculum/">All courses</a></p></div>
+</nav>
+<main id="main" class="main" tabindex="-1">
+<div class="main__inner">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/curriculum/">Curriculum</a></li><li><a href="/curriculum/#ai">AI Engineering</a></li><li><a href="/curriculum/#foundations-tooling">Foundations &amp; Tooling</a></li><li><span aria-current="page">511-104</span></li></ol></nav>
+
+<article class="prose">
+<header class="page-header">
+<p class="eyebrow">511-104 <span class="badge">AI Engineering</span> <span class="badge">Foundations &amp; Tooling</span> <span class="badge">foundational</span></p>
+<h1>Math for Machine Learning</h1>
+<p class="lede">The linear algebra, probability and calculus behind modern models, built up in code you write yourself.</p>
+<dl class="meta-strip">
+<div><dt>Time</dt><dd>12 hours</dd></div>
+<div><dt>Lessons</dt><dd>12 (being written)</dd></div>
+<div><dt>Prerequisites</dt><dd><a href="/curriculum/511-102/">511-102</a></dd></div>
+<div><dt>You build</dt><dd>A from-scratch NumPy math toolkit with tests</dd></div>
+<div><dt>Updated</dt><dd><time datetime="2026-09-30">30 September 2026</time></dd></div>
+</dl>
+</header>
+
+<aside class="callout callout--note">
+<p class="callout__label">Lessons are being written</p>
+<p>The syllabus below is final and the lessons are being published one by one. Follow the <a href="/blog/">blog</a> or <a href="https://github.com/orgs/unitDXI/discussions" rel="noopener">Discussions</a> to hear when they land, or <a href="/contribute/">help write one</a>.</p>
+</aside>
+
+<h2 id="about-this-course">About this course<a class="anchor" href="#about-this-course" aria-label="Link to this section">#</a></h2>
+<p>You don’t need a maths degree to understand how models learn, but you do need a few ideas very clearly: vectors, matrices, probability and gradients. This course teaches them the way engineers use them. Each idea is introduced visually, then implemented in plain Python, then checked against NumPy. Formulas always come with code that runs.</p>
+<p>It assumes comfort with basic Python (511-102 lessons 1–7) and school algebra. Calculus is introduced from scratch.</p>
+
+<h2 id="learning-objectives">Learning objectives<a class="anchor" href="#learning-objectives" aria-label="Link to this section">#</a></h2>
+<p>By the end of the course you will be able to:</p>
+<ul>
+<li>Work with vectors and matrices, and read their shapes and meaning</li>
+<li>Compute and interpret dot products, norms and similarity measures</li>
+<li>Reason about probabilities, distributions and expectations</li>
+<li>Compute gradients and implement gradient descent</li>
+<li>Implement softmax and cross-entropy in a numerically stable way</li>
+</ul>
+
+<h2 id="syllabus">Syllabus<a class="anchor" href="#syllabus" aria-label="Link to this section">#</a></h2>
+<ol class="syllabus">
+<li><span class="syllabus__num">01</span><span class="syllabus__title">Why Math for ML <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">02</span><span class="syllabus__title">Vectors and Vector Operations <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">03</span><span class="syllabus__title">Matrices and Linear Maps <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">04</span><span class="syllabus__title">Dot Products, Norms and Similarity <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">05</span><span class="syllabus__title">Probability Basics <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">06</span><span class="syllabus__title">Distributions and Expectation <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">07</span><span class="syllabus__title">Derivatives and Gradients <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">08</span><span class="syllabus__title">Gradient Descent <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+<li><span class="syllabus__num">09</span><span class="syllabus__title">Softmax and Cross-Entropy <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">10</span><span class="syllabus__title">Matrix Decompositions (Intuition) <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">11</span><span class="syllabus__title">Numerical Stability <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">45 min</span></li>
+<li><span class="syllabus__num">12</span><span class="syllabus__title">Capstone: Your Math Toolkit <span class="badge badge--muted">In progress</span></span><span class="syllabus__time">60 min</span></li>
+</ol>
+
+<h2 id="what-you-build">What you build: a from-scratch math toolkit<a class="anchor" href="#what-you-build" aria-label="Link to this section">#</a></h2>
+<p>Lesson by lesson, you write a small Python library that implements the operations models depend on. You then prove it correct against NumPy.</p>
+<p>Your toolkit is complete when:</p>
+<ol>
+<li>It implements vector arithmetic, matrix multiplication, norms, cosine similarity, a stable softmax, cross-entropy, a numerical gradient check and gradient descent.</li>
+<li>The core functions use only the Python standard library. NumPy is used only in tests.</li>
+<li>Its tests compare every function with NumPy on randomly generated inputs, agreeing to within 1e-9.</li>
+<li>Each function has a docstring stating the formula it implements and its input shapes.</li>
+<li>It installs with <code>pip install .</code> and ships under an open-source licence.</li>
+</ol>
+
+<h2 id="resources">Resources<a class="anchor" href="#resources" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><a href="https://www.3blue1brown.com/topics/linear-algebra" rel="noopener">3Blue1Brown: Essence of Linear Algebra</a>. Visual intuition.</li>
+<li><a href="https://mml-book.github.io/" rel="noopener">Mathematics for Machine Learning</a> by Deisenroth, Faisal and Ong. Free PDF.</li>
+<li><a href="https://numpy.org/doc/stable/reference/routines.linalg.html" rel="noopener">NumPy linear algebra reference</a></li>
+<li><a href="https://www.khanacademy.org/math/statistics-probability" rel="noopener">Khan Academy: Statistics and probability</a></li>
+</ul>
+</article>
+
+<aside class="attribution" aria-labelledby="attribution-title">
+<p id="attribution-title" class="attribution__title">Reuse this course</p>
+<p>Licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. You may share and adapt it, including commercially, as long as you give credit. Please credit it as:</p>
+<p class="attribution__text" id="attribution-text">“511-104: Math for Machine Learning” by Unit 511 (Fairytale.ai and Unit 511 contributors), https://unit511.fairytale.ai/curriculum/511-104/, licensed CC BY 4.0.</p>
+<p class="attribution__meta"><button type="button" class="button button--small" data-copy-target="attribution-text" hidden>Copy attribution</button><span><a href="/attribution/">More on attribution</a> · <a href="https://github.com/unitDXI/.github/edit/main/site/curriculum/511-104/index.html" rel="noopener">Edit this page on GitHub</a></span></p>
+</aside>
+
+<nav class="pager" aria-label="Previous and next">
+<div class="pager__links">
+<a class="pager__prev" href="/curriculum/511-103/" rel="prev"><span class="pager__label">Previous course</span><span class="pager__title">511-103 Git, Open Source &amp; Contribution</span></a>
+<a class="pager__next" href="/curriculum/" rel="next"><span class="pager__label">All courses</span><span class="pager__title">Back to the curriculum</span></a>
+</div>
+</nav>
+</div>
+</main>
+</div>
+<footer class="site-footer">
+<div class="site-footer__inner">
+<div><p class="site-footer__name">Unit 511</p><p>Open Source Training &amp; Development. An open initiative of <a href="https://fairytale.ai" rel="noopener">Fairytale.ai</a>.</p></div>
+<nav aria-label="Footer"><ul class="site-footer__links"><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li><li><a href="/cohorts/">Join a cohort</a></li><li><a href="/resources/">Resources</a></li><li><a href="/code-of-conduct/">Code of Conduct</a></li><li><a href="/blog/feed.xml">RSS</a></li><li><a href="https://github.com/orgs/unitDXI/discussions" rel="noopener">Discussions</a></li><li><a href="https://github.com/unitDXI" rel="noopener">GitHub</a></li></ul></nav>
+<p class="site-footer__license">Content © 2026 Fairytale.ai and Unit 511 contributors, licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: reuse is welcome with attribution (<a href="/attribution/">how to credit</a>). Code licensed <a href="https://github.com/unitDXI/.github/blob/main/LICENSE" rel="noopener">MIT</a>.</p>
+</div>
+</footer>
+<div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+<dialog id="search-dialog" class="search-dialog" aria-label="Search the site">
+<form class="search-form" role="search" action="/search/" method="get">
+<label for="search-dialog-input" class="visually-hidden">Search</label>
+<input id="search-dialog-input" class="search-input" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search lessons, code and notebooks" aria-describedby="search-help">
+<button type="button" class="search-close" data-search-close><span class="visually-hidden">Close search</span><kbd>Esc</kbd></button>
+</form>
+<p id="search-help" class="search-help">Try <code>"exact phrase"</code>, <code>course:511-101</code>, <code>type:lesson</code> or <code>in:code</code>. Use ↓ ↑ to move through results.</p>
+<p id="search-dialog-status" class="search-status" role="status"></p>
+<ul id="search-dialog-results" class="search-results"></ul>
+</dialog>
+<div id="live" class="visually-hidden" aria-live="polite"></div>
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

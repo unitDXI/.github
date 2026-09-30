@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-iM3SzgduLLTuVsu98a1Zj8nnaEhWnEj3CI9Gi9pIoPQ='; style-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com; frame-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})();</script>
+<title>Search | Unit 511</title>
+<meta name="description" content="Search every Unit 511 lesson, code sample and notebook, or browse a list of every page on the site.">
+<link rel="canonical" href="https://unit511.fairytale.ai/search/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Unit 511">
+<meta property="og:title" content="Search | Unit 511">
+<meta property="og:description" content="Search every Unit 511 lesson, code sample and notebook, or browse a list of every page on the site.">
+<meta property="og:url" content="https://unit511.fairytale.ai/search/">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Unit 511 blog" href="/blog/feed.xml">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body class="page--search search-page" data-page-type="search">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="site-header__inner">
+<button class="icon-btn menu-btn" type="button" aria-controls="sidebar" aria-expanded="false" data-drawer-toggle hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span class="visually-hidden">Menu</span></button>
+<a class="brand" href="/"><img src="/assets/img/logo-mark.svg" alt="" width="28" height="28"><span>Unit 511</span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li></ul></nav>
+<div class="header-actions">
+<a class="icon-btn search-btn" href="/search/" data-search-open aria-current="page"><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="search-btn__label">Search</span><kbd class="search-btn__kbd">Ctrl K</kbd></a>
+<button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="visually-hidden">Dark theme</span></button>
+</div>
+</div>
+</header>
+<div class="layout layout--full">
+<nav id="sidebar" class="sidebar" aria-label="Site and curriculum">
+<div class="sidebar__site"><ul><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li></ul></div>
+<p class="sidebar__heading"><a href="/curriculum/">Curriculum</a></p>
+<div data-sidebar-curriculum><p class="sidebar__fallback"><a href="/curriculum/">All courses</a></p></div>
+</nav>
+<main id="main" class="main" tabindex="-1">
+<div class="main__inner">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Search</span></li></ol></nav>
+
+<article class="prose">
+<h1>Search</h1>
+<form class="search-page-form" role="search" action="/search/" method="get" data-search-page>
+<label for="search-page-input">Search every lesson, code sample and notebook</label>
+<div class="search-page-form__row"><input id="search-page-input" class="search-input" name="q" type="search" autocomplete="off" spellcheck="false"><button class="button" type="submit">Search</button></div>
+<p class="search-help">Try <code>"exact phrase"</code>, <code>course:511-101</code>, <code>type:lesson</code> or <code>in:code</code>.</p>
+</form>
+<noscript><p class="callout callout--note">Search needs JavaScript. Every page on the site is listed below instead.</p></noscript>
+<p class="search-status" role="status" id="search-page-status"></p>
+<ul class="search-results" id="search-page-results"></ul>
+
+<section class="site-index" aria-labelledby="everything">
+<h2 id="everything">Everything on this site</h2>
+<h3>Languages and tools</h3>
+<p class="muted">Tracks in progress.</p>
+<h3>AI Engineering</h3>
+<h4><a href="/curriculum/511-101/">511-101 Introduction to AI Systems</a></h4>
+<ul><li><a href="/curriculum/511-101/02-tokens-and-embeddings/">Lesson 2: Tokens and Embeddings</a></li></ul>
+<h4><a href="/curriculum/511-102/">511-102 Python for AI Engineering</a></h4>
+<p class="muted">Lessons in progress.</p>
+<h4><a href="/curriculum/511-103/">511-103 Git, Open Source &amp; Contribution</a></h4>
+<p class="muted">Lessons in progress.</p>
+<h4><a href="/curriculum/511-104/">511-104 Math for Machine Learning</a></h4>
+<p class="muted">Lessons in progress.</p>
+<h3>Site pages</h3>
+<ul><li><a href="/">Home</a></li><li><a href="/curriculum/">Curriculum</a></li><li><a href="/about/">About</a></li><li><a href="/cohorts/">Join a cohort</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/resources/">Resources</a></li><li><a href="/code-of-conduct/">Code of Conduct</a></li><li><a href="/attribution/">Licensing and attribution</a></li><li><a href="/blog/">Blog</a></li></ul>
+<h3>Blog posts</h3>
+<ul><li><a href="/blog/2026-09-30-introducing-unit-511/">Introducing Unit 511</a></li></ul>
+</section>
+</article>
+</div>
+</main>
+</div>
+<footer class="site-footer">
+<div class="site-footer__inner">
+<div><p class="site-footer__name">Unit 511</p><p>Open Source Training &amp; Development. An open initiative of <a href="https://fairytale.ai" rel="noopener">Fairytale.ai</a>.</p></div>
+<nav aria-label="Footer"><ul class="site-footer__links"><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li><li><a href="/cohorts/">Join a cohort</a></li><li><a href="/resources/">Resources</a></li><li><a href="/code-of-conduct/">Code of Conduct</a></li><li><a href="/blog/feed.xml">RSS</a></li><li><a href="https://github.com/orgs/unitDXI/discussions" rel="noopener">Discussions</a></li><li><a href="https://github.com/unitDXI" rel="noopener">GitHub</a></li></ul></nav>
+<p class="site-footer__license">Content © 2026 Fairytale.ai and Unit 511 contributors, licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: reuse is welcome with attribution (<a href="/attribution/">how to credit</a>). Code licensed <a href="https://github.com/unitDXI/.github/blob/main/LICENSE" rel="noopener">MIT</a>.</p>
+</div>
+</footer>
+<div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+<dialog id="search-dialog" class="search-dialog" aria-label="Search the site">
+<form class="search-form" role="search" action="/search/" method="get">
+<label for="search-dialog-input" class="visually-hidden">Search</label>
+<input id="search-dialog-input" class="search-input" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search lessons, code and notebooks" aria-describedby="search-help">
+<button type="button" class="search-close" data-search-close><span class="visually-hidden">Close search</span><kbd>Esc</kbd></button>
+</form>
+<p id="search-help" class="search-help">Try <code>"exact phrase"</code>, <code>course:511-101</code>, <code>type:lesson</code> or <code>in:code</code>. Use ↓ ↑ to move through results.</p>
+<p id="search-dialog-status" class="search-status" role="status"></p>
+<ul id="search-dialog-results" class="search-results"></ul>
+</dialog>
+<div id="live" class="visually-hidden" aria-live="polite"></div>
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

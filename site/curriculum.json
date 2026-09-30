@@ -1,0 +1,896 @@
+{
+  "version": 2,
+  "updated": "2026-09-30",
+  "license": "CC BY 4.0 — Fairytale.ai and Unit 511 contributors — https://creativecommons.org/licenses/by/4.0/",
+  "levels": [
+    "foundational",
+    "intermediate",
+    "advanced"
+  ],
+  "artifactTypes": [
+    "notebook",
+    "tool",
+    "library",
+    "doc",
+    "contribution",
+    "paper"
+  ],
+  "tracks": [
+    {
+      "id": "html",
+      "title": "HTML",
+      "status": "planned",
+      "summary": "Structure web pages with semantic, accessible HTML."
+    },
+    {
+      "id": "css",
+      "title": "CSS",
+      "status": "planned",
+      "summary": "Style and lay out pages with modern CSS: the cascade, Flexbox, Grid and responsive design."
+    },
+    {
+      "id": "javascript",
+      "title": "JavaScript",
+      "status": "planned",
+      "summary": "Make pages interactive with plain JavaScript: the language, the DOM, events and fetch."
+    },
+    {
+      "id": "sql",
+      "title": "SQL",
+      "status": "planned",
+      "summary": "Query and shape data with SQL: SELECT, filtering, joins, aggregation and database design."
+    },
+    {
+      "id": "python",
+      "title": "Python",
+      "status": "planned",
+      "summary": "Learn Python from the ground up: syntax, data structures, functions, modules and the standard library."
+    },
+    {
+      "id": "java",
+      "title": "Java",
+      "status": "planned",
+      "summary": "Write object-oriented programs in Java: types, classes, interfaces, collections and the JVM."
+    },
+    {
+      "id": "r",
+      "title": "R",
+      "status": "planned",
+      "summary": "Analyse and visualise data with R: vectors, data frames, packages and statistics."
+    },
+    {
+      "id": "c",
+      "title": "C",
+      "status": "planned",
+      "summary": "Program close to the machine in C: memory, pointers, structs and the compiler toolchain."
+    },
+    {
+      "id": "cpp",
+      "title": "C++",
+      "status": "planned",
+      "summary": "Build fast, safe software in modern C++: classes, templates, the standard library and RAII."
+    },
+    {
+      "id": "git",
+      "title": "Git",
+      "status": "planned",
+      "summary": "Track and share your work with Git: commits, branches, merging, remotes and pull requests."
+    },
+    {
+      "id": "ai",
+      "title": "AI Engineering",
+      "status": "published",
+      "summary": "Sixteen courses in four stages: how AI systems work, how to build them, and how to lead in the open.",
+      "stages": [
+        {
+          "id": "foundations-tooling",
+          "title": "Foundations & Tooling",
+          "courses": [
+            {
+              "code": "511-101",
+              "title": "Introduction to AI Systems",
+              "summary": "How language models, embeddings, retrieval, agents and inference fit together, explained without tying you to any provider.",
+              "difficulty": "foundational",
+              "hours": 12,
+              "prerequisites": [],
+              "artifact": {
+                "type": "notebook",
+                "title": "An annotated explainer notebook"
+              },
+              "status": "published",
+              "lessons": [
+                {
+                  "slug": "01-why-ai-systems",
+                  "title": "Why AI Systems",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Distinguish a model from the system built around it",
+                    "Name the parts of a typical AI system and what each does",
+                    "Set up the notebook you will extend for the rest of the course"
+                  ]
+                },
+                {
+                  "slug": "02-tokens-and-embeddings",
+                  "title": "Tokens and Embeddings",
+                  "minutes": 60,
+                  "status": "published",
+                  "objectives": [
+                    "Explain how text becomes a sequence of tokens",
+                    "Describe what an embedding vector represents",
+                    "Compute cosine similarity between two embeddings"
+                  ]
+                },
+                {
+                  "slug": "03-how-language-models-generate",
+                  "title": "How Language Models Generate Text",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Explain next-token prediction as a probability distribution",
+                    "Compare greedy decoding, temperature, top-k and top-p sampling",
+                    "Implement a sampler over a toy distribution"
+                  ]
+                },
+                {
+                  "slug": "04-training-and-inference",
+                  "title": "Training vs. Inference",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Separate pretraining, fine-tuning and inference",
+                    "Estimate why inference cost scales with tokens",
+                    "Read a model card for training and licensing facts"
+                  ]
+                },
+                {
+                  "slug": "05-prompts-and-context-windows",
+                  "title": "Prompts and Context Windows",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Explain what a context window limits",
+                    "Structure a prompt with instructions, context and examples",
+                    "Count tokens to keep a prompt within budget"
+                  ]
+                },
+                {
+                  "slug": "06-running-models-locally",
+                  "title": "Running Open Models Locally",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Run an open-weight model on your own machine",
+                    "Explain quantization and its trade-offs",
+                    "Measure latency and tokens per second"
+                  ]
+                },
+                {
+                  "slug": "07-retrieval-basics",
+                  "title": "Retrieval Basics",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Explain why models need retrieval for fresh or private facts",
+                    "Build a tiny embedding search over a folder of documents",
+                    "Combine retrieved passages into a grounded prompt"
+                  ]
+                },
+                {
+                  "slug": "08-tools-and-agents",
+                  "title": "Tools and Agents",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Describe the tool-calling loop",
+                    "Implement a minimal agent loop with two tools",
+                    "Identify when an agent is the wrong design"
+                  ]
+                },
+                {
+                  "slug": "09-evaluating-outputs",
+                  "title": "Evaluating Outputs",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Write a small test set with expected answers",
+                    "Compare exact-match, rubric and human evaluation",
+                    "Track results so changes can be compared"
+                  ]
+                },
+                {
+                  "slug": "10-limits-and-failure-modes",
+                  "title": "Limits and Failure Modes",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Recognise hallucination, bias and brittleness",
+                    "Explain prompt injection and one mitigation",
+                    "Write a limitations section for a system you build"
+                  ]
+                },
+                {
+                  "slug": "11-open-models-and-licenses",
+                  "title": "Open Models and Licenses",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Distinguish open-weight, open-source and closed models",
+                    "Read the use restrictions in a model license",
+                    "Choose a model that fits a project's licence"
+                  ]
+                },
+                {
+                  "slug": "12-capstone-explainer-notebook",
+                  "title": "Capstone: Your Explainer Notebook",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Assemble the course notebook into a coherent explainer",
+                    "Review a peer's notebook against the acceptance criteria",
+                    "Publish the notebook under an open licence"
+                  ]
+                }
+              ]
+            },
+            {
+              "code": "511-102",
+              "title": "Python for AI Engineering",
+              "summary": "The Python you need to build, test and ship AI tooling: environments, data handling, NumPy, HTTP APIs and testing.",
+              "difficulty": "foundational",
+              "hours": 12,
+              "prerequisites": [],
+              "artifact": {
+                "type": "tool",
+                "title": "A tested command-line text-analysis tool"
+              },
+              "status": "published",
+              "lessons": [
+                {
+                  "slug": "01-environments-and-packages",
+                  "title": "Environments and Packages",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Create and activate a virtual environment",
+                    "Install and pin dependencies in requirements.txt",
+                    "Explain why reproducible environments matter"
+                  ]
+                },
+                {
+                  "slug": "02-python-essentials",
+                  "title": "Python Essentials Refresher",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Use variables, control flow and functions fluently",
+                    "Read and fix common error messages",
+                    "Write small scripts that take command-line arguments"
+                  ]
+                },
+                {
+                  "slug": "03-data-structures",
+                  "title": "Data Structures for Data Work",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Choose between lists, dicts, sets and tuples",
+                    "Use comprehensions to transform data",
+                    "Count and group records with collections"
+                  ]
+                },
+                {
+                  "slug": "04-modules-and-packages",
+                  "title": "Functions, Modules and Packages",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Split a script into importable modules",
+                    "Write functions with clear inputs and outputs",
+                    "Lay out a small package with an entry point"
+                  ]
+                },
+                {
+                  "slug": "05-files-json-csv",
+                  "title": "Files, JSON and CSV",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Read and write text files safely with pathlib",
+                    "Parse and emit JSON and CSV",
+                    "Handle encodings and malformed rows"
+                  ]
+                },
+                {
+                  "slug": "06-numpy-fundamentals",
+                  "title": "NumPy Fundamentals",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Create arrays and inspect shape and dtype",
+                    "Index, slice and reshape arrays",
+                    "Explain why arrays beat Python lists for numbers"
+                  ]
+                },
+                {
+                  "slug": "07-vectorized-math",
+                  "title": "Vectorized Math with NumPy",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Replace loops with vectorized operations",
+                    "Use broadcasting correctly",
+                    "Compute similarities across many vectors at once"
+                  ]
+                },
+                {
+                  "slug": "08-http-apis",
+                  "title": "Working with HTTP APIs",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Make HTTP requests and handle status codes",
+                    "Parse JSON responses defensively",
+                    "Respect rate limits with retries and backoff"
+                  ]
+                },
+                {
+                  "slug": "09-testing",
+                  "title": "Testing with pytest",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Write unit tests with pytest",
+                    "Use fixtures and parametrised tests",
+                    "Test code that talks to the network without calling it"
+                  ]
+                },
+                {
+                  "slug": "10-typing-and-dataclasses",
+                  "title": "Types and Dataclasses",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Add type hints to functions",
+                    "Model records with dataclasses",
+                    "Catch mistakes early with a type checker"
+                  ]
+                },
+                {
+                  "slug": "11-performance-and-profiling",
+                  "title": "Performance and Profiling",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Measure before optimising",
+                    "Profile a script to find hot spots",
+                    "Choose between algorithmic and vectorised fixes"
+                  ]
+                },
+                {
+                  "slug": "12-capstone-cli-tool",
+                  "title": "Capstone: Ship a CLI Tool",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Package the course tool with a command-line interface",
+                    "Reach agreed test coverage",
+                    "Publish it with a README and licence"
+                  ]
+                }
+              ]
+            },
+            {
+              "code": "511-103",
+              "title": "Git, Open Source & Contribution",
+              "summary": "How open source works and how to contribute well: Git from first principles, pull requests, licences, review and CI.",
+              "difficulty": "foundational",
+              "hours": 12,
+              "prerequisites": [],
+              "artifact": {
+                "type": "contribution",
+                "title": "A merged documentation or test pull request to an open-source project"
+              },
+              "status": "published",
+              "lessons": [
+                {
+                  "slug": "01-what-open-source-is",
+                  "title": "What Open Source Is",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Define open source and free software",
+                    "Describe how open-source projects are governed",
+                    "Explain why people and companies contribute"
+                  ]
+                },
+                {
+                  "slug": "02-git-mental-model",
+                  "title": "Git's Mental Model",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Explain commits, trees and branches as a graph",
+                    "Distinguish working tree, index and repository",
+                    "Inspect history with log and diff"
+                  ]
+                },
+                {
+                  "slug": "03-everyday-git",
+                  "title": "Everyday Git",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Stage and commit changes deliberately",
+                    "Write clear commit messages",
+                    "Undo common mistakes safely"
+                  ]
+                },
+                {
+                  "slug": "04-branching-and-merging",
+                  "title": "Branching and Merging",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Create, switch and delete branches",
+                    "Merge branches and resolve conflicts",
+                    "Explain fast-forward and merge commits"
+                  ]
+                },
+                {
+                  "slug": "05-rewriting-history-safely",
+                  "title": "Rewriting History Safely",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Rebase a branch onto an updated base",
+                    "Squash and reorder commits before review",
+                    "Know when rewriting history is unsafe"
+                  ]
+                },
+                {
+                  "slug": "06-pull-requests",
+                  "title": "Forks and Pull Requests",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Fork a repository and keep it in sync",
+                    "Open a focused pull request",
+                    "Respond to review by pushing follow-up commits"
+                  ]
+                },
+                {
+                  "slug": "07-reading-a-codebase",
+                  "title": "Reading an Unfamiliar Codebase",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Find entry points, tests and docs quickly",
+                    "Run a project's test suite locally",
+                    "Trace one feature from input to output"
+                  ]
+                },
+                {
+                  "slug": "08-finding-a-first-issue",
+                  "title": "Finding a First Issue",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Evaluate whether a project is welcoming",
+                    "Pick an issue sized for a first contribution",
+                    "Ask maintainers good questions"
+                  ]
+                },
+                {
+                  "slug": "09-licenses-and-dco",
+                  "title": "Licences, Copyright and the DCO",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Compare permissive and copyleft licences",
+                    "Explain what a contributor licence agreement or DCO sign-off means",
+                    "Check licence compatibility before copying code"
+                  ]
+                },
+                {
+                  "slug": "10-code-review",
+                  "title": "Giving and Receiving Code Review",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Review a pull request for correctness and clarity",
+                    "Write kind, specific review comments",
+                    "Handle disagreement constructively"
+                  ]
+                },
+                {
+                  "slug": "11-ci-basics",
+                  "title": "Continuous Integration Basics",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Explain what CI checks protect",
+                    "Read a failing CI log and find the cause",
+                    "Write a minimal workflow that runs tests"
+                  ]
+                },
+                {
+                  "slug": "12-capstone-first-contribution",
+                  "title": "Capstone: Your First Contribution",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Plan a contribution with a maintainer",
+                    "Carry a pull request through review to merge",
+                    "Write up what you learned for the cohort"
+                  ]
+                }
+              ]
+            },
+            {
+              "code": "511-104",
+              "title": "Math for Machine Learning",
+              "summary": "The linear algebra, probability and calculus behind modern models, built up in code you write yourself.",
+              "difficulty": "foundational",
+              "hours": 12,
+              "prerequisites": [
+                "511-102"
+              ],
+              "artifact": {
+                "type": "library",
+                "title": "A from-scratch NumPy math toolkit with tests"
+              },
+              "status": "published",
+              "lessons": [
+                {
+                  "slug": "01-why-math",
+                  "title": "Why Math for ML",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Connect vectors, probability and gradients to model behaviour",
+                    "Set up the toolkit repository and tests",
+                    "Read mathematical notation used in ML papers"
+                  ]
+                },
+                {
+                  "slug": "02-vectors",
+                  "title": "Vectors and Vector Operations",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Add, scale and combine vectors",
+                    "Interpret vectors geometrically",
+                    "Implement vector operations with tests"
+                  ]
+                },
+                {
+                  "slug": "03-matrices",
+                  "title": "Matrices and Linear Maps",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Multiply matrices and explain the shape rules",
+                    "See a matrix as a transformation",
+                    "Implement matrix multiplication and compare it with NumPy"
+                  ]
+                },
+                {
+                  "slug": "04-dot-products-and-norms",
+                  "title": "Dot Products, Norms and Similarity",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Compute dot products and vector norms",
+                    "Relate the dot product to the angle between vectors",
+                    "Implement cosine similarity and distance metrics"
+                  ]
+                },
+                {
+                  "slug": "05-probability",
+                  "title": "Probability Basics",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Work with events, conditional probability and Bayes' rule",
+                    "Simulate probabilities by sampling",
+                    "Avoid common reasoning traps"
+                  ]
+                },
+                {
+                  "slug": "06-distributions",
+                  "title": "Distributions and Expectation",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Describe discrete and continuous distributions",
+                    "Compute expectation and variance",
+                    "Sample from a distribution in NumPy"
+                  ]
+                },
+                {
+                  "slug": "07-derivatives-and-gradients",
+                  "title": "Derivatives and Gradients",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Explain a derivative as a rate of change",
+                    "Compute partial derivatives and gradients",
+                    "Check gradients numerically"
+                  ]
+                },
+                {
+                  "slug": "08-gradient-descent",
+                  "title": "Gradient Descent",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Implement gradient descent on a simple loss",
+                    "Explain the effect of learning rate",
+                    "Fit a line to data with your own optimiser"
+                  ]
+                },
+                {
+                  "slug": "09-softmax-and-cross-entropy",
+                  "title": "Softmax and Cross-Entropy",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Turn scores into probabilities with softmax",
+                    "Compute cross-entropy loss",
+                    "Explain why models are trained to minimise it"
+                  ]
+                },
+                {
+                  "slug": "10-matrix-decompositions",
+                  "title": "Matrix Decompositions (Intuition)",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Describe eigenvectors and SVD intuitively",
+                    "Use SVD to compress data",
+                    "Relate decompositions to embeddings"
+                  ]
+                },
+                {
+                  "slug": "11-numerical-stability",
+                  "title": "Numerical Stability",
+                  "minutes": 45,
+                  "status": "draft",
+                  "objectives": [
+                    "Recognise overflow, underflow and cancellation",
+                    "Implement a stable softmax",
+                    "Choose float precision deliberately"
+                  ]
+                },
+                {
+                  "slug": "12-capstone-math-toolkit",
+                  "title": "Capstone: Your Math Toolkit",
+                  "minutes": 60,
+                  "status": "draft",
+                  "objectives": [
+                    "Finish and document the toolkit",
+                    "Test it against NumPy on random inputs",
+                    "Publish it as an installable package"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "building-systems",
+          "title": "Building Systems",
+          "courses": [
+            {
+              "code": "511-201",
+              "title": "Model Inference & Optimization",
+              "summary": "Serve models efficiently: batching, quantization, caching and measuring cost.",
+              "difficulty": "intermediate",
+              "hours": 12,
+              "prerequisites": [
+                "511-101",
+                "511-102"
+              ],
+              "artifact": {
+                "type": "tool",
+                "title": "A benchmarked local inference server"
+              },
+              "status": "planned",
+              "lessons": []
+            },
+            {
+              "code": "511-202",
+              "title": "Multi-Agent Orchestration",
+              "summary": "Design, run and debug systems of cooperating agents and tools.",
+              "difficulty": "intermediate",
+              "hours": 12,
+              "prerequisites": [
+                "511-101"
+              ],
+              "artifact": {
+                "type": "tool",
+                "title": "A multi-agent workflow with traces"
+              },
+              "status": "planned",
+              "lessons": []
+            },
+            {
+              "code": "511-203",
+              "title": "Retrieval & Memory Systems",
+              "summary": "Chunking, indexing, hybrid search and long-term memory for AI systems.",
+              "difficulty": "intermediate",
+              "hours": 12,
+              "prerequisites": [
+                "511-101",
+                "511-104"
+              ],
+              "artifact": {
+                "type": "library",
+                "title": "A retrieval pipeline with an evaluation set"
+              },
+              "status": "planned",
+              "lessons": []
+            },
+            {
+              "code": "511-204",
+              "title": "Evaluation & Observability",
+              "summary": "Measure quality, catch regressions and see what your system is doing.",
+              "difficulty": "intermediate",
+              "hours": 12,
+              "prerequisites": [
+                "511-101"
+              ],
+              "artifact": {
+                "type": "tool",
+                "title": "An evaluation harness and dashboard"
+              },
+              "status": "planned",
+              "lessons": []
+            }
+          ]
+        },
+        {
+          "id": "applied-responsible-ai",
+          "title": "Applied & Responsible AI",
+          "courses": [
+            {
+              "code": "511-301",
+              "title": "Sustainable Computing",
+              "summary": "Measure and reduce the energy and cost of training and running models.",
+              "difficulty": "intermediate",
+              "hours": 12,
+              "prerequisites": [
+                "511-201"
+              ],
+              "artifact": {
+                "type": "doc",
+                "title": "An energy and cost report for a real workload"
+              },
+              "status": "planned",
+              "lessons": []
+            },
+            {
+              "code": "511-302",
+              "title": "Security & Adversarial AI",
+              "summary": "Threat-model AI systems and defend against prompt injection, data poisoning and abuse.",
+              "difficulty": "advanced",
+              "hours": 12,
+              "prerequisites": [
+                "511-202"
+              ],
+              "artifact": {
+                "type": "doc",
+                "title": "A threat model and red-team report"
+              },
+              "status": "planned",
+              "lessons": []
+            },
+            {
+              "code": "511-303",
+              "title": "Vertical AI Applications",
+              "summary": "Apply AI responsibly to a specific domain, from requirements to evaluation.",
+              "difficulty": "intermediate",
+              "hours": 12,
+              "prerequisites": [
+                "511-203",
+                "511-204"
+              ],
+              "artifact": {
+                "type": "tool",
+                "title": "A domain prototype with an evaluation"
+              },
+              "status": "planned",
+              "lessons": []
+            },
+            {
+              "code": "511-304",
+              "title": "Distributed Systems & Edge",
+              "summary": "Run AI workloads across machines and on constrained devices.",
+              "difficulty": "advanced",
+              "hours": 12,
+              "prerequisites": [
+                "511-201"
+              ],
+              "artifact": {
+                "type": "tool",
+                "title": "An edge deployment with measurements"
+              },
+              "status": "planned",
+              "lessons": []
+            }
+          ]
+        },
+        {
+          "id": "leadership-publishing",
+          "title": "Leadership & Publishing",
+          "courses": [
+            {
+              "code": "511-401",
+              "title": "Open Source Leadership",
+              "summary": "Maintain projects, grow communities and make decisions in the open.",
+              "difficulty": "advanced",
+              "hours": 12,
+              "prerequisites": [
+                "511-103"
+              ],
+              "artifact": {
+                "type": "doc",
+                "title": "A governance and contributor guide for a real project"
+              },
+              "status": "planned",
+              "lessons": []
+            },
+            {
+              "code": "511-402",
+              "title": "Technical Writing & Documentation",
+              "summary": "Write docs, tutorials and references people can actually use.",
+              "difficulty": "intermediate",
+              "hours": 12,
+              "prerequisites": [],
+              "artifact": {
+                "type": "doc",
+                "title": "A published tutorial and reference page"
+              },
+              "status": "planned",
+              "lessons": []
+            },
+            {
+              "code": "511-403",
+              "title": "Research & Publication",
+              "summary": "Read papers critically, reproduce results and publish your own findings.",
+              "difficulty": "advanced",
+              "hours": 12,
+              "prerequisites": [
+                "511-104",
+                "511-204"
+              ],
+              "artifact": {
+                "type": "paper",
+                "title": "A reproduction report or short paper"
+              },
+              "status": "planned",
+              "lessons": []
+            },
+            {
+              "code": "511-404",
+              "title": "Capstone: Ship an Open Source Contribution",
+              "summary": "Plan, build and land a substantial contribution to an open-source project.",
+              "difficulty": "advanced",
+              "hours": 12,
+              "prerequisites": [
+                "511-103"
+              ],
+              "artifact": {
+                "type": "contribution",
+                "title": "A substantial merged open-source contribution"
+              },
+              "status": "planned",
+              "lessons": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

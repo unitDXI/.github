@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-iM3SzgduLLTuVsu98a1Zj8nnaEhWnEj3CI9Gi9pIoPQ='; style-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com; frame-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})();</script>
+<title>Tokens and Embeddings | 511-101 | Unit 511</title>
+<meta name="description" content="How text becomes tokens, what an embedding vector represents, and how to compute cosine similarity between embeddings.">
+<link rel="canonical" href="https://unit511.fairytale.ai/curriculum/511-101/02-tokens-and-embeddings/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Unit 511">
+<meta property="og:title" content="Tokens and Embeddings | 511-101 | Unit 511">
+<meta property="og:description" content="How text becomes tokens, what an embedding vector represents, and how to compute cosine similarity between embeddings.">
+<meta property="og:url" content="https://unit511.fairytale.ai/curriculum/511-101/02-tokens-and-embeddings/">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Unit 511 blog" href="/blog/feed.xml">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Tokens and Embeddings","url":"https://unit511.fairytale.ai/curriculum/511-101/02-tokens-and-embeddings/","learningResourceType":"lesson","teaches":["Explain how text becomes a sequence of tokens","Describe what an embedding vector represents","Compute cosine similarity between two embeddings"],"timeRequired":"PT60M","isPartOf":{"@type":"Course","courseCode":"511-101","name":"Introduction to AI Systems","url":"https://unit511.fairytale.ai/curriculum/511-101/"},"license":"https://creativecommons.org/licenses/by/4.0/","copyrightHolder":{"@type":"Organization","name":"Fairytale.ai and Unit 511 contributors"},"inLanguage":"en","isAccessibleForFree":true,"dateModified":"2026-09-30"}</script>
+</head>
+<body class="page--lesson" data-page-type="lesson">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="site-header__inner">
+<button class="icon-btn menu-btn" type="button" aria-controls="sidebar" aria-expanded="false" data-drawer-toggle hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span class="visually-hidden">Menu</span></button>
+<a class="brand" href="/"><img src="/assets/img/logo-mark.svg" alt="" width="28" height="28"><span>Unit 511</span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/curriculum/" class="is-section">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li></ul></nav>
+<div class="header-actions">
+<a class="icon-btn search-btn" href="/search/" data-search-open><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="search-btn__label">Search</span><kbd class="search-btn__kbd">Ctrl K</kbd></a>
+<button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="visually-hidden">Dark theme</span></button>
+</div>
+</div>
+</header>
+<div class="layout layout--sidebar">
+<nav id="sidebar" class="sidebar" aria-label="Site and curriculum" data-track="ai" data-course="511-101" data-lesson="02-tokens-and-embeddings">
+<div class="sidebar__site"><ul><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li></ul></div>
+<p class="sidebar__heading"><a href="/curriculum/">Curriculum</a></p>
+<div data-sidebar-curriculum><p class="sidebar__fallback"><a href="/curriculum/511-101/">511-101 lessons</a> · <a href="/curriculum/">All tracks</a></p></div>
+</nav>
+<main id="main" class="main" tabindex="-1">
+<div class="main__inner">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/curriculum/">Curriculum</a></li><li><a href="/curriculum/#ai">AI Engineering</a></li><li><a href="/curriculum/#foundations-tooling">Foundations &amp; Tooling</a></li><li><a href="/curriculum/511-101/">511-101</a></li><li><span aria-current="page">Lesson 2</span></li></ol></nav>
+
+<article class="prose">
+<header class="page-header">
+<p class="eyebrow"><a href="/curriculum/511-101/">511-101 · Introduction to AI Systems</a></p>
+<h1>Tokens and Embeddings</h1>
+<p class="meta">Lesson 2 of 12 · 60 min · Updated <time datetime="2026-09-30">30 September 2026</time></p>
+</header>
+
+<section class="objectives" aria-labelledby="what-youll-learn">
+<h2 id="what-youll-learn">What you’ll learn</h2>
+<ul>
+<li>Explain how text becomes a sequence of tokens</li>
+<li>Describe what an embedding vector represents</li>
+<li>Compute cosine similarity between two embeddings</li>
+</ul>
+</section>
+
+<p>A language model never sees letters or words. It sees numbers. Two steps turn your text into something a model can work with. <strong>Tokenization</strong> splits text into pieces and gives each piece an integer ID. <strong>Embedding</strong> turns each ID, or a whole passage, into a list of numbers that captures meaning. This lesson builds both ideas from scratch in plain Python, then adds the embedding pieces to your course notebook.</p>
+
+<h2 id="why-not-just-use-words">Why not just use words?<a class="anchor" href="#why-not-just-use-words" aria-label="Link to this section">#</a></h2>
+<p>The obvious approach is to split on spaces and give every word an ID. It breaks down quickly:</p>
+<ul>
+<li><strong>The vocabulary never ends.</strong> New names, typos, code identifiers and words in other languages keep appearing. Any word missing from the vocabulary becomes an “unknown” token and its meaning is lost.</li>
+<li><strong>Related forms look unrelated.</strong> <em>believe</em>, <em>unbelievable</em> and <em>unbelievably</em> would get three unrelated IDs.</li>
+<li><strong>Punctuation sticks to words.</strong> <code>"words."</code> and <code>"words"</code> would be different entries.</li>
+</ul>
+<p>Splitting into single characters fixes the vocabulary problem: there are only so many characters. But sequences become very long, and a single character carries almost no meaning.</p>
+
+<figure class="code">
+<pre><code class="language-python">text = "Tokenizers split unbelievably long words."
+print(text.split())
+print(list("unbelievably"))</code></pre>
+</figure>
+
+<pre class="output"><code class="language-output">['Tokenizers', 'split', 'unbelievably', 'long', 'words.']
+['u', 'n', 'b', 'e', 'l', 'i', 'e', 'v', 'a', 'b', 'l', 'y']</code></pre>
+
+<p>Modern tokenizers sit in between. They use <strong>subword</strong> units: common words become a single token, and rare words are built from a few reusable pieces.</p>
+
+<h2 id="byte-pair-encoding">Byte-pair encoding, by hand<a class="anchor" href="#byte-pair-encoding" aria-label="Link to this section">#</a></h2>
+<p>The most widely used way to learn subwords is <strong>byte-pair encoding</strong> (BPE). It was adapted for language models by Sennrich, Haddow and Birch in 2016. The algorithm fits in one sentence:</p>
+<blockquote><p>Start with individual characters, then repeatedly merge the pair of adjacent symbols that appears most often, until the vocabulary is the size you want.</p></blockquote>
+<p>Here it is on a tiny corpus. We add <code>_</code> to the end of each word so the tokenizer can learn pieces that only occur at word endings, like <code>est_</code>.</p>
+
+<figure class="code">
+<pre data-title="bpe.py"><code class="language-python">from collections import Counter
+
+
+def most_common_pair(words):
+    """Count every adjacent pair of symbols, weighted by word frequency."""
+    pairs = Counter()
+    for word, freq in words.items():
+        for a, b in zip(word, word[1:]):
+            pairs[(a, b)] += freq
+    return pairs.most_common(1)[0][0]
+
+
+def merge(words, pair):
+    """Replace every occurrence of `pair` with a single merged symbol."""
+    merged = {}
+    for word, freq in words.items():
+        out, i = [], 0
+        while i &lt; len(word):
+            if i &lt; len(word) - 1 and (word[i], word[i + 1]) == pair:
+                out.append(word[i] + word[i + 1])
+                i += 2
+            else:
+                out.append(word[i])
+                i += 1
+        merged[tuple(out)] = freq
+    return merged
+
+
+corpus = "low low low lower lowest newer newer newest wider widest".split()
+words = Counter(tuple(w) + ("_",) for w in corpus)  # "_" marks the end of a word
+merges = []
+for step in range(8):
+    pair = most_common_pair(words)
+    merges.append(pair)
+    words = merge(words, pair)
+    print(f"merge {step + 1}: {pair[0]!r} + {pair[1]!r}")
+
+for word in words:
+    print(" ".join(word))</code></pre>
+</figure>
+
+<pre class="output"><code class="language-output">merge 1: 'l' + 'o'
+merge 2: 'lo' + 'w'
+merge 3: 'e' + 'r'
+merge 4: 'er' + '_'
+merge 5: 'low' + '_'
+merge 6: 'e' + 's'
+merge 7: 'es' + 't'
+merge 8: 'est' + '_'
+low_
+low er_
+low est_
+n e w er_
+n e w est_
+w i d er_
+w i d est_</code></pre>
+
+<p>After eight merges, the tokenizer has learned <code>low</code>, <code>er_</code> and <code>est_</code> without being told anything about English. They were simply the most frequent patterns. Real tokenizers run the same loop over billions of words until they reach a vocabulary size set in advance. Most modern models use one with tens of thousands to a few hundred thousand entries. Many also start from raw <em>bytes</em> instead of characters, so no input is ever “unknown”.</p>
+
+<h3 id="encoding-new-words">Encoding new words<a class="anchor" href="#encoding-new-words" aria-label="Link to this section">#</a></h3>
+<p>To tokenize new text, apply the learned merges <em>in the order they were learned</em>. Then look each piece up in the vocabulary to get its ID:</p>
+
+<figure class="code">
+<pre data-title="bpe.py (continued)"><code class="language-python">def encode(word, merges):
+    symbols = list(word) + ["_"]
+    for pair in merges:
+        symbols = list(merge({tuple(symbols): 1}, pair))[0]
+    return list(symbols)
+
+vocab = sorted({s for w in words for s in w} | set("abcdefghijklmnopqrstuvwxyz_"))
+ids = {s: i for i, s in enumerate(vocab)}
+
+for word in ["lowest", "newest", "slowest"]:
+    tokens = encode(word, merges)
+    print(word, "->", tokens, "->", [ids[t] for t in tokens])</code></pre>
+</figure>
+
+<pre class="output"><code class="language-output">lowest -> ['low', 'est_'] -> [15, 7]
+newest -> ['n', 'e', 'w', 'est_'] -> [18, 5, 27, 7]
+slowest -> ['s', 'low', 'est_'] -> [23, 15, 7]</code></pre>
+
+<p><em>slowest</em> never appeared in the corpus, yet it encodes cleanly into pieces the tokenizer already knows. That is the whole point of subwords. The list of integers on the right is what the model actually receives.</p>
+
+<aside class="callout callout--tip">
+<p class="callout__label">Tip</p>
+<p>Token counts drive cost, speed and context limits, so it helps to have a rough sense of them. For English prose, common tokenizers average roughly three to four characters per token. Code, numbers and many other languages usually take more tokens for the same meaning. Always measure with the tokenizer your model actually uses.</p>
+</aside>
+
+<h2 id="from-ids-to-vectors">From IDs to vectors<a class="anchor" href="#from-ids-to-vectors" aria-label="Link to this section">#</a></h2>
+<p>An ID like <code>15</code> is just a label. The number 15 is not “closer” to 14 in meaning. A model’s first layer therefore swaps each ID for a learned vector: row 15 of a big table called the <strong>embedding matrix</strong>. That table has one row per vocabulary entry and a few hundred to several thousand columns. It starts random. During training it gradually arranges itself so that tokens used in similar ways end up with similar vectors.</p>
+<p>The same idea applies to whole passages. An <strong>embedding model</strong> reads a sentence or document and outputs a single vector that summarises its meaning. Those text embeddings power semantic search, clustering and retrieval (lesson 7). In both cases the rule is the same:</p>
+<blockquote><p>Texts with similar meanings get vectors that point in similar directions.</p></blockquote>
+
+<aside class="callout callout--note">
+<p class="callout__label">Note</p>
+<p>The individual numbers in a learned embedding do not have human-readable meanings. The toy vectors below use four hand-picked dimensions so you can see what is going on. Real embeddings are learned, and only the relationships between vectors are meaningful.</p>
+</aside>
+
+<h2 id="measuring-similarity">Measuring similarity<a class="anchor" href="#measuring-similarity" aria-label="Link to this section">#</a></h2>
+<p>To compare two vectors we care about <em>direction</em>, not length. <strong>Cosine similarity</strong> measures the angle between them. Take the dot product and divide by the product of the two lengths:</p>
+<p class="formula"><code>cosine(a, b) = (a · b) / (‖a‖ × ‖b‖)</code></p>
+<p>The result runs from −1 (opposite directions) through 0 (unrelated) to 1 (same direction).</p>
+
+<figure class="code">
+<pre data-title="similarity.py"><code class="language-python">import math
+
+embeddings = {
+    "cat":    [0.90, 0.80, 0.10, 0.00],
+    "kitten": [0.85, 0.75, 0.20, 0.05],
+    "dog":    [0.80, 0.30, 0.10, 0.05],
+    "pizza":  [0.05, 0.10, 0.90, 0.80],
+}
+
+
+def cosine(a, b):
+    dot = sum(x * y for x, y in zip(a, b))
+    norm_a = math.sqrt(sum(x * x for x in a))
+    norm_b = math.sqrt(sum(y * y for y in b))
+    return dot / (norm_a * norm_b)
+
+
+for word in ["kitten", "dog", "pizza"]:
+    print(f"cat vs {word:&lt;6} {cosine(embeddings['cat'], embeddings[word]):.3f}")</code></pre>
+</figure>
+
+<pre class="output"><code class="language-output">cat vs kitten 0.995
+cat vs dog    0.932
+cat vs pizza  0.147</code></pre>
+
+<p>As intended, <em>kitten</em> is almost identical to <em>cat</em>, <em>dog</em> is close, and <em>pizza</em> is far away. Semantic search is this same comparison run against thousands or millions of stored vectors.</p>
+
+<div class="tryit" data-tryit="js">
+<p class="tryit__title">Try it: change the vectors</p>
+<figure class="code">
+<pre><code class="language-javascript">// Toy 4-dimensional embeddings. Change the numbers and run again.
+const embeddings = {
+  cat:    [0.90, 0.80, 0.10, 0.00],
+  kitten: [0.85, 0.75, 0.20, 0.05],
+  dog:    [0.80, 0.30, 0.10, 0.05],
+  pizza:  [0.05, 0.10, 0.90, 0.80],
+};
+
+function cosine(a, b) {
+  let dot = 0, normA = 0, normB = 0;
+  for (let i = 0; i &lt; a.length; i++) {
+    dot += a[i] * b[i];
+    normA += a[i] * a[i];
+    normB += b[i] * b[i];
+  }
+  return dot / (Math.sqrt(normA) * Math.sqrt(normB));
+}
+
+const query = "cat";
+for (const [word, vector] of Object.entries(embeddings)) {
+  if (word === query) continue;
+  console.log(`${query} vs ${word}: ${cosine(embeddings[query], vector).toFixed(3)}`);
+}</code></pre>
+</figure>
+<p class="tryit__nojs">To run this without the interactive editor, paste it into your browser’s developer console.</p>
+</div>
+
+<p>Things to try: make <em>pizza</em> point the same way as <em>cat</em> but twice as long (multiply every number by 2). Did the similarity change? Now add a <code>"puppy"</code> vector of your own.</p>
+
+<h3 id="nearest-neighbours">Finding nearest neighbours<a class="anchor" href="#nearest-neighbours" aria-label="Link to this section">#</a></h3>
+<p>Search is just “compare the query with everything and sort”:</p>
+
+<figure class="code">
+<pre data-title="similarity.py (continued)"><code class="language-python">def most_similar(query, embeddings, k=2):
+    scores = [
+        (word, round(cosine(embeddings[query], vector), 3))
+        for word, vector in embeddings.items()
+        if word != query
+    ]
+    return sorted(scores, key=lambda pair: pair[1], reverse=True)[:k]
+
+print(most_similar("pizza", embeddings))
+print(most_similar("kitten", embeddings, k=3))</code></pre>
+</figure>
+
+<pre class="output"><code class="language-output">[('kitten', 0.242), ('dog', 0.192)]
+[('cat', 0.995), ('dog', 0.934), ('pizza', 0.242)]</code></pre>
+
+<p>Comparing against every stored vector is fine for thousands of items. For millions, systems use approximate nearest-neighbour indexes, which you will meet in 511-203.</p>
+
+<div class="tryit tryit--python">
+<p class="tryit__title">Run it in a notebook</p>
+<p>Every Python example in this lesson is also in the course notebook. Open it in Google Colab (free) to run and change the code, or view it on GitHub.</p>
+<p class="button-row"><a class="button" href="https://colab.research.google.com/github/unitDXI/.github/blob/main/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" data-notebook="/notebooks/511-101/02-tokens-and-embeddings.ipynb" rel="noopener">Open in Colab</a> <a class="button button--secondary" href="https://github.com/unitDXI/.github/blob/main/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" rel="noopener">View on GitHub</a></p>
+</div>
+
+<section class="quiz" aria-labelledby="check-your-understanding">
+<h2 id="check-your-understanding">Check your understanding<a class="anchor" href="#check-your-understanding" aria-label="Link to this section">#</a></h2>
+<details>
+<summary>Why do tokenizers use subwords instead of whole words or single characters?</summary>
+<p>Whole words make the vocabulary unbounded, so unseen words become “unknown”. Single characters make sequences long and each unit nearly meaningless. Subwords keep the vocabulary a fixed size, can still spell any word, and store common words as a single token.</p>
+</details>
+<details>
+<summary>In BPE, why must merges be applied in the order they were learned?</summary>
+<p>Later merges build on earlier ones. For example, <code>lo + w</code> only exists after <code>l + o</code> has been merged. Applying them in another order produces different, and usually longer, token sequences than the ones the model saw during training.</p>
+</details>
+<details>
+<summary>Two embeddings have a cosine similarity of 0.98. What does that tell you, and what doesn’t it?</summary>
+<p>The vectors point in almost the same direction, so the model treats the texts as very similar in meaning. It says nothing about the vectors’ lengths. It also doesn’t guarantee the texts are <em>factually</em> equivalent: “the drug is safe” and “the drug is unsafe” can embed very close together.</p>
+</details>
+</section>
+
+<section class="takeaways" aria-labelledby="key-takeaways">
+<h2 id="key-takeaways">Key takeaways<a class="anchor" href="#key-takeaways" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>Models read <strong>token IDs</strong>, not text. The tokenizer is part of the model and must match it exactly.</li>
+<li><strong>BPE</strong> learns subwords by repeatedly merging the most frequent adjacent pair. Common words become one token and rare words become a few.</li>
+<li>An <strong>embedding</strong> maps a token or passage to a vector. Similar meanings point in similar directions.</li>
+<li><strong>Cosine similarity</strong> compares direction and ignores length. Semantic search is “embed, compare, sort”.</li>
+</ul>
+</section>
+
+<section class="exercise" aria-labelledby="exercise">
+<h2 id="exercise">Exercise: grow your tokenizer<a class="anchor" href="#exercise" aria-label="Link to this section">#</a></h2>
+<p>In your course notebook:</p>
+<ol>
+<li>Run the BPE loop for 12 merges instead of 8. Which new tokens appear? Does <em>newest</em> now encode into fewer pieces?</li>
+<li>Add a <code>decode(tokens)</code> function that turns a token list back into the original word. Check that <code>decode(encode(w, merges)) == w</code> for every word in the corpus and for <em>slowest</em>.</li>
+<li>Write two sentences in the notebook explaining, in your own words, why <code>encode</code> must apply merges in order. This paragraph is part of your course artifact.</li>
+</ol>
+<details class="hint">
+<summary>Hint</summary>
+<p>Every token except the last is plain text. The last one ends with the <code>_</code> marker. Join the tokens and remove the trailing <code>_</code>: <code>"".join(tokens).removesuffix("_")</code>.</p>
+</details>
+</section>
+
+<h2 id="further-reading">Further reading<a class="anchor" href="#further-reading" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>Sennrich, Haddow and Birch, <a href="https://arxiv.org/abs/1508.07909" rel="noopener">Neural Machine Translation of Rare Words with Subword Units</a> (2016). The paper that brought BPE to language models.</li>
+<li>Mikolov et al., <a href="https://arxiv.org/abs/1301.3781" rel="noopener">Efficient Estimation of Word Representations in Vector Space</a> (2013). The word2vec paper, which popularised learned word embeddings.</li>
+<li>Hugging Face, <a href="https://huggingface.co/docs/transformers/tokenizer_summary" rel="noopener">Summary of the tokenizers</a>. Compares BPE, WordPiece and SentencePiece.</li>
+<li>Google, <a href="https://developers.google.com/machine-learning/crash-course/embeddings" rel="noopener">Machine Learning Crash Course: Embeddings</a>. A visual, interactive introduction.</li>
+</ul>
+</article>
+
+<aside class="attribution" aria-labelledby="attribution-title">
+<p id="attribution-title" class="attribution__title">Reuse this lesson</p>
+<p>Licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. You may share and adapt it, including commercially, as long as you give credit. Please credit it as:</p>
+<p class="attribution__text" id="attribution-text">“Tokens and Embeddings” by Unit 511 (Fairytale.ai and Unit 511 contributors), https://unit511.fairytale.ai/curriculum/511-101/02-tokens-and-embeddings/, licensed CC BY 4.0.</p>
+<p class="attribution__meta"><button type="button" class="button button--small" data-copy-target="attribution-text" hidden>Copy attribution</button><span><a href="/attribution/">More on attribution</a> · <a href="https://github.com/unitDXI/.github/edit/main/site/curriculum/511-101/02-tokens-and-embeddings/index.html" rel="noopener">Edit this page on GitHub</a></span></p>
+</aside>
+
+<nav class="pager" aria-label="Previous and next">
+<p class="pager__progress"><span>Lesson 2 of 12</span><progress max="12" value="2" aria-label="Course progress: lesson 2 of 12">2 of 12</progress></p>
+<div class="pager__links">
+<a class="pager__prev" href="/curriculum/511-101/" rel="prev"><span class="pager__label">Course overview</span><span class="pager__title">Introduction to AI Systems</span></a>
+<p class="pager__next pager__soon"><span class="pager__label">Next: in progress</span><span class="pager__title">How Language Models Generate Text</span></p>
+</div>
+</nav>
+</div>
+</main>
+</div>
+<footer class="site-footer">
+<div class="site-footer__inner">
+<div><p class="site-footer__name">Unit 511</p><p>Open Source Training &amp; Development. An open initiative of <a href="https://fairytale.ai" rel="noopener">Fairytale.ai</a>.</p></div>
+<nav aria-label="Footer"><ul class="site-footer__links"><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li><li><a href="/cohorts/">Join a cohort</a></li><li><a href="/resources/">Resources</a></li><li><a href="/code-of-conduct/">Code of Conduct</a></li><li><a href="/blog/feed.xml">RSS</a></li><li><a href="https://github.com/orgs/unitDXI/discussions" rel="noopener">Discussions</a></li><li><a href="https://github.com/unitDXI" rel="noopener">GitHub</a></li></ul></nav>
+<p class="site-footer__license">Content © 2026 Fairytale.ai and Unit 511 contributors, licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: reuse is welcome with attribution (<a href="/attribution/">how to credit</a>). Code licensed <a href="https://github.com/unitDXI/.github/blob/main/LICENSE" rel="noopener">MIT</a>.</p>
+</div>
+</footer>
+<div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+<dialog id="search-dialog" class="search-dialog" aria-label="Search the site">
+<form class="search-form" role="search" action="/search/" method="get">
+<label for="search-dialog-input" class="visually-hidden">Search</label>
+<input id="search-dialog-input" class="search-input" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search lessons, code and notebooks" aria-describedby="search-help">
+<button type="button" class="search-close" data-search-close><span class="visually-hidden">Close search</span><kbd>Esc</kbd></button>
+</form>
+<p id="search-help" class="search-help">Try <code>"exact phrase"</code>, <code>course:511-101</code>, <code>type:lesson</code> or <code>in:code</code>. Use ↓ ↑ to move through results.</p>
+<p id="search-dialog-status" class="search-status" role="status"></p>
+<ul id="search-dialog-results" class="search-results"></ul>
+</dialog>
+<div id="live" class="visually-hidden" aria-live="polite"></div>
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

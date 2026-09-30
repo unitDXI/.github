@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Loaded only inside <iframe sandbox="allow-scripts"> by /assets/js/tryit.js.
+     It runs in an opaque origin, so it cannot read the site's cookies, storage, or DOM.
+     It needs 'unsafe-eval' to run learner code; that is safe here because of the sandbox. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; style-src 'unsafe-inline'">
+<meta name="robots" content="noindex">
+<title>Try it runner</title>
+</head>
+<body>
+<script>
+(function () {
+  "use strict";
+  var host = window.parent;
+  if (host === window) return;
+
+  function fmt(v) {
+    if (typeof v === "string") return v;
+    if (v === undefined) return "undefined";
+    if (typeof v === "function") return v.toString();
+    if (v instanceof Error) return v.name + ": " + v.message;
+    try {
+      var seen = [];
+      return JSON.stringify(v, function (k, x) {
+        if (typeof x === "bigint") return x.toString() + "n";
+        if (x && typeof x === "object") { if (seen.indexOf(x) !== -1) return "[Circular]"; seen.push(x); }
+        return x;
+      });
+    } catch (e) { return String(v); }
+  }
+
+  window.addEventListener("message", function (e) {
+    if (e.source !== host) return;
+    var d = e.data || {};
+    if (d.type !== "run" || typeof d.code !== "string") return;
+    var nonce = d.nonce;
+    function send(level, args) {
+      host.postMessage({ type: "log", nonce: nonce, level: level, args: Array.prototype.map.call(args, fmt) }, "*");
+    }
+    ["log", "info", "debug", "warn", "error"].forEach(function (level) {
+      console[level] = function () { send(level === "info" || level === "debug" ? "log" : level, arguments); };
+    });
+    console.table = function (x) { send("log", [x]); };
+    window.addEventListener("error", function (ev) { send("error", [ev.error || ev.message]); });
+    window.addEventListener("unhandledrejection", function (ev) { send("error", ["Unhandled promise rejection: " + fmt(ev.reason)]); });
+    try {
+      new Function(d.code)();
+    } catch (err) {
+      send("error", [err]);
+    }
+    host.postMessage({ type: "done", nonce: nonce }, "*");
+  });
+
+  host.postMessage({ type: "ready" }, "*");
+})();
+</script>
+</body>
+</html>

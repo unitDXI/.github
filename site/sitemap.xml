@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-maintained. Add every new page here: assets/js/search-index.js reads this file to know what to index. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://unit511.fairytale.ai/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/curriculum/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/curriculum/511-101/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/curriculum/511-101/02-tokens-and-embeddings/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/curriculum/511-102/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/curriculum/511-103/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/curriculum/511-104/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/about/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/cohorts/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/contribute/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/resources/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/code-of-conduct/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/attribution/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/blog/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/blog/2026-09-30-introducing-unit-511/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>https://unit511.fairytale.ai/search/</loc><lastmod>2026-09-30</lastmod></url>
+</urlset>

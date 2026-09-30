@@ -1,0 +1,9 @@
+/* Unit 511 — Home page hero and GitHub activity widget. */
+
+.hero { padding: var(--s-6) 0 var(--s-5); border-bottom: 1px solid var(--line); margin-bottom: var(--s-6); }
+.hero h1 { font-size: var(--fs-4xl); max-width: 18ch; }
+.hero p { font-size: var(--fs-lg); max-width: 60ch; }
+.gh-activity { display: grid; gap: var(--s-5); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.gh-activity h3 { font-size: var(--fs-lg); margin-top: 0; }
+.gh-activity ul { list-style: none; padding: 0; font-size: var(--fs-sm); }
+.gh-activity li { padding: var(--s-2) 0; border-bottom: 1px solid var(--line); margin: 0; }

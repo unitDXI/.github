@@ -1,0 +1,31 @@
+/* Unit 511 — Breakpoints. Loaded after the components it adjusts. */
+
+@media (max-width: 1024px) {
+  :root { --sidebar-w: 240px; --content-max: 720px; }
+  .main__inner { padding: var(--s-5) var(--s-5) var(--s-7); }
+}
+@media (max-width: 900px) {
+  .search-btn__kbd { display: none; }
+}
+@media (max-width: 767px) {
+  .site-nav, .search-btn__label { display: none; }
+  .layout--sidebar { display: block; }
+  .sidebar, .layout--full .sidebar {
+    display: block; position: fixed; top: 0; left: 0; bottom: 0; z-index: 40;
+    height: 100vh; height: 100dvh; width: min(320px, 86vw);
+    transform: translateX(-105%); transition: transform .2s ease; visibility: hidden;
+    box-shadow: var(--shadow-3);
+  }
+  .sidebar.is-open { transform: none; visibility: visible; }
+  .sidebar__site { display: block; border-bottom: 1px solid var(--line); margin-bottom: var(--s-3); padding-bottom: var(--s-3); }
+  .sidebar__site a { display: block; padding: var(--s-2) var(--s-4); color: var(--text); text-decoration: none; font-weight: 600; font-size: var(--fs-base); }
+  .main__inner { padding: var(--s-4) var(--s-4) var(--s-7); }
+  .hero h1 { font-size: var(--fs-3xl); }
+  h1 { font-size: var(--fs-2xl); }
+  h2 { font-size: var(--fs-xl); }
+  .site-footer__inner { grid-template-columns: 1fr; padding: var(--s-5) var(--s-4); }
+  .pager__links { grid-template-columns: 1fr; }
+  .pager__next { grid-column: auto; }
+  .filters__count { margin-left: 0; }
+  .search-dialog { margin-top: var(--s-4); max-height: calc(100dvh - 2 * var(--s-4)); }
+}

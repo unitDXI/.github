@@ -1,0 +1,54 @@
+/* Unit 511 — Curriculum sidebar (tracks, stages, courses, lessons) and the mobile drawer backdrop. */
+
+.sidebar {
+  position: sticky; top: var(--header-h);
+  height: calc(100vh - var(--header-h));
+  overflow-y: auto; overscroll-behavior: contain;
+  background: var(--bg-accent); border-right: 1px solid var(--line);
+  padding: var(--s-4) 0 var(--s-7);
+  font-size: var(--fs-sm);
+}
+.layout--full .sidebar { display: none; }
+.sidebar__site { display: none; }
+.sidebar ul, .sidebar ol { list-style: none; margin: 0; padding: 0; }
+.sidebar li + li { margin-top: 0; }
+.sidebar__heading { margin: 0 var(--s-4) var(--s-2); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: var(--fs-xs); color: var(--text-muted); }
+.sidebar__heading a { color: inherit; text-decoration: none; }
+.sb-track { margin: 0; }
+.sb-track + .sb-track, .sb-track + details.sb-track { border-top: 1px solid var(--line); }
+.sb-track > summary, .sb-track > a {
+  display: block; cursor: pointer; padding: var(--s-2) var(--s-4); font-weight: 700; font-size: var(--fs-base);
+  color: var(--heading); text-decoration: none; list-style-position: inside;
+}
+.sb-track > summary:hover, .sb-track > a:hover { background: var(--bg-accent-2); }
+.sb-track.is-planned > a { color: var(--text-muted); font-weight: 600; }
+.sb-stage { margin: 0 0 0 var(--s-3); }
+.sb-stage > summary {
+  cursor: pointer; padding: var(--s-1) var(--s-4); font-weight: 700; color: var(--heading);
+  list-style-position: inside;
+}
+.sb-stage > summary:hover { background: var(--bg-accent-2); }
+.sb-link, .sb-lesson {
+  display: block; padding: var(--s-1) var(--s-4) var(--s-1) calc(var(--s-4) + 3px);
+  color: var(--text); text-decoration: none; border-left: 3px solid transparent;
+}
+a.sb-link:hover, .sb-lesson:hover { background: var(--bg-accent-2); color: var(--link); }
+.sb-code { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-muted); margin-right: var(--s-1); }
+.sb-course.is-active > .sb-link { font-weight: 700; }
+.sb-course.is-planned .sb-link { color: var(--text-muted); }
+.sb-lessons { padding-left: var(--s-4) !important; margin-bottom: var(--s-2) !important; }
+.sb-lesson { padding-left: calc(var(--s-4) + 3px); }
+.sb-num { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-muted); margin-right: var(--s-1); }
+.sidebar [aria-current="page"] {
+  border-left-color: var(--active-border); background: var(--bg); color: var(--heading); font-weight: 700;
+}
+.sidebar__fallback { padding: 0 var(--s-4); }
+
+.drawer-backdrop { position: fixed; inset: 0; z-index: 35; background: rgba(7, 24, 46, .5); }
+.sb-track > summary, .sb-track > a { display: flex; align-items: center; gap: var(--s-2); }
+.sb-track > summary::before { content: "▸"; font-size: 0.8em; color: var(--text-muted); }
+.sb-track[open] > summary::before { content: "▾"; }
+.sb-track > summary::-webkit-details-marker { display: none; }
+.sb-track > summary { list-style: none; }
+.sb-icon { width: 18px; height: 18px; flex: none; object-fit: contain; }
+.sb-track .badge { margin-left: auto; }

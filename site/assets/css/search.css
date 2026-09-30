@@ -1,0 +1,29 @@
+/* Unit 511 — Search dialog, search page and site index. */
+
+.search-dialog {
+  width: min(680px, calc(100vw - 2 * var(--s-4))); max-height: min(80vh, 720px);
+  margin: 10vh auto auto; padding: 0; border: 1px solid var(--line); border-radius: var(--r-lg);
+  background: var(--bg); color: var(--text); box-shadow: var(--shadow-3); overflow: hidden;
+}
+.search-dialog[open] { display: flex; flex-direction: column; }
+.search-dialog::backdrop { background: rgba(7, 24, 46, .55); }
+.search-form { display: flex; align-items: center; gap: var(--s-2); padding: var(--s-3); border-bottom: 1px solid var(--line); }
+.search-input { flex: 1; width: 100%; font-size: var(--fs-lg); }
+.search-close { font: inherit; border: 0; background: transparent; cursor: pointer; color: var(--text-muted); min-height: 40px; }
+.search-help { font-size: var(--fs-xs); color: var(--text-muted); margin: 0; padding: var(--s-2) var(--s-4); }
+.search-status { font-size: var(--fs-sm); color: var(--text-muted); margin: 0; padding: 0 var(--s-4) var(--s-2); }
+.search-results { list-style: none; margin: 0; padding: 0 var(--s-2) var(--s-3); overflow-y: auto; }
+.search-results li { margin: 0; }
+.search-result { display: block; padding: var(--s-3); border-radius: var(--r-md); text-decoration: none; color: var(--text); }
+.search-result:hover, .search-result:focus-visible { background: var(--bg-accent); outline-offset: -2px; }
+.search-result__top { display: flex; align-items: center; gap: var(--s-2); }
+.search-result__title { font-weight: 700; color: var(--link); }
+.search-result__crumb { display: block; font-size: var(--fs-xs); color: var(--text-muted); }
+.search-result__snippet { display: block; font-size: var(--fs-sm); margin-top: var(--s-1); }
+.search-result mark { background: #FFE58A; color: #1A1A1A; border-radius: 2px; }
+.search-page-form label { font-weight: 600; display: block; margin-bottom: var(--s-2); }
+.search-page-form__row { display: flex; gap: var(--s-2); }
+.search-page-form .search-help { padding: var(--s-2) 0; }
+.search-page .search-status { padding: var(--s-3) 0; }
+.search-page .search-results { padding: 0; margin-bottom: var(--s-6); }
+.site-index h3 { font-size: var(--fs-lg); }

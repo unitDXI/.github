@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--
+  Unit 511 lesson template. Copy to site/curriculum/{{COURSE}}/{{NN-SLUG}}/index.html,
+  replace every {{PLACEHOLDER}}, delete these comments, and follow "Adding a lesson" in CONTRIBUTING.md.
+  Do not change the <meta http-equiv="Content-Security-Policy"> line or the inline theme <script>:
+  the CSP hash only matches that exact script.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-iM3SzgduLLTuVsu98a1Zj8nnaEhWnEj3CI9Gi9pIoPQ='; style-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com; frame-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})();</script>
+<title>{{LESSON TITLE}} | {{COURSE}} | Unit 511</title>
+<meta name="description" content="{{ONE-SENTENCE SUMMARY, UNDER 160 CHARACTERS}}">
+<link rel="canonical" href="https://unit511.fairytale.ai/curriculum/{{COURSE}}/{{NN-SLUG}}/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Unit 511">
+<meta property="og:title" content="{{LESSON TITLE}} | {{COURSE}} | Unit 511">
+<meta property="og:description" content="{{ONE-SENTENCE SUMMARY, UNDER 160 CHARACTERS}}">
+<meta property="og:url" content="https://unit511.fairytale.ai/curriculum/{{COURSE}}/{{NN-SLUG}}/">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Unit 511 blog" href="/blog/feed.xml">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"{{LESSON TITLE}}","url":"https://unit511.fairytale.ai/curriculum/{{COURSE}}/{{NN-SLUG}}/","learningResourceType":"lesson","teaches":["{{OBJECTIVE 1}}","{{OBJECTIVE 2}}","{{OBJECTIVE 3}}"],"timeRequired":"PT{{MINUTES}}M","isPartOf":{"@type":"Course","courseCode":"{{COURSE}}","name":"{{COURSE TITLE}}","url":"https://unit511.fairytale.ai/curriculum/{{COURSE}}/"},"license":"https://creativecommons.org/licenses/by/4.0/","copyrightHolder":{"@type":"Organization","name":"Fairytale.ai and Unit 511 contributors"},"inLanguage":"en","isAccessibleForFree":true,"dateModified":"{{YYYY-MM-DD}}"}</script>
+</head>
+<body class="page--lesson" data-page-type="lesson">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="site-header__inner">
+<button class="icon-btn menu-btn" type="button" aria-controls="sidebar" aria-expanded="false" data-drawer-toggle hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span class="visually-hidden">Menu</span></button>
+<a class="brand" href="/"><img src="/assets/img/logo-mark.svg" alt="" width="28" height="28"><span>Unit 511</span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="/curriculum/" class="is-section">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li></ul></nav>
+<div class="header-actions">
+<a class="icon-btn search-btn" href="/search/" data-search-open><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="search-btn__label">Search</span><kbd class="search-btn__kbd">Ctrl K</kbd></a>
+<button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="visually-hidden">Dark theme</span></button>
+</div>
+</div>
+</header>
+<div class="layout layout--sidebar">
+<nav id="sidebar" class="sidebar" aria-label="Site and curriculum" data-track="ai" data-course="{{COURSE}}" data-lesson="{{NN-SLUG}}">
+<div class="sidebar__site"><ul><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li></ul></div>
+<p class="sidebar__heading"><a href="/curriculum/">Curriculum</a></p>
+<div data-sidebar-curriculum><p class="sidebar__fallback"><a href="/curriculum/{{COURSE}}/">{{COURSE}} lessons</a> · <a href="/curriculum/">All tracks</a></p></div>
+</nav>
+<main id="main" class="main" tabindex="-1">
+<div class="main__inner">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/curriculum/">Curriculum</a></li><li><a href="/curriculum/#ai">AI Engineering</a></li><li><a href="/curriculum/#{{STAGE-ID}}">{{STAGE TITLE}}</a></li><li><a href="/curriculum/{{COURSE}}/">{{COURSE}}</a></li><li><span aria-current="page">Lesson {{N}}</span></li></ol></nav>
+
+<article class="prose">
+<header class="page-header">
+<p class="eyebrow"><a href="/curriculum/{{COURSE}}/">{{COURSE}} · {{COURSE TITLE}}</a></p>
+<h1>{{LESSON TITLE}}</h1>
+<p class="meta">Lesson {{N}} of {{TOTAL}} · {{MINUTES}} min · Updated <time datetime="{{YYYY-MM-DD}}">{{D MONTH YYYY}}</time></p>
+</header>
+
+<section class="objectives" aria-labelledby="what-youll-learn">
+<h2 id="what-youll-learn">What you’ll learn</h2>
+<ul>
+<li>{{OBJECTIVE 1}}</li>
+<li>{{OBJECTIVE 2}}</li>
+<li>{{OBJECTIVE 3}}</li>
+</ul>
+</section>
+
+<p>{{INTRODUCTION: WHY THIS LESSON MATTERS AND HOW IT ADVANCES THE COURSE ARTIFACT.}}</p>
+
+<h2 id="{{section-id}}">{{Section heading}}<a class="anchor" href="#{{section-id}}" aria-label="Link to this section">#</a></h2>
+<p>{{Explain one idea.}}</p>
+
+<figure class="code">
+<pre data-title="{{file.py}}"><code class="language-python">{{CODE — escape &lt; and &amp;}}</code></pre>
+</figure>
+
+<pre class="output"><code class="language-output">{{REAL OUTPUT}}</code></pre>
+
+<!-- Optional: JavaScript sandbox. If you keep it, also keep tryit.js at the bottom of the page. -->
+<div class="tryit" data-tryit="js">
+<p class="tryit__title">Try it: {{what to change}}</p>
+<figure class="code">
+<pre><code class="language-javascript">{{JAVASCRIPT THAT PRINTS WITH console.log}}</code></pre>
+</figure>
+<p class="tryit__nojs">To run this without the interactive editor, paste it into your browser’s developer console.</p>
+</div>
+
+<!-- Optional: Python notebook. -->
+<div class="tryit tryit--python">
+<p class="tryit__title">Run it in a notebook</p>
+<p>Every Python example in this lesson is also in the course notebook. Open it in Google Colab (free) to run and change the code, or view it on GitHub.</p>
+<p class="button-row"><a class="button" href="https://colab.research.google.com/github/unitDXI/.github/blob/main/site/notebooks/{{COURSE}}/{{NN-SLUG}}.ipynb" data-notebook="/notebooks/{{COURSE}}/{{NN-SLUG}}.ipynb" rel="noopener">Open in Colab</a> <a class="button button--secondary" href="https://github.com/unitDXI/.github/blob/main/site/notebooks/{{COURSE}}/{{NN-SLUG}}.ipynb" rel="noopener">View on GitHub</a></p>
+</div>
+
+<section class="quiz" aria-labelledby="check-your-understanding">
+<h2 id="check-your-understanding">Check your understanding<a class="anchor" href="#check-your-understanding" aria-label="Link to this section">#</a></h2>
+<details><summary>{{Question 1?}}</summary><p>{{Answer 1.}}</p></details>
+<details><summary>{{Question 2?}}</summary><p>{{Answer 2.}}</p></details>
+</section>
+
+<section class="takeaways" aria-labelledby="key-takeaways">
+<h2 id="key-takeaways">Key takeaways<a class="anchor" href="#key-takeaways" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>{{Takeaway 1}}</li>
+<li>{{Takeaway 2}}</li>
+<li>{{Takeaway 3}}</li>
+</ul>
+</section>
+
+<section class="exercise" aria-labelledby="exercise">
+<h2 id="exercise">Exercise: {{short title}}<a class="anchor" href="#exercise" aria-label="Link to this section">#</a></h2>
+<p>{{One scoped task that advances the course artifact.}}</p>
+<details class="hint"><summary>Hint</summary><p>{{Hint.}}</p></details>
+</section>
+
+<h2 id="further-reading">Further reading<a class="anchor" href="#further-reading" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>{{Author}}, <a href="{{https://primary-source}}" rel="noopener">{{Title}}</a> ({{year}}). {{Why it’s worth reading.}}</li>
+</ul>
+</article>
+
+<aside class="attribution" aria-labelledby="attribution-title">
+<p id="attribution-title" class="attribution__title">Reuse this lesson</p>
+<p>Licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. You may share and adapt it, including commercially, as long as you give credit. Please credit it as:</p>
+<p class="attribution__text" id="attribution-text">“{{LESSON TITLE}}” by Unit 511 (Fairytale.ai and Unit 511 contributors), https://unit511.fairytale.ai/curriculum/{{COURSE}}/{{NN-SLUG}}/, licensed CC BY 4.0.</p>
+<p class="attribution__meta"><button type="button" class="button button--small" data-copy-target="attribution-text" hidden>Copy attribution</button><span><a href="/attribution/">More on attribution</a> · <a href="https://github.com/unitDXI/.github/edit/main/site/curriculum/{{COURSE}}/{{NN-SLUG}}/index.html" rel="noopener">Edit this page on GitHub</a></span></p>
+</aside>
+
+<nav class="pager" aria-label="Previous and next">
+<p class="pager__progress"><span>Lesson {{N}} of {{TOTAL}}</span><progress max="{{TOTAL}}" value="{{N}}" aria-label="Course progress: lesson {{N}} of {{TOTAL}}">{{N}} of {{TOTAL}}</progress></p>
+<div class="pager__links">
+<a class="pager__prev" href="{{PREVIOUS LESSON URL or /curriculum/COURSE/}}" rel="prev"><span class="pager__label">{{Previous | Course overview}}</span><span class="pager__title">{{Title}}</span></a>
+<a class="pager__next" href="{{NEXT LESSON URL}}" rel="next"><span class="pager__label">Next</span><span class="pager__title">{{Title}}</span></a>
+<!-- If the next lesson isn't published yet, use this instead of the link above:
+<p class="pager__next pager__soon"><span class="pager__label">Next: in progress</span><span class="pager__title">{{Title}}</span></p> -->
+</div>
+</nav>
+</div>
+</main>
+</div>
+<footer class="site-footer">
+<div class="site-footer__inner">
+<div><p class="site-footer__name">Unit 511</p><p>Open Source Training &amp; Development. An open initiative of <a href="https://fairytale.ai" rel="noopener">Fairytale.ai</a>.</p></div>
+<nav aria-label="Footer"><ul class="site-footer__links"><li><a href="/curriculum/">Curriculum</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contribute/">Contribute</a></li><li><a href="/about/">About</a></li><li><a href="/cohorts/">Join a cohort</a></li><li><a href="/resources/">Resources</a></li><li><a href="/code-of-conduct/">Code of Conduct</a></li><li><a href="/blog/feed.xml">RSS</a></li><li><a href="https://github.com/orgs/unitDXI/discussions" rel="noopener">Discussions</a></li><li><a href="https://github.com/unitDXI" rel="noopener">GitHub</a></li></ul></nav>
+<p class="site-footer__license">Content © 2026 Fairytale.ai and Unit 511 contributors, licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: reuse is welcome with attribution (<a href="/attribution/">how to credit</a>). Code licensed <a href="https://github.com/unitDXI/.github/blob/main/LICENSE" rel="noopener">MIT</a>.</p>
+</div>
+</footer>
+<div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+<dialog id="search-dialog" class="search-dialog" aria-label="Search the site">
+<form class="search-form" role="search" action="/search/" method="get">
+<label for="search-dialog-input" class="visually-hidden">Search</label>
+<input id="search-dialog-input" class="search-input" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search lessons, code and notebooks" aria-describedby="search-help">
+<button type="button" class="search-close" data-search-close><span class="visually-hidden">Close search</span><kbd>Esc</kbd></button>
+</form>
+<p id="search-help" class="search-help">Try <code>"exact phrase"</code>, <code>course:511-101</code>, <code>type:lesson</code> or <code>in:code</code>. Use ↓ ↑ to move through results.</p>
+<p id="search-dialog-status" class="search-status" role="status"></p>
+<ul id="search-dialog-results" class="search-results"></ul>
+</dialog>
+<div id="live" class="visually-hidden" aria-live="polite"></div>
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

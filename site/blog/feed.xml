@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-maintained RSS 2.0 feed. Add new posts at the top of the channel, newest first. -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Unit 511 blog</title>
+    <link>https://unit511.fairytale.ai/blog/</link>
+    <atom:link href="https://unit511.fairytale.ai/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Cohort announcements, technical posts and contribution highlights from Unit 511.</description>
+    <language>en</language>
+    <copyright>CC BY 4.0, Fairytale.ai and Unit 511 contributors</copyright>
+    <lastBuildDate>Wed, 30 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Introducing Unit 511</title>
+      <link>https://unit511.fairytale.ai/blog/2026-09-30-introducing-unit-511/</link>
+      <guid isPermaLink="true">https://unit511.fairytale.ai/blog/2026-09-30-introducing-unit-511/</guid>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+      <description>Why we are building an open, artifact-driven curriculum, what the first stage covers, and how you can take part or contribute.</description>
+    </item>
+  </channel>
+</rss>

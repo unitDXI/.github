@@ -1,0 +1,17 @@
+/* Unit 511 — Page grid and footer. */
+
+.layout { max-width: 1440px; margin: 0 auto; }
+.layout--sidebar { display: grid; grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
+.main { min-width: 0; outline: none; }
+.main__inner { max-width: var(--content-max); margin: 0 auto; padding: var(--s-6) var(--s-6) var(--s-8); }
+.layout--full .main__inner { max-width: 1040px; }
+
+.site-footer { background: var(--footer-bg); color: #E8EDF4; font-size: var(--fs-sm); }
+.site-footer a { color: #BFD6F6; }
+.site-footer a:hover { color: #FFFFFF; }
+.site-footer :focus-visible { outline-color: #FFFFFF; }
+.site-footer__inner { max-width: 1440px; margin: 0 auto; padding: var(--s-6) var(--s-6); display: grid; gap: var(--s-5); grid-template-columns: 1fr 2fr; }
+.site-footer__name { font-weight: 700; font-size: var(--fs-lg); margin-bottom: var(--s-1); }
+.site-footer__links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); }
+.site-footer__links li + li { margin: 0; }
+.site-footer__license { grid-column: 1 / -1; margin: 0; padding-top: var(--s-4); border-top: 1px solid rgba(255, 255, 255, .15); color: #C8D3E2; }

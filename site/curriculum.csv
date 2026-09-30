@@ -1,0 +1,27 @@
+track,stage,code,title,status,level,hours,lessons,artifact_type,artifact,prerequisites,url
+html,,,HTML,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#html
+css,,,CSS,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#css
+javascript,,,JavaScript,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#javascript
+sql,,,SQL,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#sql
+python,,,Python,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#python
+java,,,Java,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#java
+r,,,R,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#r
+c,,,C,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#c
+cpp,,,C++,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#cpp
+git,,,Git,planned,,,,,,,https://unit511.fairytale.ai/curriculum/#git
+ai,foundations-tooling,511-101,Introduction to AI Systems,published,foundational,12,12,notebook,An annotated explainer notebook,,https://unit511.fairytale.ai/curriculum/511-101/
+ai,foundations-tooling,511-102,Python for AI Engineering,published,foundational,12,12,tool,A tested command-line text-analysis tool,,https://unit511.fairytale.ai/curriculum/511-102/
+ai,foundations-tooling,511-103,"Git, Open Source & Contribution",published,foundational,12,12,contribution,A merged documentation or test pull request to an open-source project,,https://unit511.fairytale.ai/curriculum/511-103/
+ai,foundations-tooling,511-104,Math for Machine Learning,published,foundational,12,12,library,A from-scratch NumPy math toolkit with tests,511-102,https://unit511.fairytale.ai/curriculum/511-104/
+ai,building-systems,511-201,Model Inference & Optimization,planned,intermediate,12,,tool,A benchmarked local inference server,511-101 511-102,
+ai,building-systems,511-202,Multi-Agent Orchestration,planned,intermediate,12,,tool,A multi-agent workflow with traces,511-101,
+ai,building-systems,511-203,Retrieval & Memory Systems,planned,intermediate,12,,library,A retrieval pipeline with an evaluation set,511-101 511-104,
+ai,building-systems,511-204,Evaluation & Observability,planned,intermediate,12,,tool,An evaluation harness and dashboard,511-101,
+ai,applied-responsible-ai,511-301,Sustainable Computing,planned,intermediate,12,,doc,An energy and cost report for a real workload,511-201,
+ai,applied-responsible-ai,511-302,Security & Adversarial AI,planned,advanced,12,,doc,A threat model and red-team report,511-202,
+ai,applied-responsible-ai,511-303,Vertical AI Applications,planned,intermediate,12,,tool,A domain prototype with an evaluation,511-203 511-204,
+ai,applied-responsible-ai,511-304,Distributed Systems & Edge,planned,advanced,12,,tool,An edge deployment with measurements,511-201,
+ai,leadership-publishing,511-401,Open Source Leadership,planned,advanced,12,,doc,A governance and contributor guide for a real project,511-103,
+ai,leadership-publishing,511-402,Technical Writing & Documentation,planned,intermediate,12,,doc,A published tutorial and reference page,,
+ai,leadership-publishing,511-403,Research & Publication,planned,advanced,12,,paper,A reproduction report or short paper,511-104 511-204,
+ai,leadership-publishing,511-404,Capstone: Ship an Open Source Contribution,planned,advanced,12,,contribution,A substantial merged open-source contribution,511-103,
