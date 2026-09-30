@@ -35,14 +35,16 @@ site/
     │   ├── tokens.css              Colours (light/dark), type, spacing
     │   ├── base.css                Reset, typography, helpers
     │   ├── header.css layout.css sidebar.css page.css buttons.css
-    │   ├── code.css lesson.css tables.css cards.css home.css tryit.css search.css
+    │   ├── code.css lesson.css tables.css cards.css home.css tryit.css search.css cohorts.css progress.css
     │   ├── responsive.css          Breakpoints (after the components)
     │   └── print.css
     ├── js/                         Native ES modules, no bundler
     │   ├── main.js                 Entry point: imports and starts every module
     │   ├── util.js                 announce(), store(), el()
     │   ├── theme.js                Light/dark toggle
+    │   ├── curriculum.js           Loads curriculum.json once and shares it
     │   ├── sidebar.js              Curriculum sidebar from curriculum.json
+    │   ├── progress.js             Session progress bars and check marks (sessionStorage only)
     │   ├── drawer.js               Mobile drawer
     │   ├── highlight.js            Syntax highlighter (language rules)
     │   ├── code-blocks.js          Code captions, highlighting, Copy buttons

@@ -10,9 +10,11 @@ import { initCopy } from "./copy.js";
 import { initCourseFilters, initTagFilter } from "./filters.js";
 import { initGitHubActivity } from "./github-activity.js";
 import { initSearch } from "./search-ui.js";
+import { initProgress } from "./progress.js";
 
 initTheme();
 initSidebar();
+initProgress();
 initDrawer();
 initCodeBlocks();
 initCopy();

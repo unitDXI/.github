@@ -4,6 +4,7 @@
    Paths in curriculum.json (icon, path) are relative to site/.
    Planned tracks show as "Soon". Without JavaScript the static fallback link in the page stays. */
 import { el, sitePath, store } from "./util.js";
+import { loadCurriculum } from "./curriculum.js";
 
 const SCROLL_KEY = "u511:sidebar-scroll";
 
@@ -111,13 +112,14 @@ function render(sidebar, data) {
     const s = sidebar.getBoundingClientRect();
     if (r.top < s.top || r.bottom > s.bottom) sidebar.scrollTop += r.top - s.top - s.height / 3;
   }
+  // Lets other modules (session progress) add marks to the freshly drawn sidebar.
+  document.dispatchEvent(new CustomEvent("u511:sidebar-rendered"));
 }
 
 export function initSidebar() {
   const sidebar = document.getElementById("sidebar");
   if (!sidebar) return;
-  fetch(sitePath("curriculum.json"))
-    .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  loadCurriculum()
     .then((data) => render(sidebar, data))
     .catch(() => { /* the static fallback link stays */ });
   let t;
