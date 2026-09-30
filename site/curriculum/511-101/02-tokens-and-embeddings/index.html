@@ -15,9 +15,9 @@
 <meta property="og:url" content="https://unit511.fairytale.ai/site/curriculum/511-101/02-tokens-and-embeddings/">
 <meta name="twitter:card" content="summary">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="/site/assets/img/logo-mark.svg" type="image/svg+xml">
-<link rel="alternate" type="application/rss+xml" title="Unit 511 blog" href="/site/blog/feed.xml">
-<link rel="stylesheet" href="/site/assets/css/site.css">
+<link rel="icon" href="../../../assets/img/logo-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Unit 511 blog" href="../../../blog/feed.xml">
+<link rel="stylesheet" href="../../../assets/css/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Tokens and Embeddings","url":"https://unit511.fairytale.ai/site/curriculum/511-101/02-tokens-and-embeddings/","learningResourceType":"lesson","teaches":["Explain how text becomes a sequence of tokens","Describe what an embedding vector represents","Compute cosine similarity between two embeddings"],"timeRequired":"PT60M","isPartOf":{"@type":"Course","courseCode":"511-101","name":"Introduction to AI Systems","url":"https://unit511.fairytale.ai/site/curriculum/511-101/"},"license":"https://creativecommons.org/licenses/by/4.0/","copyrightHolder":{"@type":"Organization","name":"Fairytale.ai and Unit 511 contributors"},"inLanguage":"en","isAccessibleForFree":true,"dateModified":"2026-09-30"}</script>
 </head>
 <body class="page--lesson" data-page-type="lesson">
@@ -25,27 +25,27 @@
 <header class="site-header">
 <div class="site-header__inner">
 <button class="icon-btn menu-btn" type="button" aria-controls="sidebar" aria-expanded="false" data-drawer-toggle hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span class="visually-hidden">Menu</span></button>
-<a class="brand" href="/"><img src="/site/assets/img/logo-mark.svg" alt="" width="28" height="28"><span>Unit 511</span></a>
-<nav class="site-nav" aria-label="Main"><ul><li><a href="/site/curriculum/" class="is-section">Curriculum</a></li><li><a href="/site/blog/">Blog</a></li><li><a href="/site/contribute/">Contribute</a></li><li><a href="/site/about/">About</a></li></ul></nav>
+<a class="brand" href="../../../../"><img src="../../../assets/img/logo-mark.svg" alt="" width="28" height="28"><span>Unit 511</span></a>
+<nav class="site-nav" aria-label="Main"><ul><li><a href="../../" class="is-section">Curriculum</a></li><li><a href="../../../blog/">Blog</a></li><li><a href="../../../contribute/">Contribute</a></li><li><a href="../../../about/">About</a></li></ul></nav>
 <div class="header-actions">
-<a class="icon-btn search-btn" href="/site/search/" data-search-open><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="search-btn__label">Search</span><kbd class="search-btn__kbd">Ctrl K</kbd></a>
+<a class="icon-btn search-btn" href="../../../search/" data-search-open><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="search-btn__label">Search</span><kbd class="search-btn__kbd">Ctrl K</kbd></a>
 <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="visually-hidden">Dark theme</span></button>
 </div>
 </div>
 </header>
 <div class="layout layout--sidebar">
 <nav id="sidebar" class="sidebar" aria-label="Site and curriculum" data-track="ai" data-course="511-101" data-lesson="02-tokens-and-embeddings">
-<div class="sidebar__site"><ul><li><a href="/site/curriculum/">Curriculum</a></li><li><a href="/site/blog/">Blog</a></li><li><a href="/site/contribute/">Contribute</a></li><li><a href="/site/about/">About</a></li></ul></div>
-<p class="sidebar__heading"><a href="/site/curriculum/">Curriculum</a></p>
-<div data-sidebar-curriculum><p class="sidebar__fallback"><a href="/site/curriculum/511-101/">511-101 lessons</a> · <a href="/site/curriculum/">All tracks</a></p></div>
+<div class="sidebar__site"><ul><li><a href="../../">Curriculum</a></li><li><a href="../../../blog/">Blog</a></li><li><a href="../../../contribute/">Contribute</a></li><li><a href="../../../about/">About</a></li></ul></div>
+<p class="sidebar__heading"><a href="../../">Curriculum</a></p>
+<div data-sidebar-curriculum><p class="sidebar__fallback"><a href="../">511-101 lessons</a> · <a href="../../">All tracks</a></p></div>
 </nav>
 <main id="main" class="main" tabindex="-1">
 <div class="main__inner">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/site/curriculum/">Curriculum</a></li><li><a href="/site/curriculum/#ai">AI Engineering</a></li><li><a href="/site/curriculum/#foundations-tooling">Foundations &amp; Tooling</a></li><li><a href="/site/curriculum/511-101/">511-101</a></li><li><span aria-current="page">Lesson 2</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Curriculum</a></li><li><a href="../../#ai">AI Engineering</a></li><li><a href="../../#foundations-tooling">Foundations &amp; Tooling</a></li><li><a href="../">511-101</a></li><li><span aria-current="page">Lesson 2</span></li></ol></nav>
 
 <article class="prose">
 <header class="page-header">
-<p class="eyebrow"><a href="/site/curriculum/511-101/">511-101 · Introduction to AI Systems</a></p>
+<p class="eyebrow"><a href="../">511-101 · Introduction to AI Systems</a></p>
 <h1>Tokens and Embeddings</h1>
 <p class="meta">Lesson 2 of 12 · 60 min · Updated <time datetime="2026-09-30">30 September 2026</time></p>
 </header>
@@ -274,7 +274,7 @@ print(most_similar("kitten", embeddings, k=3))</code></pre>
 <div class="tryit tryit--python">
 <p class="tryit__title">Run it in a notebook</p>
 <p>Every Python example in this lesson is also in the course notebook. Open it in Google Colab (free) to run and change the code, or view it on GitHub.</p>
-<p class="button-row"><a class="button" href="https://colab.research.google.com/github/unitDXI/.github/blob/main/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" data-notebook="/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" rel="noopener">Open in Colab</a> <a class="button button--secondary" href="https://github.com/unitDXI/.github/blob/main/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" rel="noopener">View on GitHub</a></p>
+<p class="button-row"><a class="button" href="https://colab.research.google.com/github/unitDXI/.github/blob/main/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" data-notebook="../../../notebooks/511-101/02-tokens-and-embeddings.ipynb" rel="noopener">Open in Colab</a> <a class="button button--secondary" href="https://github.com/unitDXI/.github/blob/main/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" rel="noopener">View on GitHub</a></p>
 </div>
 
 <section class="quiz" aria-labelledby="check-your-understanding">
@@ -330,13 +330,13 @@ print(most_similar("kitten", embeddings, k=3))</code></pre>
 <p id="attribution-title" class="attribution__title">Reuse this lesson</p>
 <p>Licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. You may share and adapt it, including commercially, as long as you give credit. Please credit it as:</p>
 <p class="attribution__text" id="attribution-text">“Tokens and Embeddings” by Unit 511 (Fairytale.ai and Unit 511 contributors), https://unit511.fairytale.ai/site/curriculum/511-101/02-tokens-and-embeddings/, licensed CC BY 4.0.</p>
-<p class="attribution__meta"><button type="button" class="button button--small" data-copy-target="attribution-text" hidden>Copy attribution</button><span><a href="/site/attribution/">More on attribution</a> · <a href="https://github.com/unitDXI/.github/edit/main/site/curriculum/511-101/02-tokens-and-embeddings/index.html" rel="noopener">Edit this page on GitHub</a></span></p>
+<p class="attribution__meta"><button type="button" class="button button--small" data-copy-target="attribution-text" hidden>Copy attribution</button><span><a href="../../../attribution/">More on attribution</a> · <a href="https://github.com/unitDXI/.github/edit/main/site/curriculum/511-101/02-tokens-and-embeddings/index.html" rel="noopener">Edit this page on GitHub</a></span></p>
 </aside>
 
 <nav class="pager" aria-label="Previous and next">
 <p class="pager__progress"><span>Lesson 2 of 12</span><progress max="12" value="2" aria-label="Course progress: lesson 2 of 12">2 of 12</progress></p>
 <div class="pager__links">
-<a class="pager__prev" href="/site/curriculum/511-101/" rel="prev"><span class="pager__label">Course overview</span><span class="pager__title">Introduction to AI Systems</span></a>
+<a class="pager__prev" href="../" rel="prev"><span class="pager__label">Course overview</span><span class="pager__title">Introduction to AI Systems</span></a>
 <p class="pager__next pager__soon"><span class="pager__label">Next: in progress</span><span class="pager__title">How Language Models Generate Text</span></p>
 </div>
 </nav>
@@ -346,13 +346,13 @@ print(most_similar("kitten", embeddings, k=3))</code></pre>
 <footer class="site-footer">
 <div class="site-footer__inner">
 <div><p class="site-footer__name">Unit 511</p><p>Open Source Training &amp; Development. An open initiative of <a href="https://fairytale.ai" rel="noopener">Fairytale.ai</a>.</p></div>
-<nav aria-label="Footer"><ul class="site-footer__links"><li><a href="/site/curriculum/">Curriculum</a></li><li><a href="/site/blog/">Blog</a></li><li><a href="/site/contribute/">Contribute</a></li><li><a href="/site/about/">About</a></li><li><a href="/site/cohorts/">Join a cohort</a></li><li><a href="/site/resources/">Resources</a></li><li><a href="/site/code-of-conduct/">Code of Conduct</a></li><li><a href="/site/blog/feed.xml">RSS</a></li><li><a href="https://github.com/orgs/unitDXI/discussions" rel="noopener">Discussions</a></li><li><a href="https://github.com/unitDXI" rel="noopener">GitHub</a></li></ul></nav>
-<p class="site-footer__license">Content © 2026 Fairytale.ai and Unit 511 contributors, licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: reuse is welcome with attribution (<a href="/site/attribution/">how to credit</a>). Code licensed <a href="https://github.com/unitDXI/.github/blob/main/LICENSE" rel="noopener">MIT</a>.</p>
+<nav aria-label="Footer"><ul class="site-footer__links"><li><a href="../../">Curriculum</a></li><li><a href="../../../blog/">Blog</a></li><li><a href="../../../contribute/">Contribute</a></li><li><a href="../../../about/">About</a></li><li><a href="../../../cohorts/">Join a cohort</a></li><li><a href="../../../resources/">Resources</a></li><li><a href="../../../code-of-conduct/">Code of Conduct</a></li><li><a href="../../../blog/feed.xml">RSS</a></li><li><a href="https://github.com/orgs/unitDXI/discussions" rel="noopener">Discussions</a></li><li><a href="https://github.com/unitDXI" rel="noopener">GitHub</a></li></ul></nav>
+<p class="site-footer__license">Content © 2026 Fairytale.ai and Unit 511 contributors, licensed <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: reuse is welcome with attribution (<a href="../../../attribution/">how to credit</a>). Code licensed <a href="https://github.com/unitDXI/.github/blob/main/LICENSE" rel="noopener">MIT</a>.</p>
 </div>
 </footer>
 <div class="drawer-backdrop" data-drawer-backdrop hidden></div>
 <dialog id="search-dialog" class="search-dialog" aria-label="Search the site">
-<form class="search-form" role="search" action="/site/search/" method="get">
+<form class="search-form" role="search" action="../../../search/" method="get">
 <label for="search-dialog-input" class="visually-hidden">Search</label>
 <input id="search-dialog-input" class="search-input" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search lessons, code and notebooks" aria-describedby="search-help">
 <button type="button" class="search-close" data-search-close><span class="visually-hidden">Close search</span><kbd>Esc</kbd></button>
@@ -362,6 +362,6 @@ print(most_similar("kitten", embeddings, k=3))</code></pre>
 <ul id="search-dialog-results" class="search-results"></ul>
 </dialog>
 <div id="live" class="visually-hidden" aria-live="polite"></div>
-<script type="module" src="/site/assets/js/main.js"></script>
+<script type="module" src="../../../assets/js/main.js"></script>
 </body>
 </html>

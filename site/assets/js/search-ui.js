@@ -1,6 +1,7 @@
-/* Unit 511 — search UI: the Ctrl/Cmd+K (or "/") dialog on every page and the /site/search/?q= page.
+/* Unit 511 — search UI: the Ctrl/Cmd+K (or "/") dialog on every page and the site/search/?q= page.
    Results are links; ↓/↑ move between them and back to the input. The index lives in search-index.js. */
 import { loadIndex, search } from "./search-index.js";
+import { sitePath } from "./util.js";
 
 const TYPES = { lesson: "Lesson", course: "Course", page: "Page", post: "Blog", notebook: "Notebook", home: "Page", curriculum: "Page", blog: "Page" };
 
@@ -88,7 +89,7 @@ function wire(input, list, status, onQuery) {
       .catch(() => {
         status.textContent = "Search couldn’t load. ";
         const a = document.createElement("a");
-        a.href = "/site/search/";
+        a.href = sitePath("search/");
         a.textContent = "Browse every page instead.";
         status.appendChild(a);
       });
@@ -112,7 +113,7 @@ function initDialog() {
     ui.warm();
   };
   document.querySelectorAll("[data-search-open]").forEach((a) => a.addEventListener("click", (e) => {
-    if (e.ctrlKey || e.metaKey || e.shiftKey || location.pathname === "/site/search/") return;
+    if (e.ctrlKey || e.metaKey || e.shiftKey || location.pathname === sitePath("search/")) return;
     e.preventDefault();
     open();
   }));

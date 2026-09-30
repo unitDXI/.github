@@ -1,14 +1,15 @@
-/* Unit 511 — curriculum sidebar, drawn from /site/curriculum.json.
+/* Unit 511 — curriculum sidebar, drawn from site/curriculum.json.
    Tracks render in file order (language tracks first, then AI Engineering). A track may hold
-   stages of courses, a flat list of courses, or a flat list of lessons (at track.path + slug + "/").
+   stages of courses, a flat list of courses, or a flat list of lessons (at track.path + slug + "/", relative to site/).
+   Paths in curriculum.json (icon, path) are relative to site/.
    Planned tracks show as "Soon". Without JavaScript the static fallback link in the page stays. */
-import { el, store } from "./util.js";
+import { el, sitePath, store } from "./util.js";
 
 const SCROLL_KEY = "u511:sidebar-scroll";
 
 function trackLabel(t) {
   const frag = document.createDocumentFragment();
-  if (t.icon) frag.appendChild(el("img", { class: "sb-icon", src: t.icon, alt: "", width: "18", height: "18" }));
+  if (t.icon) frag.appendChild(el("img", { class: "sb-icon", src: sitePath(t.icon), alt: "", width: "18", height: "18" }));
   frag.appendChild(el("span", { class: "sb-track__title" }, t.title));
   return frag;
 }
@@ -41,7 +42,7 @@ function renderCourses(list, course, lesson, path) {
       span.appendChild(el("span", { class: "badge badge--muted" }, "Soon"));
       li.appendChild(span);
     } else {
-      const href = "/site/curriculum/" + c.code + "/";
+      const href = sitePath("curriculum/" + c.code + "/");
       const a = el("a", { class: "sb-link", href });
       a.appendChild(el("span", { class: "sb-code" }, c.code));
       a.appendChild(document.createTextNode(c.title));
@@ -79,7 +80,7 @@ function render(sidebar, data) {
   (data.tracks || []).forEach((t) => {
     if (t.status !== "published") {
       const p = el("p", { class: "sb-track is-planned" });
-      const a = el("a", { href: "/site/curriculum/#" + t.id });
+      const a = el("a", { href: sitePath("curriculum/#" + t.id) });
       a.appendChild(trackLabel(t));
       a.appendChild(el("span", { class: "badge badge--muted" }, "Soon"));
       p.appendChild(a);
@@ -87,7 +88,7 @@ function render(sidebar, data) {
       return;
     }
     const courses = (t.courses || []).concat(...(t.stages || []).map((q) => q.courses));
-    const here = trackId === t.id || courses.some((c) => c.code === course) || (t.path && path.startsWith(t.path));
+    const here = trackId === t.id || courses.some((c) => c.code === course) || (t.path && path.startsWith(sitePath(t.path)));
     const det = el("details", { class: "sb-track" });
     if (here || (!course && !trackId)) det.open = true;
     const summary = el("summary");
@@ -95,7 +96,7 @@ function render(sidebar, data) {
     det.appendChild(summary);
     if (t.stages) t.stages.forEach((q) => det.appendChild(renderStage(q, course, lesson, path)));
     else if (t.courses) det.appendChild(renderCourses(t.courses, course, lesson, path));
-    else if (t.lessons) det.appendChild(renderLessons(t.lessons, t.path, lesson, path));
+    else if (t.lessons) det.appendChild(renderLessons(t.lessons, sitePath(t.path), lesson, path));
     frag.appendChild(det);
   });
 
@@ -115,7 +116,7 @@ function render(sidebar, data) {
 export function initSidebar() {
   const sidebar = document.getElementById("sidebar");
   if (!sidebar) return;
-  fetch("/site/curriculum.json")
+  fetch(sitePath("curriculum.json"))
     .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then((data) => render(sidebar, data))
     .catch(() => { /* the static fallback link stays */ });

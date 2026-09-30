@@ -19,6 +19,17 @@ export function store(kind, key, value) {
   return null;
 }
 
+/* The site/ folder's address, worked out from this file's own URL (site/assets/js/util.js), so the
+   site works wherever it is hosted: a GitHub project page (/.github/), a custom domain or a local server. */
+export const SITE_URL = new URL("../../", import.meta.url);
+export const ROOT_URL = new URL("../", SITE_URL);
+
+/** A path relative to site/ (e.g. "curriculum/511-101/") as an absolute path for this host. */
+export function sitePath(p) {
+  const u = new URL(p, SITE_URL);
+  return u.pathname + u.search + u.hash;
+}
+
 /** Create an element with attributes and optional text content. */
 export function el(tag, attrs, text) {
   const n = document.createElement(tag);

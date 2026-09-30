@@ -1,7 +1,9 @@
 /* Unit 511 — full-text search index, built in the browser with no build step.
-   The first time search opens, it reads /site/sitemap.xml, fetches every page listed there (plus the
+   The first time search opens, it reads site/sitemap.xml, fetches every page listed there (plus the
    notebooks those pages link to with data-notebook), splits each page into sections at its h2/h3
    headings, and builds a BM25 index in memory. The extracted text is cached in sessionStorage. */
+
+import { ROOT_URL, sitePath } from "./util.js";
 
 const CACHE_KEY = "u511:search:v1";
 const CONCURRENCY = 6;
@@ -67,7 +69,7 @@ function extractPage(url, doc) {
     const s = sections[sections.length - 1];
     (parent.closest("pre") ? s.d : s.x).push(node.nodeValue);
   }
-  const notebooks = Array.from(main.querySelectorAll("a[data-notebook]"), (a) => ({ raw: a.getAttribute("data-notebook"), view: a.href }));
+  const notebooks = Array.from(main.querySelectorAll("a[data-notebook]"), (a) => ({ raw: new URL(a.getAttribute("data-notebook"), new URL(url, location.href)).pathname, view: a.getAttribute("href") }));
   const docs = [];
   sections.forEach((s, i) => {
     const x = squash(s.x.join(" ")), d = squash(s.d.join("\n"));
@@ -148,14 +150,16 @@ let indexPromise = null;
 /** Build (once per page view) or restore the index. onProgress(done, total) reports page fetches. */
 export function loadIndex(onProgress = () => {}) {
   if (indexPromise) return indexPromise;
-  indexPromise = getText("/site/sitemap.xml").then((xml) => {
-    const sig = hashString(xml);
+  indexPromise = getText(sitePath("sitemap.xml")).then((xml) => {
+    // Cached result links are host paths, so the cache is only valid for this sitemap at this address.
+    const sig = hashString(ROOT_URL.href + xml);
     try {
       const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
       if (cached && cached.sig === sig) return buildIndex(cached.docs);
     } catch (e) { /* no cache */ }
     const urls = Array.from(new DOMParser().parseFromString(xml, "application/xml").getElementsByTagName("loc"),
-      (l) => new URL(l.textContent.trim()).pathname).filter((p) => p !== "/site/search/");
+      // Sitemap entries use the production domain; map each to the same path on this host.
+      (l) => new URL(new URL(l.textContent.trim()).pathname.slice(1), ROOT_URL).pathname).filter((p) => p !== sitePath("search/"));
     const parser = new DOMParser();
     return pool(urls, (u) => getText(u).then((t) => extractPage(u, parser.parseFromString(t, "text/html"))), onProgress)
       .then((pages) => {

@@ -1,11 +1,11 @@
 /* Unit 511 — "Try it" JavaScript sandbox.
    Turns <div class="tryit" data-tryit="js"><pre><code>…</code></pre></div> into an editor.
-   Code runs in /site/assets/tryit/runner.html inside <iframe sandbox="allow-scripts"> (an opaque
+   Code runs in site/assets/tryit/runner.html inside <iframe sandbox="allow-scripts"> (an opaque
    origin: no cookies, storage, or access to this page). Messages from the runner are accepted
    only from that iframe's window and only with the nonce for the current run.
    main.js loads this module only on pages that contain a sandbox. */
 
-const RUNNER = "/site/assets/tryit/runner.html";
+const RUNNER = new URL("../tryit/runner.html", import.meta.url).href;
 const TIMEOUT_MS = 5000;
 
 function button(label, extra) {

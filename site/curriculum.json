@@ -19,70 +19,70 @@
     {
       "id": "html",
       "title": "HTML",
-      "icon": "/site/assets/img/icons/html.svg",
+      "icon": "assets/img/icons/html.svg",
       "status": "planned",
       "summary": "Structure web pages with semantic, accessible HTML."
     },
     {
       "id": "css",
       "title": "CSS",
-      "icon": "/site/assets/img/icons/css.svg",
+      "icon": "assets/img/icons/css.svg",
       "status": "planned",
       "summary": "Style and lay out pages with modern CSS: the cascade, Flexbox, Grid and responsive design."
     },
     {
       "id": "javascript",
       "title": "JavaScript",
-      "icon": "/site/assets/img/icons/javascript.svg",
+      "icon": "assets/img/icons/javascript.svg",
       "status": "planned",
       "summary": "Make pages interactive with plain JavaScript: the language, the DOM, events and fetch."
     },
     {
       "id": "sql",
       "title": "SQL",
-      "icon": "/site/assets/img/icons/sql.svg",
+      "icon": "assets/img/icons/sql.svg",
       "status": "planned",
       "summary": "Query and shape data with SQL: SELECT, filtering, joins, aggregation and database design."
     },
     {
       "id": "python",
       "title": "Python",
-      "icon": "/site/assets/img/icons/python.svg",
+      "icon": "assets/img/icons/python.svg",
       "status": "planned",
       "summary": "Learn Python from the ground up: syntax, data structures, functions, modules and the standard library."
     },
     {
       "id": "java",
       "title": "Java",
-      "icon": "/site/assets/img/icons/java.svg",
+      "icon": "assets/img/icons/java.svg",
       "status": "planned",
       "summary": "Write object-oriented programs in Java: types, classes, interfaces, collections and the JVM."
     },
     {
       "id": "r",
       "title": "R",
-      "icon": "/site/assets/img/icons/r.svg",
+      "icon": "assets/img/icons/r.svg",
       "status": "planned",
       "summary": "Analyse and visualise data with R: vectors, data frames, packages and statistics."
     },
     {
       "id": "c",
       "title": "C",
-      "icon": "/site/assets/img/icons/c.svg",
+      "icon": "assets/img/icons/c.svg",
       "status": "planned",
       "summary": "Program close to the machine in C: memory, pointers, structs and the compiler toolchain."
     },
     {
       "id": "cpp",
       "title": "C++",
-      "icon": "/site/assets/img/icons/cpp.svg",
+      "icon": "assets/img/icons/cpp.svg",
       "status": "planned",
       "summary": "Build fast, safe software in modern C++: classes, templates, the standard library and RAII."
     },
     {
       "id": "git",
       "title": "Git",
-      "icon": "/site/assets/img/icons/git.svg",
+      "icon": "assets/img/icons/git.svg",
       "status": "planned",
       "summary": "Track and share your work with Git: commits, branches, merging, remotes and pull requests."
     },

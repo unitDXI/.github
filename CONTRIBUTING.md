@@ -8,7 +8,9 @@ Thank you for helping. This guide covers how the site is put together and how to
 
 ## How the site works
 
-The site is **plain, hand-written HTML, CSS and JavaScript**. There is no site generator, no Markdown pipeline, no npm and no build step. Every page is a real `.html` file. The home page is `index.html` at the repository root; every other page lives in `site/`. GitHub Pages serves the repository root exactly as it is committed (see `.github/workflows/pages.yml`, which only uploads files), so pages are addressed as `/` (home) and `/site/…` (everything else).
+The site is **plain, hand-written HTML, CSS and JavaScript**. There is no site generator, no Markdown pipeline, no npm and no build step. Every page is a real `.html` file. The home page is `index.html` at the repository root; every other page lives in `site/`. GitHub Pages serves the repository root exactly as it is committed (see `.github/workflows/pages.yml`, which only uploads files), so the home page is at the site root and everything else is under `site/`.
+
+**All internal links and file paths are relative to the page’s own folder** (for example `../../assets/css/site.css`), never starting with `/`. That way the site works at any address: the GitHub project page (`https://unitdxi.github.io/.github/`), the custom domain, or a local server. Scripts work out the site’s address from their own file location (`sitePath()` in `site/assets/js/util.js`), and paths in `curriculum.json` are relative to `site/`. The one exception is `404.html`: GitHub Pages serves it for missing URLs at any depth, so it uses `<base href="/.github/">`. Change that to `/` once the site moves to its custom domain.
 
 ```
 index.html                          Home page (repository root)
@@ -62,13 +64,13 @@ The curriculum is split into **tracks**, listed in `curriculum.json` under `"tra
 1. **Languages and tools** (all planned): HTML, CSS, JavaScript, SQL, Python, Java, R, C, C++ and Git. Each is its own track (`"id"`: `html`, `css`, `javascript`, `sql`, `python`, `java`, `r`, `c`, `cpp`, `git`).
 2. **AI Engineering** (`"id": "ai"`): sixteen courses grouped into four `"stages"`. Its course pages live at `/curriculum/<code>/`.
 
-A track may have an `"icon"` (a path such as `/site/assets/img/icons/python.svg`). The sidebar shows it next to the track name.
+A track may have an `"icon"` (a path relative to `site/`, such as `assets/img/icons/python.svg`). The sidebar shows it next to the track name.
 
 The sidebar can draw three kinds of track:
 
 - **Stages of courses**, like AI Engineering: `"stages": [{ "id", "title", "courses": [...] }]`.
 - **A flat list of courses**: `"courses": [...]`.
-- **A flat list of lessons**, W3Schools-style: `"path": "/site/html/", "lessons": [{ "slug", "title", "status" }]`. Each lesson lives at `path + slug + "/"`.
+- **A flat list of lessons**, W3Schools-style: `"path": "html/", "lessons": [{ "slug", "title", "status" }]`. Each lesson lives at `site/` + `path + slug + "/"`.
 
 A track with `"status": "planned"` appears as *Soon*. Every page’s sidebar element says which track it belongs to (`data-track="ai"`), plus `data-course` and `data-lesson` where they apply, so the right track opens and the current page is highlighted.
 
@@ -76,7 +78,7 @@ Pages work without JavaScript. Scripts only add enhancements. The curriculum sid
 
 ### Preview locally
 
-Pages use absolute paths such as `/site/assets/css/site.css`, so opening a file directly (`file://`) won’t work. Serve the repository root with any static file server, for example:
+The scripts use ES modules and `fetch`, which browsers block for files opened directly (`file://`). Serve the repository root with any static file server, for example:
 
 ```bash
 python -m http.server 8000
@@ -174,14 +176,14 @@ Variants: `callout--note`, `callout--tip`, `callout--caution`, `callout--danger`
 </div>
 ```
 
-No extra script tag is needed: `main.js` loads `tryit.js` automatically on pages that contain a sandbox. Code runs in `/site/assets/tryit/runner.html` inside `<iframe sandbox="allow-scripts">`. **Never add `allow-same-origin`** or any other sandbox permission. Output comes from `console.log`.
+No extra script tag is needed: `main.js` loads `tryit.js` automatically on pages that contain a sandbox. Code runs in `site/assets/tryit/runner.html` inside `<iframe sandbox="allow-scripts">`. **Never add `allow-same-origin`** or any other sandbox permission. Output comes from `console.log`.
 
 ### Try it (Python, runs in Colab)
 
 ```html
 <div class="tryit tryit--python">
 <p class="tryit__title">Run it in a notebook</p>
-<p class="button-row"><a class="button" href="https://colab.research.google.com/github/unitDXI/.github/blob/main/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" data-notebook="/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" rel="noopener">Open in Colab</a> <a class="button button--secondary" href="https://github.com/unitDXI/.github/blob/main/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" rel="noopener">View on GitHub</a></p>
+<p class="button-row"><a class="button" href="https://colab.research.google.com/github/unitDXI/.github/blob/main/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" data-notebook="../../../notebooks/511-101/02-tokens-and-embeddings.ipynb" rel="noopener">Open in Colab</a> <a class="button button--secondary" href="https://github.com/unitDXI/.github/blob/main/site/notebooks/511-101/02-tokens-and-embeddings.ipynb" rel="noopener">View on GitHub</a></p>
 </div>
 ```
 
