@@ -1,13 +1,22 @@
-/* Unit 511 — Buttons. */
+/* Unit 511 — Buttons. Primary is Ocean Blue; .button--cta is the Sunset Orange call to action
+   (use one per view); .button--secondary is an outline; .button--glass sits on ocean banners. */
 
 .button {
   display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2);
   min-height: 44px; padding: var(--s-2) var(--s-5);
-  font: inherit; font-weight: 600; line-height: 1.2; text-decoration: none; cursor: pointer;
-  color: var(--on-primary); background: var(--primary); border: 2px solid var(--primary); border-radius: var(--r-md);
+  font: inherit; font-size: var(--fs-sm); font-weight: 600; line-height: 1.2; text-decoration: none; cursor: pointer;
+  color: var(--on-primary); background: var(--primary); border: 1px solid var(--primary); border-radius: var(--r-md);
+  box-shadow: 0 1px 2px rgb(15 23 42 / .08);
+  transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease, transform .1s ease;
 }
 .button:hover { background: var(--primary-hover); border-color: var(--primary-hover); color: var(--on-primary); }
-.button--secondary { background: transparent; color: var(--primary); }
-.button--secondary:hover { background: var(--bg-accent); color: var(--link-hover); }
+.button:active { transform: scale(.98); }
+.button--cta { background: var(--cta); border-color: var(--cta); color: var(--on-cta); box-shadow: 0 4px 12px -4px rgb(194 59 10 / .45); }
+.button--cta:hover { background: var(--cta-hover); border-color: var(--cta-hover); color: var(--on-cta); }
+.button--secondary { background: var(--card); color: var(--text); border-color: var(--line); }
+.button--secondary:hover { background: var(--bg-2); color: var(--text); border-color: var(--line); }
+.button--glass { background: rgb(255 255 255 / .06); color: #FFFFFF; border-color: rgb(255 255 255 / .35); box-shadow: none; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.button--glass:hover { background: rgb(0 0 0 / .14); color: #FFFFFF; border-color: rgb(255 255 255 / .6); }
 .button--small { min-height: 36px; padding: var(--s-1) var(--s-3); font-size: var(--fs-sm); }
 .button-row { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+.button, .button:hover { text-decoration: none; }

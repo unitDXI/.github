@@ -1,15 +1,15 @@
 /* Unit 511 — Code blocks, copy button and syntax-highlight token colours. */
 
-.code { margin: 0 0 var(--s-5); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--code-bg); overflow: hidden; }
+.code { margin: 0 0 var(--s-5); border: 1px solid var(--card-border); border-radius: var(--r-lg); background: var(--code-bg); overflow: hidden; box-shadow: var(--shadow-1); }
 .code figcaption { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-1) var(--s-2) var(--s-1) var(--s-4); border-bottom: 1px solid var(--line); font-size: var(--fs-xs); color: var(--text-muted); min-height: 36px; }
 .code__lang { font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
 .code__file { font-family: var(--font-mono); color: var(--text); }
-.code__copy { margin-left: auto; font: inherit; font-weight: 600; cursor: pointer; min-height: 28px; padding: 0 var(--s-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); color: var(--text); }
+.code__copy { margin-left: auto; font: inherit; font-weight: 600; cursor: pointer; min-height: 28px; padding: 0 var(--s-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--card); color: var(--text); }
 .code__copy:hover { border-color: var(--primary); color: var(--link); }
-pre { margin: 0 0 var(--s-5); padding: var(--s-4); overflow-x: auto; font-size: var(--fs-sm); line-height: 1.55; tab-size: 4; background: var(--code-bg); border: 1px solid var(--line); border-radius: var(--r-md); }
+pre { margin: 0 0 var(--s-5); padding: var(--s-4); overflow-x: auto; font-size: var(--fs-sm); line-height: 1.55; tab-size: 4; background: var(--code-bg); border: 1px solid var(--card-border); border-radius: var(--r-lg); }
 .code pre { margin: 0; border: 0; border-radius: 0; }
 .code:has(> pre.output) { border-style: dashed; }
-.code pre.output { background: var(--bg); }
+.code pre.output { background: var(--card); }
 pre code { white-space: pre; }
 .tok-c { color: var(--tok-comment); font-style: italic; }
 .tok-k { color: var(--tok-keyword); }

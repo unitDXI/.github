@@ -1,9 +1,69 @@
-/* Unit 511 — Home page hero and GitHub activity widget. */
+/* Unit 511 — Home page hero, cohort call-to-action card and GitHub activity widget.
+   The hero follows Wishlist's: an Ocean Blue banner, an eyebrow pill, a sunset underline,
+   an orange call to action beside a glass button, and a wave edge. No stock photography. */
 
-.hero { padding: var(--s-6) 0 var(--s-5); border-bottom: 1px solid var(--line); margin-bottom: var(--s-6); }
-.hero h1 { font-size: var(--fs-4xl); max-width: 18ch; }
-.hero p { font-size: var(--fs-lg); max-width: 60ch; }
-.gh-activity { display: grid; gap: var(--s-5); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.gh-activity h3 { font-size: var(--fs-lg); margin-top: 0; }
-.gh-activity ul { list-style: none; padding: 0; font-size: var(--fs-sm); }
+.hero {
+  position: relative; overflow: hidden; isolation: isolate;
+  margin: 0 0 var(--s-7); padding: var(--s-8) var(--s-6) calc(var(--s-8) + 48px);
+  border-radius: var(--r-xl); background: var(--ocean); color: #FFFFFF; text-align: center;
+  box-shadow: var(--shadow-2);
+}
+/* Soft light blooms, then the wave that blends the banner into the page. */
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(40rem 20rem at 85% -10%, rgb(255 255 255 / .16), transparent 60%),
+    radial-gradient(30rem 16rem at 5% 110%, rgb(255 107 53 / .18), transparent 60%);
+}
+.hero::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 72px; z-index: -1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath d='M0,52 C180,86 360,86 540,62 C720,38 900,14 1080,26 C1260,38 1350,62 1440,58 L1440,90 L0,90 Z' fill='%23F8FAFC'/%3E%3C/svg%3E") no-repeat center bottom / 100% 100%;
+}
+:root[data-theme="dark"] .hero::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath d='M0,52 C180,86 360,86 540,62 C720,38 900,14 1080,26 C1260,38 1350,62 1440,58 L1440,90 L0,90 Z' fill='%23121417'/%3E%3C/svg%3E");
+}
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: var(--s-2); margin-bottom: var(--s-5);
+  padding: var(--s-1) var(--s-3); border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / .25); background: rgb(255 255 255 / .12);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #FFFFFF;
+}
+.hero__eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #FF6B35; box-shadow: 0 0 0 3px rgb(255 107 53 / .3); }
+.hero h1 { margin: 0 auto; max-width: 18ch; color: #FFFFFF; font-size: var(--fs-4xl); line-height: 1.08; text-shadow: 0 1px 2px rgb(0 0 0 / .15); }
+.hero__bar { display: block; width: 96px; height: 6px; margin: var(--s-4) auto var(--s-5); border-radius: 999px; background: var(--sunset); }
+.hero p { margin-left: auto; margin-right: auto; max-width: 58ch; font-size: var(--fs-lg); color: #FFFFFF; }
+.hero p a:not(.button) { color: #FFFFFF; text-decoration: underline; }
+.hero .button-row { justify-content: center; margin-top: var(--s-6); }
+.hero .button { min-width: 180px; min-height: 48px; font-size: var(--fs-base); }
+.hero :focus-visible { outline-color: #FFFFFF; }
+
+/* Cohort call to action (home page and /cohorts/): an ocean card with a wave and an orange button. */
+.cohort, .cohort-apply {
+  position: relative; overflow: hidden; isolation: isolate;
+  margin: var(--s-6) 0; padding: var(--s-5) var(--s-6);
+  border-radius: var(--r-xl); background: var(--ocean); color: #FFFFFF; box-shadow: var(--shadow-2);
+}
+.cohort::after, .cohort-apply::after {
+  content: ""; position: absolute; right: -1.5rem; bottom: -1.5rem; width: 14rem; height: 7rem; z-index: -1; opacity: .2;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath d='M0,60 C40,30 80,30 120,55 C150,72 175,72 200,58 L200,100 L0,100 Z' fill='%23FFFFFF'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.cohort > :last-child, .cohort-apply > :last-child { margin-bottom: 0; }
+.cohort h2 { margin-top: 0; color: #FFFFFF; }
+.cohort p, .cohort-apply p { color: #FFFFFF; }
+.cohort a:not(.button), .cohort-apply a:not(.button) { color: #FFFFFF; text-decoration: underline; }
+.cohort .meta-strip { border-color: rgb(255 255 255 / .25); }
+.cohort .meta-strip dt { color: #FFFFFF; }
+.cohort .meta-strip dd { color: #FFFFFF; }
+.cohort .meta { color: #FFFFFF; }
+.cohort :focus-visible, .cohort-apply :focus-visible { outline-color: #FFFFFF; }
+
+.gh-activity { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.gh-activity > div, .gh-activity > p { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--r-lg); padding: var(--s-4) var(--s-5); box-shadow: var(--shadow-1); margin: 0; }
+.gh-activity h3 { font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-top: 0; }
+.gh-activity ul { list-style: none; padding: 0; margin: 0; font-size: var(--fs-sm); }
 .gh-activity li { padding: var(--s-2) 0; border-bottom: 1px solid var(--line); margin: 0; }
+.gh-activity li:last-child { border-bottom: 0; }
+
+/* Orange buttons on ocean surfaces get a faint white ring so their edge stays visible. */
+.hero .button--cta, .cohort .button--cta, .cohort-apply .button--cta { box-shadow: 0 0 0 1px rgb(255 255 255 / .45), 0 8px 20px -6px rgb(0 0 0 / .35); }

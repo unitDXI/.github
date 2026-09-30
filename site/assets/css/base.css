@@ -10,6 +10,8 @@ body {
   color: var(--text);
   background: var(--bg);
   overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 body.drawer-open { overflow: hidden; }
 img, svg { max-width: 100%; height: auto; vertical-align: middle; }
@@ -19,9 +21,9 @@ a:hover { color: var(--link-hover); }
 [hidden] { display: none !important; }
 
 h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); line-height: var(--lh-tight); margin: var(--s-6) 0 var(--s-3); }
-h1 { font-size: var(--fs-3xl); font-weight: 700; color: var(--heading); margin-top: 0; letter-spacing: -0.01em; }
-h2 { font-size: var(--fs-2xl); font-weight: 650; color: var(--heading); }
-h3 { font-size: var(--fs-xl); font-weight: 600; }
+h1 { font-size: var(--fs-3xl); font-weight: 800; color: var(--heading); margin-top: 0; letter-spacing: -0.025em; }
+h2 { font-size: var(--fs-2xl); font-weight: 700; color: var(--heading); letter-spacing: -0.02em; }
+h3 { font-size: var(--fs-xl); font-weight: 600; letter-spacing: -0.01em; }
 h4, h5, h6 { font-size: var(--fs-lg); font-weight: 600; }
 p, ul, ol, dl, figure, table, blockquote, details { margin: 0 0 var(--s-4); }
 ul, ol { padding-left: var(--s-5); }

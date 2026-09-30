@@ -57,22 +57,32 @@ Course codes are written with a hyphen: **511-101**.
 
 ## Design tokens and contrast
 
-Colours are defined once, as tokens at the top of `site/assets/css/site.css`, with separate light and dark values. Components use the semantic tokens (`--text`, `--link`, `--heading`, …), not raw hex values. There is no green anywhere, and no gradients.
+The interface follows the **Fairytale.ai Wishlist design system**: an Ocean Blue primary (`#0066CC`), a Sunset Orange call to action, a faint sea-mist page (`#F8FAFC`) with white cards, 12–16px rounded corners, soft shadows that lift on hover, an ocean-gradient logo tile and hero, wave motifs, and small uppercase section labels. Inter is used when installed; otherwise the system UI font (the site loads no web fonts).
 
-Checked text contrast ratios (WCAG 2.1 AA needs 4.5:1 for body text and 3:1 for large text and UI):
+Colours are defined once, as tokens in `site/assets/css/tokens.css`, with separate light and dark values. Components use the semantic tokens (`--text`, `--link`, `--card`, `--cta`, …), not raw hex values. There is no green anywhere.
+
+Rules that keep it consistent:
+
+- **One orange call to action per view** (`.button--cta`), such as *Join a cohort* in the header or *Start learning* in the hero. Everything else is blue (`.button`), an outline (`.button--secondary`) or, on ocean banners, glass (`.button--glass`).
+- The bright Sunset Orange (`#FF6B35`) is **decorative only** (the hero underline and the eyebrow dot). With white text it is 2.8:1, so buttons use the deeper `--cta` (`#C23B0A`).
+- Text on ocean surfaces (hero, cohort cards) is always solid white. Semi-transparent white fails contrast at the lighter end of the gradient.
+
+Checked contrast ratios (WCAG 2.1 AA needs 4.5:1 for body text and 3:1 for large text and UI):
 
 | Pair | Light | Dark |
 |:--|:--|:--|
-| `--text` on `--bg` | 17.4:1 | 15.6:1 |
-| `--text-muted` on `--bg` | 6.0:1 | 8.3:1 |
-| `--link` on `--bg` | 6.1:1 | 8.7:1 |
-| `--link` on `--bg-accent` (sidebar) | 5.4:1 | 7.4:1 |
-| `--heading` on `--bg` | 13.4:1 | 12.4:1 |
-| white on `--header-bg` | 13.4:1 | 15.4:1 |
-| `--caution` on `--bg` / on `--caution-bg` | 5.0:1 / 4.7:1 | 8.8:1 / 7.9:1 |
-| `--danger` on `--bg` / on `--danger-bg` | 6.5:1 / 5.9:1 | 7.8:1 / 7.5:1 |
-| code token colours on `--code-bg` | ≥ 5.5:1 | ≥ 7.6:1 |
+| `--text` on `--bg` / `--card` | 14.0:1 / 14.7:1 | 16.5:1 / 15.4:1 |
+| `--text-muted` on `--bg` / `--bg-2` | 5.7:1 / 5.4:1 | 7.3:1 / 6.7:1 |
+| `--link` on `--bg` / `--card` / `--bg-accent` | 5.3:1 / 5.6:1 / 4.8:1 | 7.8:1 / 7.3:1 / 6.5:1 |
+| `--active-text` on `--bg-accent` (active nav, badges) | 6.3:1 | 8.2:1 |
+| white on `--primary` (buttons) | 5.6:1 | 5.0:1 |
+| white on `--cta` (orange buttons) | 5.4:1 | 5.4:1 |
+| white on the ocean gradient (lightest end) | 5.6:1 | 6.2:1 |
+| white on a glass button over the ocean gradient | 5.0:1 | 5.5:1 |
+| `--caution` on `--card` / on `--caution-bg` | 5.0:1 / 4.7:1 | 8.3:1 / 7.9:1 |
+| `--danger` on `--card` / on `--danger-bg` | 6.5:1 / 5.9:1 | 7.3:1 / 7.5:1 |
+| code token colours on `--code-bg` | ≥ 5.4:1 | ≥ 6.7:1 |
 
-`--focus-ring` (#3B82F6 in the light theme) is only 3.7:1 against white. That passes for a focus outline, but it must **never** be used for text.
+Orange buttons on ocean banners get a faint white ring, because the orange and blue backgrounds are too close in brightness for the button's edge to show on its own.
 
 If you change a token, recompute its ratios and update this table.

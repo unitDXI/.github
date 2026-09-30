@@ -1,54 +1,59 @@
-/* Unit 511 — Curriculum sidebar (tracks, stages, courses, lessons) and the mobile drawer backdrop. */
+/* Unit 511 — Curriculum sidebar (tracks, stages, courses, lessons) and the mobile drawer backdrop.
+   Wishlist style: a quiet panel, rounded pill rows, and a soft primary tint for the current page. */
 
 .sidebar {
   position: sticky; top: var(--header-h);
   height: calc(100vh - var(--header-h));
   overflow-y: auto; overscroll-behavior: contain;
-  background: var(--bg-accent); border-right: 1px solid var(--line);
-  padding: var(--s-4) 0 var(--s-7);
+  background: var(--bg); border-right: 1px solid var(--line);
+  padding: var(--s-5) var(--s-3) var(--s-7);
   font-size: var(--fs-sm);
 }
 .layout--full .sidebar { display: none; }
 .sidebar__site { display: none; }
 .sidebar ul, .sidebar ol { list-style: none; margin: 0; padding: 0; }
 .sidebar li + li { margin-top: 0; }
-.sidebar__heading { margin: 0 var(--s-4) var(--s-2); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: var(--fs-xs); color: var(--text-muted); }
+.sidebar__heading { margin: 0 var(--s-3) var(--s-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: var(--fs-xs); color: var(--text-muted); }
 .sidebar__heading a { color: inherit; text-decoration: none; }
-.sb-track { margin: 0; }
-.sb-track + .sb-track, .sb-track + details.sb-track { border-top: 1px solid var(--line); }
-.sb-track > summary, .sb-track > a {
-  display: block; cursor: pointer; padding: var(--s-2) var(--s-4); font-weight: 700; font-size: var(--fs-base);
-  color: var(--heading); text-decoration: none; list-style-position: inside;
-}
-.sb-track > summary:hover, .sb-track > a:hover { background: var(--bg-accent-2); }
-.sb-track.is-planned > a { color: var(--text-muted); font-weight: 600; }
-.sb-stage { margin: 0 0 0 var(--s-3); }
-.sb-stage > summary {
-  cursor: pointer; padding: var(--s-1) var(--s-4); font-weight: 700; color: var(--heading);
-  list-style-position: inside;
-}
-.sb-stage > summary:hover { background: var(--bg-accent-2); }
-.sb-link, .sb-lesson {
-  display: block; padding: var(--s-1) var(--s-4) var(--s-1) calc(var(--s-4) + 3px);
-  color: var(--text); text-decoration: none; border-left: 3px solid transparent;
-}
-a.sb-link:hover, .sb-lesson:hover { background: var(--bg-accent-2); color: var(--link); }
-.sb-code { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-muted); margin-right: var(--s-1); }
-.sb-course.is-active > .sb-link { font-weight: 700; }
-.sb-course.is-planned .sb-link { color: var(--text-muted); }
-.sb-lessons { padding-left: var(--s-4) !important; margin-bottom: var(--s-2) !important; }
-.sb-lesson { padding-left: calc(var(--s-4) + 3px); }
-.sb-num { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-muted); margin-right: var(--s-1); }
-.sidebar [aria-current="page"] {
-  border-left-color: var(--active-border); background: var(--bg); color: var(--heading); font-weight: 700;
-}
-.sidebar__fallback { padding: 0 var(--s-4); }
 
-.drawer-backdrop { position: fixed; inset: 0; z-index: 35; background: rgba(7, 24, 46, .5); }
-.sb-track > summary, .sb-track > a { display: flex; align-items: center; gap: var(--s-2); }
-.sb-track > summary::before { content: "▸"; font-size: 0.8em; color: var(--text-muted); }
-.sb-track[open] > summary::before { content: "▾"; }
+.sb-track { margin: 0 0 2px; }
+.sb-track > summary, .sb-track > a {
+  display: flex; align-items: center; gap: 10px; cursor: pointer;
+  padding: 7px var(--s-3); border-radius: var(--r-md);
+  font-weight: 600; font-size: var(--fs-sm); color: var(--text); text-decoration: none; list-style: none;
+}
 .sb-track > summary::-webkit-details-marker { display: none; }
-.sb-track > summary { list-style: none; }
-.sb-icon { width: 18px; height: 18px; flex: none; object-fit: contain; }
+.sb-track > summary::after { content: ""; margin-left: auto; width: 7px; height: 7px; border-right: 2px solid var(--text-muted); border-bottom: 2px solid var(--text-muted); transform: rotate(-45deg); transition: transform .15s ease; }
+.sb-track[open] > summary::after { transform: rotate(45deg); }
+.sb-track > summary:hover, .sb-track > a:hover { background: var(--bg-2); }
+.sb-track.is-planned > a { color: var(--text-muted); font-weight: 500; }
 .sb-track .badge { margin-left: auto; }
+.sb-icon { width: 20px; height: 20px; flex: none; object-fit: contain; }
+details.sb-track[open] { margin: var(--s-2) 0; }
+
+.sb-stage { margin: 2px 0 2px var(--s-3); }
+.sb-stage > summary {
+  cursor: pointer; padding: 6px var(--s-3); border-radius: var(--r-md);
+  font-weight: 600; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted);
+  list-style: none; display: flex; align-items: center;
+}
+.sb-stage > summary::-webkit-details-marker { display: none; }
+.sb-stage > summary::after { content: ""; margin-left: auto; width: 6px; height: 6px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); transition: transform .15s ease; }
+.sb-stage[open] > summary::after { transform: rotate(45deg); }
+.sb-stage > summary:hover { background: var(--bg-2); color: var(--text); }
+
+.sb-link, .sb-lesson {
+  display: block; padding: 6px var(--s-3); margin: 1px 0; border-radius: var(--r-md);
+  color: var(--text); text-decoration: none;
+}
+a.sb-link:hover, .sb-lesson:hover { background: var(--bg-2); color: var(--text); }
+.sb-code { flex: none; white-space: nowrap; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-muted); margin-right: var(--s-2); }
+.sb-course.is-active > .sb-link { font-weight: 600; }
+.sb-course.is-planned .sb-link { color: var(--text-muted); }
+.sb-lessons { margin: 2px 0 var(--s-2) var(--s-4) !important; padding-left: var(--s-2) !important; border-left: 1px solid var(--line); }
+.sb-num { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-muted); margin-right: var(--s-2); }
+.sidebar [aria-current="page"] { background: var(--bg-accent); color: var(--active-text); font-weight: 600; }
+.sidebar [aria-current="page"] .sb-code, .sidebar [aria-current="page"] .sb-num { color: var(--active-text); }
+.sidebar__fallback { padding: 0 var(--s-3); }
+
+.drawer-backdrop { position: fixed; inset: 0; z-index: 35; background: rgb(15 23 42 / .45); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }

@@ -1,6 +1,7 @@
-/* Unit 511 — Lesson building blocks: callouts, objectives, quiz, takeaways, exercise, attribution and pager. */
+/* Unit 511 — Lesson building blocks: callouts, objectives, quiz, takeaways, exercise, attribution and pager.
+   Wishlist style: rounded cards on the sea-mist page, accent edges, uppercase section labels. */
 
-.callout { margin: 0 0 var(--s-5); padding: var(--s-4) var(--s-5); border-left: 4px solid var(--info); background: var(--bg-accent-2); border-radius: 0 var(--r-md) var(--r-md) 0; }
+.callout { margin: 0 0 var(--s-5); padding: var(--s-4) var(--s-5); border: 1px solid var(--card-border); border-left: 4px solid var(--info); background: var(--bg-accent-2); border-radius: var(--r-lg); }
 .callout > :last-child { margin-bottom: 0; }
 .callout__label { font-weight: 700; margin-bottom: var(--s-1); }
 .callout--tip { border-left-color: var(--primary); background: var(--bg-accent); }
@@ -10,38 +11,45 @@
 .callout--danger { border-left-color: var(--danger); background: var(--danger-bg); }
 .callout--danger .callout__label { color: var(--danger); }
 
-.objectives { background: var(--bg-accent-2); border: 1px solid var(--line); border-left: 4px solid var(--heading); border-radius: var(--r-md); padding: var(--s-4) var(--s-5); margin-bottom: var(--s-6); }
-.objectives h2 { font-size: var(--fs-lg); margin: 0 0 var(--s-2); }
+.objectives {
+  margin-bottom: var(--s-6); padding: var(--s-4) var(--s-5);
+  border: 1px solid var(--card-border); border-left: 4px solid var(--primary); border-radius: var(--r-lg);
+  background: linear-gradient(135deg, var(--bg-accent) 0%, var(--card) 70%); box-shadow: var(--shadow-1);
+}
+.objectives h2 { margin: 0 0 var(--s-2); font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
 .objectives ul { margin: 0; }
 
-.takeaways { background: var(--bg-accent); border-radius: var(--r-md); padding: var(--s-2) var(--s-5) var(--s-4); margin: var(--s-6) 0; }
-.takeaways h2 { margin-top: var(--s-4); }
-.takeaways > :last-child { margin-bottom: 0; }
-.exercise { border: 2px solid var(--primary); border-radius: var(--r-md); padding: var(--s-2) var(--s-5) var(--s-4); margin: var(--s-6) 0; }
-.exercise h2 { margin-top: var(--s-4); }
-.exercise > :last-child { margin-bottom: 0; }
+.takeaways, .exercise, .quiz {
+  margin: var(--s-6) 0; padding: var(--s-2) var(--s-5) var(--s-5);
+  background: var(--card); border: 1px solid var(--card-border); border-radius: var(--r-lg); box-shadow: var(--shadow-1);
+}
+.takeaways { border-left: 4px solid var(--primary); }
+.exercise { border-left: 4px solid var(--cta); }
+.takeaways h2, .exercise h2, .quiz h2 { margin-top: var(--s-4); font-size: var(--fs-xl); }
+.takeaways > :last-child, .exercise > :last-child, .quiz > :last-child { margin-bottom: 0; }
 
-.prose details { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg); }
-.prose details > summary { cursor: pointer; padding: var(--s-3) var(--s-4); font-weight: 600; }
-.prose details[open] > summary { border-bottom: 1px solid var(--line); }
+.prose details { border: 1px solid var(--card-border); border-radius: var(--r-md); background: var(--card); }
+.prose details > summary { cursor: pointer; padding: var(--s-3) var(--s-4); font-weight: 600; border-radius: var(--r-md); }
+.prose details > summary:hover { background: var(--bg-2); }
+.prose details[open] > summary { border-bottom: 1px solid var(--line); border-radius: var(--r-md) var(--r-md) 0 0; }
 .prose details > :not(summary) { margin-left: var(--s-4); margin-right: var(--s-4); }
 .prose details > :nth-child(2) { margin-top: var(--s-3); }
 .quiz details + details { margin-top: var(--s-2); }
 .hint { background: var(--bg-accent-2); }
 
-.attribution { margin: var(--s-7) 0 var(--s-5); padding: var(--s-4) var(--s-5); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-2); font-size: var(--fs-sm); max-width: 75ch; }
-.attribution__title { font-weight: 700; margin-bottom: var(--s-1); }
-.attribution__text { font-family: var(--font-mono); font-size: var(--fs-xs); background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-sm); padding: var(--s-2) var(--s-3); }
+.attribution { margin: var(--s-7) 0 var(--s-5); padding: var(--s-4) var(--s-5); border: 1px solid var(--card-border); border-radius: var(--r-lg); background: var(--card); box-shadow: var(--shadow-1); font-size: var(--fs-sm); max-width: 75ch; }
+.attribution__title { margin-bottom: var(--s-2); font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+.attribution__text { font-family: var(--font-mono); font-size: var(--fs-xs); background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--s-2) var(--s-3); }
 .attribution__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); margin: 0; color: var(--text-muted); }
 
 .pager { margin-top: var(--s-6); max-width: 75ch; }
 .pager__progress { display: flex; align-items: center; gap: var(--s-3); font-size: var(--fs-sm); color: var(--text-muted); }
 .pager__progress progress { flex: 1; max-width: 240px; height: 8px; accent-color: var(--primary); }
 .pager__links { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
-.pager a { display: block; padding: var(--s-3) var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); text-decoration: none; }
-.pager a:hover { border-color: var(--primary); background: var(--bg-accent-2); }
+.pager a { display: block; padding: var(--s-3) var(--s-4); background: var(--card); border: 1px solid var(--card-border); border-radius: var(--r-lg); box-shadow: var(--shadow-1); text-decoration: none; transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease; }
+.pager a:hover { border-color: rgb(0 102 204 / .4); box-shadow: var(--shadow-2); transform: translateY(-2px); }
 .pager__next { text-align: right; grid-column: 2; }
-.pager__soon { margin: 0; padding: var(--s-3) var(--s-4); border: 1px dashed var(--line); border-radius: var(--r-md); color: var(--text-muted); }
+.pager__soon { margin: 0; padding: var(--s-3) var(--s-4); border: 1px dashed var(--line); border-radius: var(--r-lg); color: var(--text-muted); }
 .formula { font-size: var(--fs-lg); }
-.pager__label { display: block; font-size: var(--fs-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+.pager__label { display: block; font-size: var(--fs-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
 .pager__title { font-weight: 600; }

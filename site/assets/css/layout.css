@@ -1,17 +1,32 @@
-/* Unit 511 — Page grid and footer. */
+/* Unit 511 — Page grid and footer. The footer is light, as in Wishlist: a faint card surface,
+   a hairline top border, brand on the left, links on the right, and a small legal strip below. */
 
 .layout { max-width: 1440px; margin: 0 auto; }
 .layout--sidebar { display: grid; grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
 .main { min-width: 0; outline: none; }
 .main__inner { max-width: var(--content-max); margin: 0 auto; padding: var(--s-6) var(--s-6) var(--s-8); }
-.layout--full .main__inner { max-width: 1040px; }
+.layout--full .main__inner { max-width: 1120px; }
 
-.site-footer { background: var(--footer-bg); color: #E8EDF4; font-size: var(--fs-sm); }
-.site-footer a { color: #BFD6F6; }
-.site-footer a:hover { color: #FFFFFF; }
-.site-footer :focus-visible { outline-color: #FFFFFF; }
-.site-footer__inner { max-width: 1440px; margin: 0 auto; padding: var(--s-6) var(--s-6); display: grid; gap: var(--s-5); grid-template-columns: 1fr 2fr; }
-.site-footer__name { font-weight: 700; font-size: var(--fs-lg); margin-bottom: var(--s-1); }
-.site-footer__links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); }
+.site-footer { margin-top: var(--s-7); background: var(--footer-bg); color: var(--text-muted); border-top: 1px solid var(--line); font-size: var(--fs-sm); }
+.site-footer a { color: var(--text-muted); text-decoration: none; }
+.site-footer a:hover { color: var(--link); text-decoration: underline; }
+.site-footer__inner { max-width: 1120px; margin: 0 auto; padding: var(--s-7) var(--s-6) var(--s-5); display: grid; gap: var(--s-6); grid-template-columns: 2fr 3fr; }
+.site-footer__name {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: var(--fs-lg); letter-spacing: -0.02em; color: var(--text); margin-bottom: var(--s-2);
+}
+.site-footer__name::before {
+  content: "511"; display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: var(--r-lg); background: var(--ocean);
+  color: #FFFFFF; font-size: 13px; font-weight: 800; letter-spacing: -0.02em;
+  box-shadow: 0 4px 10px -2px rgb(0 102 204 / .35);
+}
+.site-footer__inner > div p:not(.site-footer__name) { max-width: 36ch; }
+.site-footer nav::before {
+  content: "Explore"; display: block; margin-bottom: var(--s-3);
+  font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text);
+}
+.site-footer__links { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s-2) var(--s-5); }
 .site-footer__links li + li { margin: 0; }
-.site-footer__license { grid-column: 1 / -1; margin: 0; padding-top: var(--s-4); border-top: 1px solid rgba(255, 255, 255, .15); color: #C8D3E2; }
+.site-footer__license { grid-column: 1 / -1; margin: 0; padding-top: var(--s-4); border-top: 1px solid var(--line); font-size: var(--fs-xs); }
+.site-footer__license a { text-decoration: underline; }

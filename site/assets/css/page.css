@@ -1,24 +1,37 @@
-/* Unit 511 — Breadcrumbs, page headers, meta strips, badges, prose and glossary. */
+/* Unit 511 — Breadcrumbs, page headers, meta strips, badges, prose and glossary.
+   Page headers follow Wishlist's PageHeader: a rounded card with a soft primary tint and a wave. */
 
-.breadcrumbs { font-size: var(--fs-sm); margin-bottom: var(--s-5); }
+.breadcrumbs { font-size: var(--fs-sm); margin-bottom: var(--s-4); }
 .breadcrumbs ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--s-1); }
 .breadcrumbs li + li { margin: 0; }
 .breadcrumbs li + li::before { content: "›"; margin-right: var(--s-1); color: var(--text-muted); }
-.breadcrumbs [aria-current="page"] { color: var(--text-muted); }
+.breadcrumbs a { color: var(--text-muted); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--link); text-decoration: underline; }
+.breadcrumbs [aria-current="page"] { color: var(--text); font-weight: 500; }
 
-.page-header { margin-bottom: var(--s-6); }
+.page-header {
+  position: relative; overflow: hidden;
+  margin-bottom: var(--s-6); padding: var(--s-5) var(--s-5) var(--s-4);
+  border: 1px solid var(--card-border); border-radius: var(--r-xl);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath d='M0,60 C40,30 80,30 120,55 C150,72 175,72 200,58 L200,100 L0,100 Z' fill='%230066CC' fill-opacity='.09'/%3E%3C/svg%3E") no-repeat right -2rem bottom -2rem / 16rem 8rem,
+    linear-gradient(135deg, var(--bg-accent) 0%, var(--card) 55%);
+  box-shadow: var(--shadow-1);
+}
+.page-header > :last-child { margin-bottom: 0; }
+.page-header h1 { margin-bottom: var(--s-2); }
 .eyebrow { font-size: var(--fs-sm); font-weight: 600; color: var(--text-muted); margin-bottom: var(--s-2); display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }
 .eyebrow a { color: inherit; }
 .lede { font-size: var(--fs-lg); color: var(--text-muted); max-width: 65ch; }
 
-.meta-strip { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); padding: var(--s-4) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
-.meta-strip dt { color: var(--text-muted); font-weight: 600; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.05em; }
-.meta-strip dd { margin: 0; }
+.meta-strip { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-6); margin-top: var(--s-4); padding: var(--s-4) 0 0; border-top: 1px solid var(--line); font-size: var(--fs-sm); }
+.meta-strip dt { color: var(--text-muted); font-weight: 600; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.08em; }
+.meta-strip dd { margin: 0; font-weight: 500; }
 
 .badge {
-  display: inline-block; font-size: var(--fs-xs); font-weight: 600; line-height: 1.5;
+  display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-xs); font-weight: 600; line-height: 1.6;
   padding: 0 var(--s-2); border-radius: 999px;
-  background: var(--bg-accent); color: var(--heading); border: 1px solid var(--line); vertical-align: middle;
+  background: var(--bg-accent); color: var(--active-text); border: 0; vertical-align: middle;
 }
 .badge--muted { background: var(--bg-2); color: var(--text-muted); }
 
@@ -29,7 +42,7 @@
 .prose h2, .prose h3 { position: relative; }
 .anchor { margin-left: var(--s-2); color: var(--text-muted); text-decoration: none; font-weight: 400; opacity: 0; }
 h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 1; }
-.prose img { border-radius: var(--r-md); }
+.prose img { border-radius: var(--r-lg); }
 
 .glossary dt { font-weight: 700; color: var(--heading); margin-top: var(--s-4); }
 .glossary dd { margin: var(--s-1) 0 0; }

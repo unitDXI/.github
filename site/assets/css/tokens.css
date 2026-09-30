@@ -1,31 +1,56 @@
-/* Unit 511 — Design tokens: colours (light + dark), type, spacing, structure. Components use the semantic tokens only; contrast ratios are recorded in STYLEGUIDE.md. */
+/* Unit 511 — Design tokens: colours (light + dark), type, spacing, structure.
+   Aligned with the Fairytale.ai Wishlist design system: Ocean Blue primary, a Sunset Orange call to
+   action, a faint sea-mist page with white cards, soft primary-tinted shadows and Inter type.
+   Components use the semantic tokens only; contrast ratios are recorded in STYLEGUIDE.md. */
 
 :root {
-  --bg: #FFFFFF;
-  --bg-2: #F4F6F9;
-  --bg-accent: #E8F1FC;
-  --bg-accent-2: #F5F9FE;
-  --text: #1A1A1A;
-  --text-muted: #5A6472;
-  --line: #D6DEE8;
-  --heading: #0F2E5C;
-  --link: #1E5FBF;
-  --link-hover: #17457F;
-  --primary: #1E5FBF;
-  --primary-hover: #17457F;
+  /* Surfaces */
+  --bg: #F8FAFC;              /* sea-mist page tint, so white cards lift off it */
+  --bg-2: #F1F3F6;            /* muted surface: code, table stripes, inset panels */
+  --card: #FFFFFF;
+  --card-border: #E0E5EB;
+  --bg-accent: #E6F0FA;       /* primary at ~10%: active nav, badges, tints */
+  --bg-accent-2: #F2F7FC;     /* primary at ~5%: hovers, callouts */
+  --line: #E5E7EB;
+
+  /* Text */
+  --text: #1F2937;
+  --text-muted: #5B6472;
+  --heading: #1F2937;
+
+  /* Ocean Blue */
+  --link: #0066CC;
+  --link-hover: #004C99;
+  --primary: #0066CC;
+  --primary-hover: #0057AD;
   --on-primary: #FFFFFF;
-  --header-bg: #0F2E5C;
-  --on-header: #FFFFFF;
-  --footer-bg: #0B2545;
-  --focus-ring: #3B82F6;
-  --active-border: #1E5FBF;
-  --info: #1E5FBF;
+  --active-text: #0055AA;     /* text on --bg-accent */
+  --active-border: #0066CC;
+  --focus-ring: #0066CC;
+  --ocean: linear-gradient(135deg, #0066CC 0%, #004C99 100%);
+
+  /* Sunset Orange: one call to action per view. The bright orange is decorative only;
+     buttons use the deeper shade so white text passes AA. */
+  --cta: #C23B0A;
+  --cta-hover: #A8330A;
+  --on-cta: #FFFFFF;
+  --sunset: linear-gradient(90deg, #FF6B35, #F5A524);
+
+  /* Chrome */
+  --header-bg: rgba(248, 250, 252, .92);
+  --on-header: #1F2937;
+  --footer-bg: #FBFCFD;
+
+  /* Status */
+  --info: #0066CC;
   --caution: #B45309;
   --danger: #B91C1C;
   --caution-bg: #FEF6EC;
   --danger-bg: #FEF1F1;
-  --code-bg: #F4F6F9;
-  --tok-comment: #5A6472;
+
+  /* Code */
+  --code-bg: #F1F3F6;
+  --tok-comment: #5B6472;
   --tok-keyword: #6F2DBD;
   --tok-string: #A3320B;
   --tok-number: #0B5CAD;
@@ -33,54 +58,70 @@
   --tok-builtin: #0E6573;
   --tok-property: #17457F;
 
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Type: Inter if installed, then the system UI font (no web-font downloads). */
+  --font-body: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-head: var(--font-body);
   --font-mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   --fs-xs: 0.8125rem; --fs-sm: 0.875rem; --fs-base: 1rem; --fs-lg: 1.125rem;
-  --fs-xl: 1.375rem; --fs-2xl: 1.75rem; --fs-3xl: 2.25rem; --fs-4xl: 3rem;
-  --lh-tight: 1.2; --lh-snug: 1.4; --lh-base: 1.65;
+  --fs-xl: 1.375rem; --fs-2xl: 1.75rem; --fs-3xl: 2.25rem; --fs-4xl: 3.25rem;
+  --lh-tight: 1.2; --lh-snug: 1.4; --lh-base: 1.6;
   --s-1: 0.25rem; --s-2: 0.5rem; --s-3: 0.75rem; --s-4: 1rem; --s-5: 1.5rem;
   --s-6: 2rem; --s-7: 3rem; --s-8: 4rem; --s-9: 6rem;
-  --header-h: 56px; --sidebar-w: 280px; --content-max: 900px;
-  --r-sm: 4px; --r-md: 8px; --r-lg: 12px;
-  --shadow-1: 0 1px 2px rgba(11, 37, 69, .06);
-  --shadow-2: 0 4px 12px rgba(11, 37, 69, .08);
-  --shadow-3: 0 12px 40px rgba(11, 37, 69, .25);
+  --header-h: 64px; --sidebar-w: 288px; --content-max: 900px;
+  --r-sm: 6px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px;
+
+  /* Shadows (Wishlist "soft" and "lift") */
+  --shadow-1: 0 1px 2px rgb(15 23 42 / .04), 0 4px 14px -4px rgb(15 23 42 / .08);
+  --shadow-2: 0 2px 4px rgb(15 23 42 / .06), 0 14px 30px -8px rgb(0 102 204 / .22);
+  --shadow-3: 0 25px 50px -12px rgb(15 23 42 / .25);
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --bg: #0B1524;
-  --bg-2: #111E33;
-  --bg-accent: #14243D;
-  --bg-accent-2: #0E1B2E;
-  --text: #E8EDF4;
-  --text-muted: #A3B0C2;
-  --line: #22304A;
-  --heading: #BFD6F6;
-  --link: #8AB4F8;
-  --link-hover: #BFD6F6;
-  --primary: #8AB4F8;
-  --primary-hover: #BFD6F6;
-  --on-primary: #0B1524;
-  --header-bg: #0B2545;
-  --footer-bg: #07182E;
-  --focus-ring: #8AB4F8;
-  --active-border: #8AB4F8;
-  --info: #8AB4F8;
+  --bg: #121417;
+  --bg-2: #1B1D23;
+  --card: #181B20;
+  --card-border: #2A2D32;
+  --bg-accent: #12263A;
+  --bg-accent-2: #141D29;
+  --line: #2A2D32;
+
+  --text: #F1F2F3;
+  --text-muted: #9EA3AE;
+  --heading: #F1F2F3;
+
+  --link: #4DAFFF;
+  --link-hover: #7CC4FF;
+  --primary: #0070CC;
+  --primary-hover: #0062B3;
+  --on-primary: #FFFFFF;
+  --active-text: #7CC4FF;
+  --active-border: #4DAFFF;
+  --focus-ring: #4DAFFF;
+  --ocean: linear-gradient(135deg, #0062B3 0%, #00467F 100%);
+
+  --header-bg: rgba(18, 20, 23, .92);
+  --on-header: #F1F2F3;
+  --footer-bg: #15171B;
+
+  --info: #4DAFFF;
   --caution: #F0A35E;
   --danger: #F58A8A;
   --caution-bg: #2A1D0B;
   --danger-bg: #2A1111;
-  --code-bg: #111E33;
-  --tok-comment: #A3B0C2;
+
+  --code-bg: #1B1D23;
+  --tok-comment: #9EA3AE;
   --tok-keyword: #C9A7F5;
   --tok-string: #F5B38A;
   --tok-number: #8AB4F8;
   --tok-function: #9CC4FF;
   --tok-builtin: #7FD1DE;
   --tok-property: #BFD6F6;
-  --shadow-3: 0 12px 40px rgba(0, 0, 0, .6);
+
+  --shadow-1: 0 1px 2px rgb(0 0 0 / .4), 0 4px 14px -4px rgb(0 0 0 / .45);
+  --shadow-2: 0 2px 4px rgb(0 0 0 / .5), 0 14px 30px -8px rgb(0 112 204 / .35);
+  --shadow-3: 0 25px 50px -12px rgb(0 0 0 / .6);
   color-scheme: dark;
 }

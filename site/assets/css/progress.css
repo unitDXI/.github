@@ -3,24 +3,24 @@
 .progress { display: flex; align-items: center; gap: var(--s-3); font-size: var(--fs-sm); color: var(--text-muted); margin: var(--s-2) 0; }
 .progress progress {
   flex: 1; max-width: 320px; height: 10px; border: 0; border-radius: 999px; overflow: hidden;
-  background: var(--bg-2); accent-color: var(--primary); -webkit-appearance: none; appearance: none;
+  background: var(--line); accent-color: var(--primary); -webkit-appearance: none; appearance: none;
 }
-.progress progress::-webkit-progress-bar { background: var(--bg-2); border-radius: 999px; }
+.progress progress::-webkit-progress-bar { background: var(--line); border-radius: 999px; }
 .progress progress::-webkit-progress-value { background: var(--primary); border-radius: 999px; }
 .progress progress::-moz-progress-bar { background: var(--primary); border-radius: 999px; }
 .progress--small { margin: var(--s-3) 0 0; font-size: var(--fs-xs); }
 .progress--small progress { height: 6px; max-width: none; }
 
-.lesson-progress { margin: var(--s-6) 0 0; padding: var(--s-4) var(--s-5); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-accent-2); max-width: 75ch; }
+.lesson-progress { margin: var(--s-6) 0 0; padding: var(--s-4) var(--s-5); border: 1px solid var(--card-border); border-radius: var(--r-lg); background: var(--card); box-shadow: var(--shadow-1); max-width: 75ch; }
 .lesson-progress.is-done { border-color: var(--primary); }
-.lesson-progress__title { font-size: var(--fs-lg); margin: 0 0 var(--s-3); }
+.lesson-progress__title { margin: 0 0 var(--s-3); font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
 .lesson-progress .meta { margin: 0; font-size: var(--fs-xs); }
 
 .course-progress { margin-top: var(--s-4); }
-.course-progress__label { margin: 0; font-size: var(--fs-sm); font-weight: 600; color: var(--heading); }
+.course-progress__label { margin: 0; font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
 .course-progress .button { margin-top: var(--s-1); }
 
-.progress-check { margin-left: var(--s-2); color: var(--primary); font-weight: 700; }
-.syllabus li.is-done .syllabus__num { color: var(--primary); }
-.sb-progress { margin-left: auto; padding-left: var(--s-2); font-size: var(--fs-xs); font-weight: 600; color: var(--primary); }
+.progress-check { margin-left: var(--s-2); color: var(--link); font-weight: 700; }
+.syllabus li.is-done .syllabus__num { color: var(--link); }
+.sb-progress { margin-left: auto; padding-left: var(--s-2); font-size: var(--fs-xs); font-weight: 600; color: var(--link); }
 a.sb-link { display: flex; align-items: baseline; }

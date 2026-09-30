@@ -1,42 +1,77 @@
-/* Unit 511 — Cards, course grids, syllabus, blog lists, tags, filters and track navigation. */
+/* Unit 511 — Cards, course grids, syllabus, blog lists, tags, filters and track navigation.
+   Wishlist cards: white, hairline border, 12px radius, soft shadow, a 4px accent on the left edge,
+   and a gentle lift on hover. */
 
-.cards, .course-grid { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); margin-bottom: var(--s-6); }
-.card, .course-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--s-5); box-shadow: var(--shadow-1); }
+.cards, .course-grid { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-bottom: var(--s-6); }
+.card, .course-card {
+  position: relative; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--r-lg);
+  padding: var(--s-5); box-shadow: var(--shadow-1);
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
 .card > :last-child, .course-card > :last-child { margin-bottom: 0; }
-.card__title, .course-card__title { margin: 0 0 var(--s-2); font-size: var(--fs-lg); color: var(--heading); }
+.card__title, .course-card__title { margin: 0 0 var(--s-2); font-size: var(--fs-lg); font-weight: 600; letter-spacing: -0.01em; color: var(--heading); }
+.card__title a, .course-card__title a { color: inherit; text-decoration: none; }
+.card__title a::after, .course-card__title a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; } /* whole card is the link */
+.card:has(a):hover, .course-card:has(.course-card__title a):hover { border-color: rgb(0 102 204 / .4); box-shadow: var(--shadow-2); transform: translateY(-2px); }
+.card:has(a):hover .card__title a, .course-card:hover .course-card__title a { color: var(--link); }
+.card :focus-visible, .course-card :focus-visible { outline-offset: 4px; }
+.course-card { border-left: 4px solid var(--primary); }
 .course-card__code { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--text-muted); margin-bottom: var(--s-2); display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; }
 .course-card__meta { font-size: var(--fs-sm); color: var(--text-muted); }
-.course-card.is-planned { background: var(--bg-2); box-shadow: none; }
+.course-card.is-planned { background: var(--bg-2); box-shadow: none; border-left-color: var(--line); }
 .course-card.is-planned .course-card__title { color: var(--text-muted); }
+.course-card__icon { width: 40px; height: 40px; object-fit: contain; margin-bottom: var(--s-3); display: block; }
 
-.syllabus { list-style: none; padding: 0; border: 1px solid var(--line); border-radius: var(--r-md); }
+.syllabus { list-style: none; padding: 0; background: var(--card); border: 1px solid var(--card-border); border-radius: var(--r-lg); box-shadow: var(--shadow-1); overflow: hidden; }
 .syllabus li { display: flex; gap: var(--s-3); padding: var(--s-3) var(--s-4); margin: 0; align-items: baseline; }
 .syllabus li + li { border-top: 1px solid var(--line); }
+.syllabus li:has(a):hover { background: var(--bg-accent-2); }
 .syllabus__num { font-family: var(--font-mono); color: var(--text-muted); font-size: var(--fs-sm); }
 .syllabus__title { flex: 1; }
 .syllabus__time { color: var(--text-muted); font-size: var(--fs-sm); white-space: nowrap; }
 
-.post-list { list-style: none; padding: 0; }
-.post-item { padding: var(--s-4) 0; border-bottom: 1px solid var(--line); margin: 0; }
+.post-list { list-style: none; padding: 0; display: grid; gap: var(--s-3); }
+.post-item {
+  position: relative; margin: 0; padding: var(--s-4) var(--s-5);
+  background: var(--card); border: 1px solid var(--card-border); border-left: 4px solid var(--primary); border-radius: var(--r-lg);
+  box-shadow: var(--shadow-1); transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+.post-item > :last-child { margin-bottom: 0; }
 .post-item__title { margin: 0 0 var(--s-1); font-size: var(--fs-xl); }
-.tags { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0; }
-.tag { font-size: var(--fs-xs); padding: 0 var(--s-2); border-radius: 999px; background: var(--bg-accent); color: var(--heading); border: 1px solid var(--line); text-decoration: none; }
+.post-item__title a { color: inherit; text-decoration: none; }
+.post-item:hover { box-shadow: var(--shadow-2); transform: translateY(-2px); }
+.post-item:hover .post-item__title a { color: var(--link); }
+.tags { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0; position: relative; }
+.tag { font-size: var(--fs-xs); font-weight: 600; padding: 1px var(--s-2); border-radius: 999px; background: var(--bg-accent); color: var(--active-text); text-decoration: none; }
 .tag-filter { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; margin-bottom: var(--s-4); }
-.tag-btn { font: inherit; font-size: var(--fs-sm); padding: var(--s-1) var(--s-3); min-height: 36px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); color: var(--text); cursor: pointer; }
+.tag-btn { font: inherit; font-size: var(--fs-sm); font-weight: 500; padding: var(--s-1) var(--s-3); min-height: 36px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--text); cursor: pointer; }
+.tag-btn:hover { background: var(--bg-2); }
 .tag-btn[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
 
-.filters { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-5); align-items: flex-end; margin-bottom: var(--s-4); padding: var(--s-4); background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r-md); }
-.filters label { display: flex; flex-direction: column; gap: var(--s-1); font-size: var(--fs-sm); font-weight: 600; }
+.filters { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-5); align-items: flex-end; margin-bottom: var(--s-4); padding: var(--s-4); background: var(--card); border: 1px solid var(--card-border); border-radius: var(--r-lg); box-shadow: var(--shadow-1); }
+.filters label { display: flex; flex-direction: column; gap: var(--s-1); font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+.filters select { text-transform: none; letter-spacing: normal; font-size: var(--fs-sm); font-weight: 400; }
 select, input[type="search"], input[type="text"], textarea {
-  font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--text-muted); border-radius: var(--r-md); padding: var(--s-2) var(--s-3); min-height: 40px;
+  font: inherit; color: var(--text); background: var(--card); border: 1px solid var(--text-muted); border-radius: var(--r-md); padding: var(--s-2) var(--s-3); min-height: 40px;
 }
+select:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 1px; border-color: var(--focus-ring); }
 .filters__count { margin: 0 0 0 auto; font-size: var(--fs-sm); color: var(--text-muted); }
 
 .track-nav { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0 0 var(--s-6); }
-.track-nav__item { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 44px; padding: var(--s-2) var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg); text-decoration: none; font-weight: 700; color: var(--heading); }
-.track-nav__item:hover { border-color: var(--primary); background: var(--bg-accent-2); }
-.track-nav__item.is-planned { color: var(--text-muted); font-weight: 600; }
+.track-nav__item {
+  display: inline-flex; align-items: center; gap: var(--s-2); min-height: 40px; padding: 6px var(--s-4) 6px var(--s-3);
+  border: 1px solid var(--card-border); border-radius: 999px; background: var(--card); box-shadow: var(--shadow-1);
+  text-decoration: none; font-size: var(--fs-sm); font-weight: 600; color: var(--text);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.track-nav__item:hover { border-color: rgb(0 102 204 / .4); box-shadow: var(--shadow-2); color: var(--text); }
+.track-nav__item.is-planned { color: var(--text-muted); font-weight: 500; }
 .track { margin-bottom: var(--s-7); }
 .stage h3 { font-size: var(--fs-xl); color: var(--heading); }
 .track-icon { width: 20px; height: 20px; flex: none; object-fit: contain; }
-.course-card__icon { width: 40px; height: 40px; object-fit: contain; margin-bottom: var(--s-3); display: block; }
+
+/* Small uppercase section labels, as in Wishlist's sidebar cards. */
+.section-label { font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+
+/* Some logos (e.g. Java's Duke) are drawn in black; give icons a light tile in dark mode so they stay visible. */
+:root[data-theme="dark"] .track-icon, :root[data-theme="dark"] .sb-icon, :root[data-theme="dark"] .course-card__icon { background: #F1F2F3; border-radius: var(--r-sm); padding: 2px; }
