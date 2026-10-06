@@ -1,0 +1,84 @@
+name: Lesson proposal
+description: Offer to write or review a lesson, or suggest a new one.
+title: "[Lesson] "
+labels: ["lesson-proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for offering to help. We agree on scope here before anyone writes, so no effort is wasted. See the [contributing guide](https://github.com/unitDXI/.github/blob/main/CONTRIBUTING.md).
+  - type: dropdown
+    id: course
+    attributes:
+      label: Track or course
+      options:
+        - HTML
+        - CSS
+        - JavaScript
+        - SQL
+        - Python
+        - Java
+        - R
+        - C
+        - C++
+        - Git
+        - 511-101 Introduction to AI Systems
+        - 511-102 Python for AI Engineering
+        - 511-103 Git, Open Source & Contribution
+        - 511-104 Math for Machine Learning
+        - 511-201 Model Inference & Optimization
+        - 511-202 Multi-Agent Orchestration
+        - 511-203 Retrieval & Memory Systems
+        - 511-204 Evaluation & Observability
+        - 511-301 Sustainable Computing
+        - 511-302 Security & Adversarial AI
+        - 511-303 Vertical AI Applications
+        - 511-304 Distributed Systems & Edge
+        - 511-401 Open Source Leadership
+        - 511-402 Technical Writing & Documentation
+        - 511-403 Research & Publication
+        - "511-404 Capstone: Ship an Open Source Contribution"
+        - Not sure / new course idea
+    validations:
+      required: true
+  - type: input
+    id: lesson
+    attributes:
+      label: Lesson
+      description: The lesson title from the course syllabus, or your proposed title.
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: I'd like to…
+      options:
+        - Write this lesson
+        - Review this lesson
+        - Suggest it for someone else to write
+    validations:
+      required: true
+  - type: textarea
+    id: objectives
+    attributes:
+      label: Learning objectives
+      description: Three things the reader will be able to do afterwards, each starting with a verb.
+      placeholder: |
+        - Explain …
+        - Build …
+        - Compare …
+  - type: textarea
+    id: example
+    attributes:
+      label: Worked example and exercise
+      description: The example you'd use, and how the exercise adds to the course artifact.
+  - type: checkboxes
+    id: standards
+    attributes:
+      label: Content standards
+      description: Please read the content standards in CONTRIBUTING.md.
+      options:
+        - label: Every example runs for free on public tools, with no paid API keys.
+          required: true
+        - label: Where I name a product or model, I'll name an alternative too.
+          required: true

@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/unitDXI/.github/security/advisories/new
+    about: Report privately. Never open a public issue for a security problem.
+  - name: Ask a question
+    url: https://github.com/orgs/unitDXI/discussions
+    about: Questions about lessons, exercises and cohorts go in Discussions.
+  - name: Start learning
+    url: https://unitdxi.fairytale.ai/site/curriculum/
+    about: The Unit 511 curriculum, tracks and courses.
+  - name: Getting help
+    url: https://github.com/unitDXI/.github/blob/main/SUPPORT.md
+    about: Where to ask what, and what we can't help with.

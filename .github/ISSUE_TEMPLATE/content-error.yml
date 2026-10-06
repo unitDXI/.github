@@ -1,0 +1,45 @@
+name: Content error
+description: A factual mistake, outdated information or an unclear explanation in a lesson or course page.
+title: "[Content] "
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the curriculum accurate. If the problem could put readers at risk (for example a sample that leaks secrets), report it privately through the [security policy](https://github.com/unitDXI/.github/blob/main/SECURITY.md) instead.
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      placeholder: https://unitdxi.fairytale.ai/site/curriculum/511-101/02-tokens-and-embeddings/
+    validations:
+      required: true
+  - type: textarea
+    id: passage
+    attributes:
+      label: The passage
+      description: Quote the text, code or table that's wrong or unclear.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong
+      description: What's incorrect or confusing, and what it should say. Link a primary source if you can.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options:
+        - Factual error
+        - Out of date
+        - Code doesn't run or output is wrong
+        - Notebook doesn't run in Colab
+        - Unclear explanation
+        - Accessibility problem
+        - Other
+    validations:
+      required: true

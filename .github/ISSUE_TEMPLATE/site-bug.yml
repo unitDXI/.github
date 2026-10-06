@@ -1,0 +1,37 @@
+name: Broken link or site bug
+description: A link that doesn't work, a page that doesn't load, or something that looks or behaves wrong.
+title: "[Site] "
+labels: ["site"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For security vulnerabilities, don't use this form. Follow the [security policy](https://github.com/unitDXI/.github/blob/main/SECURITY.md).
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      description: The page where you saw the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead. For a broken link, paste the link.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: Firefox 131 on Windows 11, Safari on iPhone…
+  - type: checkboxes
+    id: modes
+    attributes:
+      label: Does it happen in…
+      options:
+        - label: Dark theme
+        - label: Light theme
+        - label: A narrow (phone-sized) window
+        - label: With JavaScript turned off
