@@ -1,0 +1,2 @@
+# .github
+"Facit omnia voluntas."
